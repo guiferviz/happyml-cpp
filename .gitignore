@@ -1,0 +1,11 @@
+
+# Ignore compiled library.
+lib/*
+
+# Ignore cmake files.
+CMakeFiles/*
+Testing/*
+CMakeCache.txt
+CTestTestfile.cmake
+Makefile
+cmake_install.cmake
