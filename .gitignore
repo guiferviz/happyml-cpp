@@ -2,6 +2,9 @@
 # Ignore compiled library.
 lib/*
 
+# Ignore binaries.
+bin/*
+
 # Ignore cmake files.
 CMakeFiles/*
 Testing/*

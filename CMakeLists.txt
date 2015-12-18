@@ -26,12 +26,12 @@ install(FILES ${INCLUDE_DIR}/${PROJECT_NAME}.h DESTINATION include)
 install(DIRECTORY ${INCLUDE_DIR}/${PROJECT_NAME} DESTINATION include)
 
 # Adding definitions to use with the preprocessor.
-add_definitions(-DHAPPY_ML_VERSION=${HAPPY_ML_VERSION})
+add_definitions(-DHAPPY_ML_VERSION=\"${HAPPY_ML_VERSION}\")  # Version as a string.
 
 
-###############################################################################
-# Testing.                                                                    #
-###############################################################################
+#########################################################################################
+# Testing.                                                                              #
+#########################################################################################
 
 # Setup CMake to run tests.
 enable_testing()
@@ -54,8 +54,12 @@ foreach(testSrc ${TEST_SOURCES})
             gtest  # Google test library.
             ${PROJECT_SOURCE_DIR}/${LIBRARY_OUTPUT_DIR}/lib${PROJECT_NAME}.so)
 
+        # Placing binary tests on bin/test
+        set_target_properties(${testName} PROPERTIES 
+            RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test)
+
         # Finally add it to cmake test execution.
         add_test(NAME ${testName}
-            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-            COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${testName})
+            WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test
+            COMMAND ${PROJECT_BINARY_DIR}/bin/test/${testName})
 endforeach(testSrc)

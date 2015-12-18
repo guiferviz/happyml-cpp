@@ -3,13 +3,16 @@
 
 #include <gtest/gtest.h>
 
+#include <happyml.h>
+
 
 using namespace std;
 
 
 TEST(TestingTests, Test01)
 {
-    cout << "hooooola" << endl;
+    cout << happyml::version << endl;
+    happyml::greet();
     ASSERT_EQ(-1, -1);
 }
 

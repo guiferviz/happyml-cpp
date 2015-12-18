@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <string>
 
 #include "happyml.h"
 
@@ -9,9 +10,6 @@ using namespace std;
 
 namespace happyml
 {
-
-    string version = "HAPPY_ML_VERSION";
-
 
     void greet()
     {
