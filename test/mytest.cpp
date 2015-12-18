@@ -1,9 +1,15 @@
 
+#include <iostream>
+
 #include <gtest/gtest.h>
+
+
+using namespace std;
 
 
 TEST(TestingTests, Test01)
 {
+    cout << "hooooola" << endl;
     ASSERT_EQ(-1, -1);
 }
 

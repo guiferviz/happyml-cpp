@@ -35,6 +35,8 @@ add_definitions(-DHAPPY_ML_VERSION=${HAPPY_ML_VERSION})
 
 # Setup CMake to run tests.
 enable_testing()
+# Adding check target that shows test output details.
+add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
 
 # Run through each test source.
 file(GLOB TEST_SOURCES ${TEST_DIR}/*.cpp)
