@@ -1,17 +1,4 @@
 
-# Ignore compiled library.
-lib/*
-
-# Ignore binaries.
-bin/*
-
-# Ignore cmake files.
-CMakeFiles/*
-Testing/*
-CMakeCache.txt
-CTestTestfile.cmake
-Makefile
-cmake_install.cmake
-
-# Ignoring documentation.
-doc/*
+# Ignoring 'build' directory.
+# Useful to perform a 'out-of-source' build without changing the repository.
+build/*

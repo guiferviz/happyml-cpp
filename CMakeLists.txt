@@ -15,7 +15,7 @@ file(GLOB SOURCES ${SOURCES_DIR}/*.cpp)
 
 # Generate the shared library from the sources.
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/${LIBRARY_OUTPUT_DIR})
+set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/${LIBRARY_OUTPUT_DIR})
 
 # External libraries.
 target_link_libraries(${PROJECT_NAME} m armadillo)
@@ -52,7 +52,7 @@ foreach(testSrc ${TEST_SOURCES})
         set(CMAKE_CXX_FLAGS "-pthread")  # Critical for compiling with Google Tests.
         target_link_libraries(${testName}
             gtest  # Google test library.
-            ${PROJECT_SOURCE_DIR}/${LIBRARY_OUTPUT_DIR}/lib${PROJECT_NAME}.so)
+            ${PROJECT_NAME})
 
         # Placing binary tests on bin/test
         set_target_properties(${testName} PROPERTIES 
