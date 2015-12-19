@@ -18,6 +18,7 @@ add_library(${PROJECT_NAME} SHARED ${SOURCES})
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/${LIBRARY_OUTPUT_DIR})
 
 # External libraries.
+find_package(Armadillo REQUIRED)
 target_link_libraries(${PROJECT_NAME} m armadillo)
 
 # Location for library installation.
@@ -33,37 +34,41 @@ add_definitions(-DHAPPY_ML_VERSION=\"${HAPPY_ML_VERSION}\")  # Version as a stri
 # Testing.                                                                              #
 #########################################################################################
 
-# Setup CMake to run tests.
-enable_testing()
-# Adding check target that shows test output details.
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
+if (build_tests)
+    # Setup CMake to run tests.
+    enable_testing()
+    # Adding check target that shows test output details.
+    add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
+    # Google Tests required.
+    find_package(GTest REQUIRED)
 
-# Run through each test source.
-file(GLOB TEST_SOURCES ${TEST_DIR}/*.cpp)
-foreach(testSrc ${TEST_SOURCES})
-        # Extract the filename without an extension (NAME_WE).
-        get_filename_component(testName ${testSrc} NAME_WE)
+    # Run through each test source.
+    file(GLOB TEST_SOURCES ${TEST_DIR}/*.cpp)
+    foreach(testSrc ${TEST_SOURCES})
+            # Extract the filename without an extension (NAME_WE).
+            get_filename_component(testName ${testSrc} NAME_WE)
 
-        # Add compile target.
-        add_executable(${testName} ${testSrc})
+            # Add compile target.
+            add_executable(${testName} ${testSrc})
 
-        # Link to our targets and dependencies.
-        target_compile_options(${testName} PRIVATE -pthread)
-        # FIXME: Not multiplatform...
-        set(CMAKE_CXX_FLAGS "-pthread")  # Critical for compiling with Google Tests.
-        target_link_libraries(${testName}
-            gtest  # Google test library.
-            ${PROJECT_NAME})
+            # Link to our targets and dependencies.
+            target_compile_options(${testName} PRIVATE -pthread)
+            # FIXME: Not multiplatform...
+            set(CMAKE_CXX_FLAGS "-pthread")  # Critical for compiling with Google Tests.
+            target_link_libraries(${testName}
+                gtest  # Google test library.
+                ${PROJECT_NAME})
 
-        # Placing binary tests on bin/test
-        set_target_properties(${testName} PROPERTIES 
-            RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test)
+            # Placing binary tests on bin/test
+            set_target_properties(${testName} PROPERTIES 
+                RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test)
 
-        # Finally add it to cmake test execution.
-        add_test(NAME ${testName}
-            WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test
-            COMMAND ${PROJECT_BINARY_DIR}/bin/test/${testName})
-endforeach(testSrc)
+            # Finally add it to cmake test execution.
+            add_test(NAME ${testName}
+                WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin/test
+                COMMAND ${PROJECT_BINARY_DIR}/bin/test/${testName})
+    endforeach(testSrc)
+endif()
 
 
 #########################################################################################
