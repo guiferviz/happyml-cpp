@@ -49,6 +49,7 @@ foreach(testSrc ${TEST_SOURCES})
 
         # Link to our targets and dependencies.
         target_compile_options(${testName} PRIVATE -pthread)
+        # FIXME: Not multiplatform...
         set(CMAKE_CXX_FLAGS "-pthread")  # Critical for compiling with Google Tests.
         target_link_libraries(${testName}
             gtest  # Google test library.
