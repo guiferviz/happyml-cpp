@@ -9,16 +9,14 @@
 using namespace std;
 
 
-TEST(TestingTests, Test01)
+TEST(BasicTests, TestVersion)
 {
-    cout << happyml::version << endl;
-    happyml::greet();
-    ASSERT_EQ(-1, -1);
+    ASSERT_EQ(happyml::version, HAPPY_ML_VERSION);
 }
 
-TEST(TestingTests, Test02)
-{ 
-    ASSERT_EQ(0.0, 0.0);
+TEST(BasicTests, TestGreeting)
+{
+    happyml::greet();
 }
 
 

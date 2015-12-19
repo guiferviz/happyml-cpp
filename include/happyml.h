@@ -3,13 +3,16 @@
 #define _HAPPY_ML_H_
 
 
+#include <string>
+
+
 using namespace std;
 
 
 namespace happyml
 {
 
-    string version = HAPPY_ML_VERSION;
+    const string version = HAPPY_ML_VERSION;
 
 
     void greet();
