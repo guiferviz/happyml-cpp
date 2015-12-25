@@ -11,7 +11,7 @@ set(LIBRARY_OUTPUT_DIR "lib")
 include_directories(${INCLUDE_DIR})
 
 # ALL cpp files under src.
-file(GLOB SOURCES ${SOURCES_DIR}/*.cpp)
+file(GLOB_RECURSE SOURCES ${SOURCES_DIR}/*.cpp)
 
 # Generate the shared library from the sources.
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
@@ -43,7 +43,7 @@ if (build_tests)
     find_package(GTest REQUIRED)
 
     # Run through each test source.
-    file(GLOB TEST_SOURCES ${TEST_DIR}/*.cpp)
+    file(GLOB_RECURSE TEST_SOURCES ${TEST_DIR}/*.cpp)
     foreach(testSrc ${TEST_SOURCES})
             # Extract the filename without an extension (NAME_WE).
             get_filename_component(testName ${testSrc} NAME_WE)
