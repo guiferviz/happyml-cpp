@@ -1,0 +1,76 @@
+#! /usr/bin/octave -qf
+
+% =====================================================
+% HAPPYPLOT - Octave program.
+% =====================================================
+
+% Leer parámetros
+%arg_list = argv ();
+%filename = arg_list{1};
+%load('-ascii',filename);
+
+POINTS_FILE = 'points.data'
+BOUNDARY_FILE = 'boundary.data'
+
+
+% ------------------------------------------------------------------------------
+fprintf('\nLoading points.\n');
+data = load(POINTS_FILE);
+[N, d] = size(data);
+d = d - 1;  % Output is not a dimension.
+X = data(:, 1:d);
+y = data(:, d + 1);
+
+
+% ------------------------------------------------------------------------------
+fprintf('\nDrawing boundary.\n');
+close all;
+figure(1);
+hold on;
+
+
+data = importdata(BOUNDARY_FILE, ",", 2);
+z = data.data;
+headers = data.textdata;
+
+[u_start, u_end, u_size] = strread(headers{1}, "%f,%f,%f");
+[v_start, v_end, v_size] = strread(headers{2}, "%f,%f,%f");
+u = linspace(u_start, u_end, u_size);
+v = linspace(v_start, v_end, v_size);
+
+z = z';  % important to transpose z before calling contour.
+colormap([
+    0.5,0.25,0.25;  % Red color.
+    0.25,0.25,0.5   % Blue color.
+])
+contourf(u, v, z, -1:1, 'LineWidth', 2, 'LineColor', 'black')
+
+
+% ------------------------------------------------------------------------------
+fprintf('\nDrawing data.\n');
+
+iPositive = find(y ==  1);
+iNegative = find(y == -1);
+
+if d == 1
+    X = [X zeros(m, 1)];
+end
+
+plot(X(iPositive, 1), X(iPositive, 2), 'k.', 'MarkerSize', 10, 'color', 'blue');
+plot(X(iNegative, 1), X(iNegative, 2), 'k.', 'MarkerSize', 10, 'color', 'red');
+
+
+% ------------------------------------------------------------------------------
+fprintf('\nAdjust axes for better viewing.\n');
+axis([u_start u_end v_start v_end])
+
+
+% ------------------------------------------------------------------------------
+fprintf('\nSaving to a file (./output.jpg).\n');
+
+print -djpg output.jpg
+
+hold off;
+
+%fprintf('\nPause. Press enter to continue.\n');
+%pause;
