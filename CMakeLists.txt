@@ -26,6 +26,7 @@ install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION lib)
 install(FILES ${INCLUDE_DIR}/${PROJECT_NAME}.h DESTINATION include)
 install(DIRECTORY ${INCLUDE_DIR}/${PROJECT_NAME} DESTINATION include)
 install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/happyplot DESTINATION bin)
+install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/happydatacreator DESTINATION bin)
 
 # Adding definitions to use with the preprocessor.
 add_definitions(-DHAPPY_ML_VERSION=\"${HAPPY_ML_VERSION}\")  # Version as a string.
