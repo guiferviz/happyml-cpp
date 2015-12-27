@@ -64,8 +64,8 @@ if exist(BOUNDARY_FILE, "file")
     v = linspace(v_start, v_end, v_size);
     
     colormap([
-        0.5,0.25,0.25;  % Red color.
-        0.25,0.25,0.5   % Blue color.
+        0.6,0.35,0.35;  % Red color.
+        0.35,0.35,0.6   % Blue color.
     ])
     % The levels of the contour depends on whether the outputs are almost all
     % +-1 or if they have decimals and are near to 0.
@@ -75,10 +75,12 @@ if exist(BOUNDARY_FILE, "file")
     else
         levels = [-1 0 1];
     end
-    contourf(u, v, z, levels, 'LineWidth', 2, 'LineColor', 'black')
+    % Drawing the contour. Set the line color to a colormap color to 'hide'
+    % the lines of the contour.
+    contourf(u, v, z, levels, 'LineWidth', 4, 'LineColor', 'black');
     
     fprintf('\nAdjust axes for better viewing.\n');
-    axis([u_start u_end v_start v_end])
+    axis([u_start u_end v_start v_end], "square");
 end
 
 
@@ -92,14 +94,14 @@ if d == 1
     X = [X zeros(m, 1)];
 end
 
-plot(X(iPositive, 1), X(iPositive, 2), 'k.', 'MarkerSize', 10, 'color', 'blue');
-plot(X(iNegative, 1), X(iNegative, 2), 'k.', 'MarkerSize', 10, 'color', 'red');
+plot(X(iPositive, 1), X(iPositive, 2), 'k.', 'MarkerSize', 15, 'color', 'blue');
+plot(X(iNegative, 1), X(iNegative, 2), 'k.', 'MarkerSize', 15, 'color', 'red');
 
 
 % ------------------------------------------------------------------------------
 fprintf('\nSaving to a file (%s).\n', OUTPUT_FILE);
 
-print("png", OUTPUT_FILE)
+print("png", OUTPUT_FILE);%, "-S640,480")
 
 hold off;
 
