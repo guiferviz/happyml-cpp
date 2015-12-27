@@ -7,7 +7,7 @@ namespace happyml
 
     int sgn(double x)
     {
-        return (x >= 1) ? 1 : -1;
+        return (x >= 0) ? 1 : -1;
     }
 
 }
