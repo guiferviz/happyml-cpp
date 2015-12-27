@@ -55,7 +55,7 @@ if exist(BOUNDARY_FILE, "file")
     fprintf('\nDrawing boundary.\n');
     
     data = importdata(BOUNDARY_FILE, ",", 2);
-    z = data.data';
+    z = flipud(data.data);  % Flip up-down before use contourf.
     headers = data.textdata;
     
     [u_start, u_end, u_size] = strread(headers{1}, "%f,%f,%f");
@@ -69,7 +69,7 @@ if exist(BOUNDARY_FILE, "file")
     ])
     % The levels of the contour depends on whether the outputs are almost all
     % +-1 or if they have decimals and are near to 0.
-    levels = []
+    levels = [];
     if sum(sum(abs(z))) > u_size * v_size * 0.8
         levels = [-1 1];
     else

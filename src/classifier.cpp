@@ -20,26 +20,23 @@ namespace happyml
         // Compute distance between samples.
         const double stepx_1 = (maxx_1 - minx_1) / (samples - 1);
         const double stepx_2 = (maxx_2 - minx_2) / (samples - 1);
-        
-        // Avoid decimal errors.
-        maxx_1 += stepx_1 / 2;
-        maxx_2 += stepx_2 / 2;
 
-        // Compute the matrix
+        // Compute the boundary matrix.
+        mat boundary(samples, samples);
         Input x(3);
         x[0] = 1;
-        for (double i = minx_1; i <= maxx_1; i += stepx_1)
+        double x_1 = minx_1;
+        for (unsigned i = 0; i < samples; ++i, x_1 += stepx_1)
         {
-            x[1] = i;  x[2] = minx_2;
-            file << classify(x);
-            for (double j = minx_2 + stepx_2; j <= maxx_2; j += stepx_2)
+            x[1] = x_1;
+            double x_2  = minx_2;
+            for (unsigned j = samples - 1; j < samples; --j, x_2 += stepx_2)
             {
-                x[2] = j;
-                file << "," << classify(x);
+                x[2] = x_2;
+                boundary(j, i) = classify(x);
             }
-            file << "\n";
         }
-
+        boundary.save(file, csv_ascii);
         file.close();
     }
 
