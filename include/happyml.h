@@ -9,6 +9,7 @@
 #include "happyml/types.h"
 #include "happyml/utils.h"
 #include "happyml/classifier.h"
+#include "happyml/perceptron/perceptron.h"
 
 
 using namespace std;
