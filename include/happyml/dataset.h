@@ -73,7 +73,7 @@ namespace happyml
              * @param size Number of inputs (\f$N\f$) in the dataset.
              */
             DataSet(unsigned dim = 0, unsigned size = 0) : d(dim), N(size),
-                    X(d + 1, N, fill::ones), y(N, 1, fill::zeros)
+                    X(N, d + 1, fill::ones), y(N, 1, fill::zeros)
             {
             }
 
@@ -91,6 +91,8 @@ namespace happyml
              */
             void read(istream& stream);
 
+            void load(const string& filename);
+
             /**
              * Save a file with the format:
              * 
@@ -102,6 +104,8 @@ namespace happyml
              * \f$
              */
             void write(ostream& stream) const;
+            
+            void save(const string& filename) const;
 
     };
 }
