@@ -11,7 +11,7 @@ using namespace std;
 
 TEST(BasicTests, TestVersion)
 {
-    ASSERT_EQ(happyml::version, HAPPY_ML_VERSION);
+    ASSERT_EQ(HAPPY_ML_VERSION, happyml::version);
 }
 
 TEST(BasicTests, TestGreeting)
