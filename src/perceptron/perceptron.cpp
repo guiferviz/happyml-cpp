@@ -70,6 +70,8 @@ namespace happyml
 
     double Perceptron::classify(const Input& x) const
     {
+        //vec x(input);
+        //x.insert_rows(1, 1);
         double y = as_scalar(w.t() * x);
         
         return sgn(y);  // sign function
