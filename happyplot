@@ -55,7 +55,7 @@ if exist(BOUNDARY_FILE, "file")
     fprintf('\nDrawing boundary.\n');
     
     data = importdata(BOUNDARY_FILE, ",", 2);
-    z = data.data;
+    z = data.data';
     headers = data.textdata;
     
     [u_start, u_end, u_size] = strread(headers{1}, "%f,%f,%f");
@@ -63,12 +63,19 @@ if exist(BOUNDARY_FILE, "file")
     u = linspace(u_start, u_end, u_size);
     v = linspace(v_start, v_end, v_size);
     
-    z = z';  % important to transpose z before calling contour.
     colormap([
         0.5,0.25,0.25;  % Red color.
         0.25,0.25,0.5   % Blue color.
     ])
-    contourf(u, v, z, -1:1, 'LineWidth', 2, 'LineColor', 'black')
+    % The levels of the contour depends on whether the outputs are almost all
+    % +-1 or if they have decimals and are near to 0.
+    levels = []
+    if sum(sum(abs(z))) > u_size * v_size * 0.8
+        levels = [-1 1];
+    else
+        levels = [-1 0 1];
+    end
+    contourf(u, v, z, levels, 'LineWidth', 2, 'LineColor', 'black')
     
     fprintf('\nAdjust axes for better viewing.\n');
     axis([u_start u_end v_start v_end])
