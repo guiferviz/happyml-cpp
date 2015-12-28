@@ -39,8 +39,12 @@ add_definitions(-DHAPPY_ML_VERSION=\"${HAPPY_ML_VERSION}\")  # Version as a stri
 if (build_tests)
     # Setup CMake to run tests.
     enable_testing()
-    # Adding check target that shows test output details.
-    add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
+    # Copy fixture (data for testing) directory to the binary folder.
+    add_custom_target(copy_fixture_data ALL)
+    add_custom_command(TARGET copy_fixture_data PRE_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+                ${PROJECT_SOURCE_DIR}/${TEST_DIR}/fixtures
+                ${PROJECT_BINARY_DIR}/bin/test/fixtures)
     # Google Tests required.
     find_package(GTest REQUIRED)
 
