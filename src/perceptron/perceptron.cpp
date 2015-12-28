@@ -32,13 +32,14 @@ namespace happyml
         vec bestW;
         float bestError = 1.0f;
 
-        cout << "Training Perceptron (" << iter << " loops)." << endl;
+        cout << colors::CYAN << "Training Perceptron (" << iter << " loops)."
+                << colors::RESET << endl;
         unsigned i;
         for (i = 0; i < iter; ++i)
         {
             vec output = data.X * w;
             output.transform(sgn);
-            uvec errors = find(output.t() * data.y < 0);
+            uvec errors = find(output % data.y < 0);
 
             float currentError = ((float) errors.size()) / data.N;
             if (currentError < bestError)  // a better solution found
@@ -58,9 +59,10 @@ namespace happyml
             int misclassifiedPoint = errors[rand() % errors.size()];
 
             // Update weights using that point.
-            w = w + data.y[misclassifiedPoint] * data.X.row(misclassifiedPoint);
+            w = w + data.y[misclassifiedPoint] * data.X.row(misclassifiedPoint).t();
         }
-        cout << "End of the training. Total iterations: " << i << endl;
+        cout << colors::RED << "End of the training. Total iterations: " << i
+                << colors::RESET << endl;
 
         // Setting weights to the best weights founded.
         w = bestW;
