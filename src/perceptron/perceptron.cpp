@@ -32,7 +32,7 @@ namespace happyml
         vec bestW;
         float bestError = 1.0f;
 
-        cout << colors::CYAN << "Training Perceptron (" << iter << " loops)."
+        cout << colors::BLUE << "Training Perceptron (" << iter << " loops)."
                 << colors::RESET << endl;
         unsigned i;
         for (i = 0; i < iter; ++i)
@@ -83,7 +83,7 @@ namespace happyml
     {
         vec output = data.X * w;
         output.transform(sgn);
-        uvec errors = find(output.t() * data.y < 0);
+        uvec errors = find(output % data.y < 0);
 
         return ((double) errors.size()) / data.N;
     }
