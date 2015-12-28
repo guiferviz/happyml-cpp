@@ -28,7 +28,7 @@ namespace happyml
     }
 
     /**
-     * Default sgn function.
+     * Default sign function.
      * \f$
      * \operatorname {sgn}(x) := {\begin{cases}
      *      -1 & {\text{if }} x < 0, \\
@@ -41,6 +41,18 @@ namespace happyml
      * @return Sign of x.
      */
     int sgn(double x);
+
+    /**
+     * Implementation of the sigmoid math function:
+     * \f$
+     * sigmoid(x) = \frac{1}{1 + e^{-x}}
+     * \f$
+     * 
+     * @param x Input number.
+     * 
+     * @return Sigmoid value.
+     */
+    double sigmoid(double x);
 
 }
 
