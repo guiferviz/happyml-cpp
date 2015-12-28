@@ -45,7 +45,7 @@ namespace happyml
     /**
      * Implementation of the sigmoid math function:
      * \f$
-     * sigmoid(x) = \frac{1}{1 + e^{-x}}
+     * g(x) = \dfrac{1}{1 + e^{-x}}
      * \f$
      * 
      * @param x Input number.
