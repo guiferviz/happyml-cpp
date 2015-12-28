@@ -1,0 +1,60 @@
+#! /usr/bin/octave -qf
+
+
+% -----------------------------------------------------------------------------
+
+POINTS_FILE = 'points.data'
+
+
+% -----------------------------------------------------------------------------
+fprintf('\nCreate a dataset.\n');
+fprintf('[RIGHT CLICK] Blue/Positive class\n');
+fprintf('[LEFT  CLICK] Red/Negative class\n');
+fprintf('[SPACE      ] Scale and center points\n');
+fprintf('[WHEEL CLICK] Save and Exit\n');
+fprintf('[Ctrl+C on terminal] Save and Exit\n\n');
+fflush(stdout);
+
+
+function close_function(id, param, file, data)
+    if file == '*'
+        return;
+    end
+
+    fprintf('Closing happydatacreator.\n');
+    fprintf('Saving data on file "%s".\n', file);
+    dlmwrite(file, data, ',');
+    set(gcf, 'closerequestfcn', {@close_function, '*', []});
+endfunction 
+
+
+close all;
+f = figure('name', 'My dataset');
+hold on;
+grid on;
+set(gcf, 'closerequestfcn', {@close_function, '*', []});
+axis([-1 1 -1 1])
+
+data = [];
+
+% While mouse clicks.
+while 1  % size(findobj('type','figure','name', 'My dataset'))
+    [x_1, x_2, y] = ginput(1);
+
+    color = '';
+    if y == 1
+        color = 'blue';
+    elseif y == 3
+        color = 'red';
+        y = -1;
+    else
+        break;
+    end
+
+    data = [data; x_1 x_2 y];
+    set(gcf, 'closerequestfcn', {@close_function, POINTS_FILE, data})
+
+    plot(x_1, x_2, 'k.', 'MarkerSize', 10, 'color', color);
+end
+
+close(f);

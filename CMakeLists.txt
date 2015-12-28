@@ -11,7 +11,7 @@ set(LIBRARY_OUTPUT_DIR "lib")
 include_directories(${INCLUDE_DIR})
 
 # ALL cpp files under src.
-file(GLOB SOURCES ${SOURCES_DIR}/*.cpp)
+file(GLOB_RECURSE SOURCES ${SOURCES_DIR}/*.cpp)
 
 # Generate the shared library from the sources.
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
@@ -25,6 +25,8 @@ target_link_libraries(${PROJECT_NAME} m armadillo)
 install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION lib)
 install(FILES ${INCLUDE_DIR}/${PROJECT_NAME}.h DESTINATION include)
 install(DIRECTORY ${INCLUDE_DIR}/${PROJECT_NAME} DESTINATION include)
+install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/happyplot DESTINATION bin)
+install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/happydatacreator DESTINATION bin)
 
 # Adding definitions to use with the preprocessor.
 add_definitions(-DHAPPY_ML_VERSION=\"${HAPPY_ML_VERSION}\")  # Version as a string.
@@ -37,13 +39,17 @@ add_definitions(-DHAPPY_ML_VERSION=\"${HAPPY_ML_VERSION}\")  # Version as a stri
 if (build_tests)
     # Setup CMake to run tests.
     enable_testing()
-    # Adding check target that shows test output details.
-    add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
+    # Copy fixture (data for testing) directory to the binary folder.
+    add_custom_target(copy_fixture_data ALL)
+    add_custom_command(TARGET copy_fixture_data PRE_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+                ${PROJECT_SOURCE_DIR}/${TEST_DIR}/fixtures
+                ${PROJECT_BINARY_DIR}/bin/test/fixtures)
     # Google Tests required.
     find_package(GTest REQUIRED)
 
     # Run through each test source.
-    file(GLOB TEST_SOURCES ${TEST_DIR}/*.cpp)
+    file(GLOB_RECURSE TEST_SOURCES ${TEST_DIR}/*.cpp)
     foreach(testSrc ${TEST_SOURCES})
             # Extract the filename without an extension (NAME_WE).
             get_filename_component(testName ${testSrc} NAME_WE)

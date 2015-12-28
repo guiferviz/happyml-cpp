@@ -1,0 +1,109 @@
+#! /usr/bin/octave -qf
+
+% =====================================================
+% HAPPYPLOT - Octave program.
+% =====================================================
+
+POINTS_FILE = 'points.data';
+BOUNDARY_FILE = 'boundary.data';
+OUTPUT_FILE = 'output.png';
+
+% Reading parameters.
+arg_list = argv();
+if mod(size(arg_list, 1), 2) == 0
+    for i = 1:size(arg_list):2
+        if strcmp(arg_list{i}, '-o')
+            OUTPUT_FILE = arg_list{i + 1};
+        elseif strcmp(arg_list{i}, '-b')
+            BOUNDARY_FILE = arg_list{i + 1};
+        elseif strcmp(arg_list{i}, '-d')
+            POINTS_FILE = arg_list{i + 1};
+        else
+            error('ERROR: %s unknow parameter.', arg_list{i});
+        end
+    end
+else
+    if strcmp(arg_list{1}, '-h') || strcmp(arg_list{1}, '--help')
+        system("man happyplot");
+        exit();
+    else
+        error('ERROR: Not enough input arguments.');
+    end
+end
+
+POINTS_FILE
+BOUNDARY_FILE
+OUTPUT_FILE
+
+
+% ------------------------------------------------------------------------------
+fprintf('\nLoading points.\n');
+data = load(POINTS_FILE);
+[N, d] = size(data);
+d = d - 1;  % Output is not a dimension.
+X = data(:, 1:d);
+y = data(:, d + 1);
+
+
+% ------------------------------------------------------------------------------
+close all;
+figure(1);
+hold on;
+
+% ------------------------------------------------------------------------------
+if exist(BOUNDARY_FILE, "file")
+    fprintf('\nDrawing boundary.\n');
+    
+    data = importdata(BOUNDARY_FILE, ",", 2);
+    z = flipud(data.data);  % Flip up-down before use contourf.
+    headers = data.textdata;
+    
+    [u_start, u_end, u_size] = strread(headers{1}, "%f,%f,%f");
+    [v_start, v_end, v_size] = strread(headers{2}, "%f,%f,%f");
+    u = linspace(u_start, u_end, u_size);
+    v = linspace(v_start, v_end, v_size);
+    
+    colormap([
+        0.6,0.35,0.35;  % Red color.
+        0.35,0.35,0.6   % Blue color.
+    ])
+    % The levels of the contour depends on whether the outputs are almost all
+    % +-1 or if they have decimals and are near to 0.
+    levels = [];
+    if sum(sum(abs(z))) > u_size * v_size * 0.8
+        levels = [-1 1];
+    else
+        levels = [-1 0 1];
+    end
+    % Drawing the contour. Set the line color to a colormap color to 'hide'
+    % the lines of the contour.
+    contourf(u, v, z, levels, 'LineWidth', 4, 'LineColor', 'black');
+    
+    fprintf('\nAdjust axes for better viewing.\n');
+    axis([u_start u_end v_start v_end], "square");
+end
+
+
+% ------------------------------------------------------------------------------
+fprintf('\nDrawing data.\n');
+
+iPositive = find(y ==  1);
+iNegative = find(y == -1);
+
+if d == 1
+    X = [X zeros(m, 1)];
+end
+
+plot(X(iPositive, 1), X(iPositive, 2), 'k.', 'MarkerSize', 15, 'color', 'blue');
+plot(X(iNegative, 1), X(iNegative, 2), 'k.', 'MarkerSize', 15, 'color', 'red');
+
+
+% ------------------------------------------------------------------------------
+fprintf('\nSaving to a file (%s).\n', OUTPUT_FILE);
+
+print("png", OUTPUT_FILE);%, "-S640,480")
+
+hold off;
+
+%fprintf('\nPause. Press enter to continue.\n');
+%pause;
