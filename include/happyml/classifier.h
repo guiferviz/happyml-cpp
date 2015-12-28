@@ -20,7 +20,7 @@ namespace happyml
             /**
              * Classifies an input vector.
              *
-             * @param input An input vector.
+             * @param x An input vector.
              * 
              * @return Returns a real value corresponding with the
              *         classification done by the current classifier.
