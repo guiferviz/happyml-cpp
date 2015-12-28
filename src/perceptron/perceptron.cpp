@@ -10,7 +10,7 @@ using namespace std;
 namespace happyml
 {
 
-    Perceptron::Perceptron(int d) : w(d + 1)
+    Perceptron::Perceptron(unsigned d) : w(d + 1)
     {
     }
 
@@ -35,7 +35,7 @@ namespace happyml
         cout << colors::BLUE << "Training Perceptron (" << iter << " loops)."
                 << colors::RESET << endl;
         unsigned i;
-        for (i = 0; i < iter; ++i)
+        for (i = 0; i <= iter; ++i)
         {
             vec output = data.X * w;
             output.transform(sgn);

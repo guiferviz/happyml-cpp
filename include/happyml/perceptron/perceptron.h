@@ -25,7 +25,7 @@ namespace happyml
              * 
              * @param d Dimension \f$d\f$ of the input feature vectors.
              */
-            Perceptron(int d);
+            Perceptron(unsigned d = 0);
 
             /**
              * Creates a perceptron with the indicated weights.
