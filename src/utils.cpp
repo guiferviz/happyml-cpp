@@ -1,6 +1,8 @@
 
 #include "happyml/utils.h"
 
+#include <math.h>
+
 
 namespace happyml
 {
