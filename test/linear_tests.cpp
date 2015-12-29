@@ -36,7 +36,7 @@ class LinearRegressionTests : public testing::Test
 
         virtual void TearDown()
         {
-            //logistic.saveBoundary("boundary.data", 500, -10, 10, -10, 10);
+            linear.saveLine("line.data", -10, 10, 20);
             //system("happyplot -d fixtures/4points.data");
             
             //remove("points.data");
