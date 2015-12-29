@@ -52,4 +52,30 @@ namespace happyml
         return 1.0 / dataset.N * sum(currentError);
     }
 
+    void LinearRegression::saveLine(const string& filename, double minx,
+            double maxx, unsigned samples) const
+    {
+        ofstream file;
+        file.open(filename.c_str());
+        
+        // Write headers.
+        file << minx << "," << maxx << "," << samples << "\n";
+
+        // Compute distance between samples.
+        const double step = (maxx - minx) / (samples - 1);
+
+        // Compute the line vector.
+        rowvec line(samples);
+        Input input(2);
+        input[0] = 1;
+        double x = minx;
+        for (unsigned i = 0; i < samples; ++i, x += step)
+        {
+            input[1] = x;
+            line(i) = classify(input);
+        }
+        line.save(file, csv_ascii);
+        file.close();
+    }
+
 }

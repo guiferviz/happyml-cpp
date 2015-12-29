@@ -85,6 +85,12 @@ namespace happyml
              *         grater than \f$0\f$.
              */
             double error(const DataSet& data) const;
+
+            /**
+             * TODO: Add comment.
+             */
+            void saveLine(const string& filename, double minx, double maxx,
+                    unsigned samples) const;
     };
 
 }
