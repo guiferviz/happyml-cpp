@@ -11,6 +11,7 @@
 #include "happyml/classifier.h"
 #include "happyml/perceptron/perceptron.h"
 #include "happyml/logistic_regression/logistic_regression.h"
+#include "happyml/linear_regression/linear_regression.h"
 
 
 using namespace std;
