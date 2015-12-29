@@ -47,6 +47,15 @@ namespace happyml
              */
             void apply(DataSet& dataset) const;
 
+            /**
+             * Applies all the transformations in the given input.
+             * 
+             * @param input Input to transform.
+             * 
+             * @return A transformated version of the input.
+             */
+            Input apply(const Input& input) const;
+
     };
 }
 

@@ -24,4 +24,14 @@ namespace happyml
         }
     }
 
+    Input Transformer::apply(const Input& input) const
+    {
+        DataSet d(input.size() - 1, 1);
+        d.X = input.t();
+        
+        apply(d);
+        
+        return d.X.t();
+    }
+
 }
