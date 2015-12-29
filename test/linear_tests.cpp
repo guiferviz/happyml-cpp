@@ -57,7 +57,7 @@ TEST_F(LinearRegressionTests, TestError)
     ASSERT_EQ(0, error);
 }
 
-TEST_F(LinearRegressionTests, TestTrain)
+TEST_F(LinearRegressionTests, TestTrain1)
 {
     dataset.load("fixtures/4points_reg.data");
 
@@ -65,6 +65,16 @@ TEST_F(LinearRegressionTests, TestTrain)
     double error = linear.train(dataset);
 
     ASSERT_NEAR(0, error, 0.001);
+}
+
+TEST_F(LinearRegressionTests, TestTrain2)
+{
+    dataset.load("fixtures/parabola.data");
+
+    linear = happyml::LinearRegression(dataset.d);
+    double error = linear.train(dataset);
+
+    //ASSERT_NEAR(0, error, 0.001);
 }
 
 
