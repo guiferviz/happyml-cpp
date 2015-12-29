@@ -13,6 +13,7 @@ fprintf('[LEFT  CLICK] Red/Negative class\n');
 fprintf('[SPACE      ] Scale and center points\n');
 fprintf('[WHEEL CLICK] Save and Exit\n');
 fprintf('[Ctrl+C on terminal] Save and Exit\n\n');
+fprintf('Note: if all the points belong to the same class, they will be treated as a linear regression data.\n');
 fflush(stdout);
 
 
@@ -23,7 +24,13 @@ function close_function(id, param, file, data)
 
     fprintf('Closing happydatacreator.\n');
     fprintf('Saving data on file "%s".\n', file);
-    dlmwrite(file, data, ',');
+    if sum(data(:, 3)) ~= size(data, 1)  % Several classes.
+        fprintf('Classification data.\n');
+        dlmwrite(file, data, ',');
+    else  % Linear regression data.
+        fprintf('Linear regression data.\n');
+        dlmwrite(file, data(:, 1:2), ',');
+    end
     set(gcf, 'closerequestfcn', {@close_function, '*', []});
 endfunction 
 
