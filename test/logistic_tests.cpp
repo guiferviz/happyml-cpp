@@ -46,12 +46,30 @@ class LogisticRegressionTests : public testing::Test
 };
 
 
-TEST_F(LogisticRegressionTests, TestTrain)
+TEST_F(LogisticRegressionTests, TestTrain1)
 {
     dataset.load("fixtures/4points.data");
 
     logistic = happyml::LogisticRegression(dataset.d);
     double error = logistic.train(dataset, 10, 0.1);
+
+    ASSERT_NEAR(0, error, 0.1);
+}
+
+TEST_F(LogisticRegressionTests, TestTrain2)
+{
+    dataset.load("fixtures/circle.data");
+
+    happyml::Transformer t;
+    t.addPower(1, 2);
+    t.addPower(2, 2);
+    t.apply(dataset);
+
+    logistic = happyml::LogisticRegression(dataset.d);
+    double error = logistic.train(dataset, 100, 0.1);
+    
+    //logistic.saveBoundary("boundary.data", 50, -3, 3, -3, 3, t);
+    //system("happyplot -d fixtures/circle.data");
 
     ASSERT_NEAR(0, error, 0.1);
 }

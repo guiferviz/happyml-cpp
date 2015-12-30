@@ -4,6 +4,7 @@
 
 
 #include "happyml/types.h"
+#include "happyml/transformer.h"
 
 
 namespace happyml
@@ -64,6 +65,10 @@ namespace happyml
                     double minx_1, double maxx_1,
                     double minx_2, double maxx_2) const;
 
+            virtual void saveBoundary(const string& filename, unsigned samples,
+                    double minx_1, double maxx_1,
+                    double minx_2, double maxx_2,
+                    const Transformer& t) const;
     };
 
 }
