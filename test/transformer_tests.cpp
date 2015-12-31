@@ -118,6 +118,20 @@ TEST_F(TransformerTests, TestRemoveTransform)
     ASSERT_EQ(5, dataset.X(1, 1));
 }
 
+TEST_F(TransformerTests, TestRemove2Transform)
+{
+    dataset.load("fixtures/3features.data");
+
+    t.remove(1);
+    t.remove(3);
+    t.apply(dataset);
+
+    ASSERT_EQ(1, dataset.d);
+    ASSERT_EQ(2, dataset.X(0, 1));
+    ASSERT_EQ(5, dataset.X(1, 1));
+    ASSERT_EQ(8, dataset.X(2, 1));
+}
+
 
 int main(int argc, char **argv)
 {

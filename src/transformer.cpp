@@ -31,10 +31,7 @@ namespace happyml
 
     void Transformer::remove(unsigned feature)
     {
-        actions.push_back(DEL);
-        features.push_back(feature);
-        param.push_back(0);
-        creates.push_back(false);
+        removeOrder.push_back(feature);
     }
 
     void Transformer::applyToMatrix(mat& x) const
@@ -52,6 +49,13 @@ namespace happyml
             {
                 applyNoCreateNew(x, i);
             }
+        }
+        // Last we remove features from higher to low.
+        for(deque<unsigned>::const_reverse_iterator it = removeOrder.rbegin();
+                it != removeOrder.rend(); ++it)
+        {
+            cout << *it << endl;
+            x.shed_col(*it);
         }
     }
 
@@ -87,9 +91,6 @@ namespace happyml
                 break;
             case POW:
                 x.col(feature) = pow(x.col(feature), param[i]);
-                break;
-            case DEL:
-                x.shed_col(param[i]);
                 break;
         }
     }

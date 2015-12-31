@@ -3,6 +3,7 @@
 #define _HAPPY_ML_TRANSFORMER_H_
 
 
+#include <queue>
 #include <vector>
 
 #include "happyml/types.h"
@@ -23,8 +24,7 @@ namespace happyml
             {
                 ADD,
                 POW,
-                MUL,
-                DEL
+                MUL
             };
 
             vector<Actions> actions;
@@ -34,6 +34,8 @@ namespace happyml
             vector<double> param;
 
             vector<bool> creates;
+            
+            deque<unsigned> removeOrder;
 
             /*
              * Applies the actions in the given order to a matrix.
