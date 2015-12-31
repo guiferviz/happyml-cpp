@@ -12,17 +12,43 @@ namespace happyml
 {
 
     /**
-     * Class that applies non-linear transformations to an input or to a whole
-     * dataset.
+     * Class that applies linear and non-linear transformations to an input or
+     * to a whole dataset.
      */
     class Transformer
     {
         private:
 
-            vector<unsigned> featuresPower;
+            enum Actions
+            {
+                ADD,
+                POW,
+                MUL,
+                DEL
+            };
 
-            vector<double> powerPower;
+            vector<Actions> actions;
 
+            vector<unsigned> features;
+
+            vector<double> param;
+
+            vector<bool> creates;
+
+            /*
+             * Applies the actions in the given order to a matrix.
+             */
+            void applyToMatrix(mat&) const;
+
+            /*
+             * Applies the action and add the result as a new feature.
+             */
+            void applyCreateNew(mat&, unsigned actionIndex) const;
+
+            /*
+             * Applies the action at the existing feature.
+             */
+            void applyNoCreateNew(mat& x, unsigned actionIndex) const;
 
         public:
 
@@ -32,13 +58,41 @@ namespace happyml
 
 
             /**
-             * Creates a new feature using the feature number \f$feature\f$
-             * and raising it to the power of \f$power\f$.
+             * Raise the feature number \f$feature\f$ to the power of
+             * \f$power\f$.
              * 
              * @param feature Feature to raise.
              * @param power Exponent.
+             * @param create_new Create a new feature or not.
              */
-            void addPower(unsigned feature, double power);
+            void addPower(unsigned feature, double power, bool create_new = true);
+
+            /**
+             * Adds (or substract) a value to the indicated feature. Doesn't
+             * add a new feature.
+             * 
+             * @param feature \f$n\f$ will be added to this feature number.
+             * @param n Number to be added.
+             * @param create_new Create a new feature or not.
+             */
+            void addAddition(unsigned feature, double n, bool create_new = false);
+
+            /**
+             * Multiply (or divide) the indicated feature by \f$n\f$. Doesn't
+             * add a new feature.
+             * 
+             * @param feature \f$n\f$ will be added to this feature number.
+             * @param n Number to be added.
+             * @param create_new Create a new feature or not.
+             */
+            void addProduct(unsigned feature, double n, bool create_new = false);
+
+            /**
+             * Deletes a feature.
+             * 
+             * @param feature Feature that will be removed.
+             */
+            void remove(unsigned feature);
 
             /**
              * Applies all the transformations in the given dataset.
