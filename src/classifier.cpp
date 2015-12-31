@@ -67,7 +67,7 @@ namespace happyml
             for (unsigned j = samples - 1; j < samples; --j, x_2 += stepx_2)
             {
                 x[2] = x_2;
-                boundary(j, i) = classify(t.apply(x))-0.5;
+                boundary(j, i) = classify(t.apply(x));
             }
         }
         boundary.save(file, csv_ascii);
