@@ -5,7 +5,7 @@
 
 #include "happyml/types.h"
 #include "happyml/utils.h"
-#include "happyml/classifier.h"
+#include "happyml/predictor.h"
 #include "happyml/transformer.h"
 
 

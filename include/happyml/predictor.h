@@ -29,15 +29,15 @@ namespace happyml
             virtual double predict(const Input& x) const = 0;
 
             /**
-             * Compute the error of the predictor in the given output.
+             * Compute the error of the predictor in a given input.
              * By default it computes the square diff.
              * 
-             * @param h The value predicted by the predictor (hypothesis).
+             * @param x The input vector.
              * @param y Correct output.
              * 
              * @return Error of the predicted value comparate to y.
              */
-            virtual double error(double h, double y) const;
+            virtual double error(const Input& x, double y) const;
 
             /**
              * Compute the error of the predictor on the given dataset.

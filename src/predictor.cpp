@@ -5,6 +5,24 @@
 namespace happyml
 {
 
+    double Predictor::error(const Input& x, double y) const
+    {
+        double h = predict(x);
+        return (h - y) * (h - y);
+    }
+
+    double Predictor::error(const DataSet& dataset) const
+    {
+        double currentError = 0;
+        for (unsigned i = 0; i < dataset.N; ++i)
+        {
+            currentError += error(dataset.X.row(i).t(), dataset.y[i]);
+        }
+        currentError /= dataset.N;
+
+        return currentError;
+    }
+
     void Predictor::saveSampling(const string& filename,
             double minx_1, double maxx_1, unsigned samples_1,
             double minx_2, double maxx_2, unsigned samples_2,
@@ -37,6 +55,33 @@ namespace happyml
             }
         }
         boundary.save(file, csv_ascii);
+        file.close();
+    }
+
+    void Predictor::saveSampling(const string& filename,
+            double minx, double maxx, unsigned samples,
+            const Transformer& t) const
+    {
+        ofstream file;
+        file.open(filename.c_str());
+        
+        // Write headers.
+        file << minx << "," << maxx << "," << samples << "\n";
+
+        // Compute distance between samples.
+        const double step = (maxx - minx) / (samples - 1);
+
+        // Compute the line vector.
+        rowvec line(samples);
+        Input input(2);
+        input[0] = 1;
+        double x = minx;
+        for (unsigned i = 0; i < samples; ++i, x += step)
+        {
+            input[1] = x;
+            line(i) = predict(t.apply(input));
+        }
+        line.save(file, csv_ascii);
         file.close();
     }
 

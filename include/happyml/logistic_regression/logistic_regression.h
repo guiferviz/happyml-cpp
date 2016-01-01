@@ -3,7 +3,9 @@
 #define _HAPPY_ML_LOGISTIC_REGRESSION_H_
 
 
-#include "happyml.h"
+#include "happyml/types.h"
+#include "happyml/utils.h"
+#include "happyml/predictor.h"
 
 
 using namespace arma;

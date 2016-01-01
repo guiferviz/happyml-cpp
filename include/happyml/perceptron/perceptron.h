@@ -4,7 +4,7 @@
 
 
 #include "happyml/types.h"
-#include "happyml/classifier.h"
+#include "happyml/predictor.h"
 
 
 namespace happyml
