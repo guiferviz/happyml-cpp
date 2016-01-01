@@ -39,7 +39,7 @@ namespace happyml
                 g += dataset.y[j] * dataset.X.row(j).t() / as_scalar(1 + exp(
                         dataset.y[j] * w.t() * dataset.X.row(j).t()));
             }
-            g *= - ((float) 1) / dataset.N;
+            g *= - 1.0 / dataset.N;
             w = w - learning_rate * g;
             // TODO: compute error inside last for loop.
             // TODO: add best end condition.

@@ -63,13 +63,16 @@ TEST_F(LogisticRegressionTests, TestTrain2)
     happyml::Transformer t;
     t.addPower(1, 2);
     t.addPower(2, 2);
+    t.remove(1);
+    t.remove(2);
     t.apply(dataset);
+    //dataset.save("points.data");
 
     logistic = happyml::LogisticRegression(dataset.d);
     double error = logistic.train(dataset, 100, 0.1);
     
     //logistic.saveBoundary("boundary.data", 50, -3, 3, -3, 3, t);
-    //system("happyplot -d fixtures/circle.data");
+    //system("happyplot");
 
     ASSERT_NEAR(0, error, 0.1);
 }
