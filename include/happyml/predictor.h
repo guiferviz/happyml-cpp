@@ -72,11 +72,12 @@ namespace happyml
              * @param maxx_2 End value of the second feature.
              * @param samples_2 Number of samples of the second feature.
              * @param t Transformer that transform the inputs to predict.
+             *          By default a void transformed is used.
              */
             virtual void saveSampling(const string& filename,
                     double minx_1, double maxx_1, unsigned samples_1,
                     double minx_2, double maxx_2, unsigned samples_2,
-                    const Transformer& t) const;
+                    const Transformer& t = Transformer()) const;
 
             /**
              * Saves the value of predicting the output of the predicter in
@@ -95,10 +96,11 @@ namespace happyml
              * @param maxx_1 End value of the first feature.
              * @param samples_1 Number of samples of the first feature.
              * @param t Transformer that transform the inputs to predict.
+             *          By default a void transformed is used.
              */
             virtual void saveSampling(const string& filename,
                     double minx, double maxx, unsigned samples,
-                    const Transformer& t) const;
+                    const Transformer& t = Transformer()) const;
     };
 
     /**

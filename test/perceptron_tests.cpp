@@ -36,7 +36,7 @@ class PerceptronTests : public testing::Test
 
         virtual void TearDown()
         {
-            //perceptron.saveBoundary("boundary.data", 500, -10, 10, -10, 10);
+            //perceptron.saveSampling("boundary.data", -10, 10, 500, -10, 10, 500);
             //system("happyplot -d fixtures/2points.data");
             
             //remove("points.data");
