@@ -23,7 +23,7 @@ namespace happyml
         public:
 
             /**
-             * Dimension of the inputs vector in this dataset (\f$d\f$).
+             * Dimension of the inputs vectors of this dataset (\f$d\f$).
              * All the points has the same dimension.
              */
             unsigned d;
@@ -38,15 +38,15 @@ namespace happyml
              * Matrix with all the inputs.
              * \f$
              * \mathbf{X} = \begin{pmatrix}
+             *      \mathbf{x}^{\rm T}_0 \\
              *      \mathbf{x}^{\rm T}_1 \\
-             *      \mathbf{x}^{\rm T}_2 \\
              *      \vdots \\
-             *      \mathbf{x}^{\rm T}_N
+             *      \mathbf{x}^{\rm T}_{N - 1}
              * \end{pmatrix} = \begin{pmatrix}
+             *      x_{00} & \cdots & x_{0d} \\
              *      x_{10} & \cdots & x_{1d} \\
-             *      x_{20} & \cdots & x_{2d} \\
              *      \vdots & \ddots & \vdots \\
-             *      x_{N0} & \cdots & x_{Nd}
+             *      x_{(N-1)0} & \cdots & x_{(N-1)d}
              * \end{pmatrix}
              * \f$
              */
@@ -56,10 +56,10 @@ namespace happyml
              * Expected outputs.
              * \f$
              * \mathbf{y} = \begin{pmatrix}
+             *      y_0 \\
              *      y_1 \\
-             *      y_2 \\
              *      \vdots \\
-             *      y_N
+             *      y_{N - 1}
              * \end{pmatrix}
              * \f$
              */
@@ -79,14 +79,14 @@ namespace happyml
 
 
             /**
-             * Creates a dataset from a CSV file.
-             * The order of the file is:
+             * Creates a dataset from a text input stream with the following
+             * format:
              * 
              * \f$\\
+             * x_{01},x_{02},\cdots,x_{0d},y_{0}\\
              * x_{11},x_{12},\cdots,x_{1d},y_{1}\\
-             * x_{21},x_{22},\cdots,x_{2d},y_{2}\\
              * \ \ \vdots\ \ ,\ \ \vdots\ \ ,\ \cdots\ ,\ \ \vdots\ \ ,\ \ \vdots\\
-             * x_{N1},x_{N2},\cdots,x_{Nd},y_{N}
+             * x_{(N-1)1},x_{(N-1)2},\cdots,x_{(N-1)d},y_{(N-1)}
              * \f$
              */
             void read(istream& stream);
@@ -94,17 +94,17 @@ namespace happyml
             void load(const string& filename);
 
             /**
-             * Save a file with the format:
+             * Write to an output stream the next data:
              * 
              * \f$\\
+             * x_{01},x_{02},\cdots,x_{0d},y_{0}\\
              * x_{11},x_{12},\cdots,x_{1d},y_{1}\\
-             * x_{21},x_{22},\cdots,x_{2d},y_{2}\\
              * \ \ \vdots\ \ ,\ \ \vdots\ \ ,\ \cdots\ ,\ \ \vdots\ \ ,\ \ \vdots\\
-             * x_{N1},x_{N2},\cdots,x_{Nd},y_{N}
+             * x_{(N-1)1},x_{(N-1)2},\cdots,x_{(N-1)d},y_{(N-1)}
              * \f$
              */
             void write(ostream& stream) const;
-            
+
             void save(const string& filename) const;
 
     };
