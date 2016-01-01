@@ -1,6 +1,6 @@
 
-#ifndef _HAPPY_ML_CLASSIFIER_H_
-#define _HAPPY_ML_CLASSIFIER_H_
+#ifndef _HAPPY_ML_PREDICTOR_H_
+#define _HAPPY_ML_PREDICTOR_H_
 
 
 #include "happyml/types.h"
@@ -110,4 +110,4 @@ namespace happyml
 }
 
 
-#endif  // _HAPPY_ML_CLASSIFIER_H_
+#endif  // _HAPPY_ML_PREDICTOR_H_
