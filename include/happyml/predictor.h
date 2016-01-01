@@ -92,9 +92,9 @@ namespace happyml
              * Use 'happyplot' command line tool to visualize the output.
              * 
              * @param filename Output filename.
-             * @param minx_1 Start value of the first feature.
-             * @param maxx_1 End value of the first feature.
-             * @param samples_1 Number of samples of the first feature.
+             * @param minx Start value of the first feature.
+             * @param maxx End value of the first feature.
+             * @param samples Number of samples of the first feature.
              * @param t Transformer that transform the inputs to predict.
              *          By default a void transformed is used.
              */
