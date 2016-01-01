@@ -61,13 +61,13 @@ namespace happyml
 
     double LogisticRegression::error(const DataSet& dataset) const
     {
-        float currentError = 0;
+        double currentError = 0;
         for (unsigned j = 0; j < dataset.N; ++j)
         {
             currentError += as_scalar(log(1 + exp(- dataset.y[j] * w.t()
                     * dataset.X.row(j).t())));
         }
-        currentError /= ((float) dataset.N);
+        currentError /= dataset.N;
 
         return currentError;
     }
