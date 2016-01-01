@@ -91,8 +91,6 @@ namespace happyml
              */
             void read(istream& stream);
 
-            void load(const string& filename);
-
             /**
              * Write to an output stream the next data:
              * 
@@ -104,8 +102,6 @@ namespace happyml
              * \f$
              */
             void write(ostream& stream) const;
-
-            void save(const string& filename) const;
 
     };
 }
