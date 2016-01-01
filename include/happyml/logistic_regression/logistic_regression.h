@@ -78,7 +78,7 @@ namespace happyml
              * @return Probability of the input to belong to +1 class.
              *         Output in the interval \f$[0, 1]\f$.
              */
-            double classify(const Input& x) const;
+            double predict(const Input& x) const;
 
             /**
              * Compute the error of the logistic regression on the given

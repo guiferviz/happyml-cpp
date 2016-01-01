@@ -72,7 +72,7 @@ namespace happyml
         return bestError;
     }
 
-    double Perceptron::classify(const Input& x) const
+    double Perceptron::predict(const Input& x) const
     {
         //vec x(input);
         //x.insert_rows(1, 1);

@@ -52,7 +52,7 @@ namespace happyml
         return currentError;
     }
 
-    double LogisticRegression::classify(const Input& x) const
+    double LogisticRegression::predict(const Input& x) const
     {
         float output = as_scalar(w.t() * x);
 

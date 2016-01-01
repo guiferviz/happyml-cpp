@@ -76,7 +76,7 @@ namespace happyml
              *
              * @return Estimated real output.
              */
-            double classify(const Input& x) const;
+            double predict(const Input& x) const;
 
             /**
              * Compute the mean squared error of the linear regression
@@ -89,17 +89,6 @@ namespace happyml
              */
             double error(const DataSet& data) const;
 
-            /**
-             * TODO: Add comment.
-             */
-            void saveLine(const string& filename, double minx, double maxx,
-                    unsigned samples) const;
-
-            /**
-             * TODO: Add comment.
-             */
-            void saveLine(const string& filename, double minx, double maxx,
-                    unsigned samples, const Transformer& t) const;
     };
 
 }
