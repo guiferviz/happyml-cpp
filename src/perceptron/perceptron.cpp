@@ -12,7 +12,7 @@ using namespace std;
 namespace happyml
 {
 
-    Perceptron::Perceptron(unsigned d) : w(d + 1)
+    Perceptron::Perceptron(unsigned d) : w(d + 1, fill::zeros)
     {
     }
 
