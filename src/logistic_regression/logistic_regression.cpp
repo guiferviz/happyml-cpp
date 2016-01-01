@@ -7,7 +7,7 @@
 namespace happyml
 {
 
-    LogisticRegression::LogisticRegression(unsigned d) : w(d + 1)
+    LogisticRegression::LogisticRegression(unsigned d) : w(d + 1, fill::randn)
     {
     }
 
