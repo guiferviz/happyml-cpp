@@ -54,7 +54,6 @@ namespace happyml
         for(deque<unsigned>::const_reverse_iterator it = removeOrder.rbegin();
                 it != removeOrder.rend(); ++it)
         {
-            cout << *it << endl;
             x.shed_col(*it);
         }
     }

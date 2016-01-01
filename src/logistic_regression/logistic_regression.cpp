@@ -7,7 +7,7 @@
 namespace happyml
 {
 
-    LogisticRegression::LogisticRegression(unsigned d) : w(d + 1)
+    LogisticRegression::LogisticRegression(unsigned d) : w(d + 1, fill::randn)
     {
     }
 
@@ -39,7 +39,7 @@ namespace happyml
                 g += dataset.y[j] * dataset.X.row(j).t() / as_scalar(1 + exp(
                         dataset.y[j] * w.t() * dataset.X.row(j).t()));
             }
-            g *= - ((float) 1) / dataset.N;
+            g *= - 1.0 / dataset.N;
             w = w - learning_rate * g;
             // TODO: compute error inside last for loop.
             // TODO: add best end condition.
@@ -52,7 +52,7 @@ namespace happyml
         return currentError;
     }
 
-    double LogisticRegression::classify(const Input& x) const
+    double LogisticRegression::predict(const Input& x) const
     {
         float output = as_scalar(w.t() * x);
 
@@ -61,13 +61,13 @@ namespace happyml
 
     double LogisticRegression::error(const DataSet& dataset) const
     {
-        float currentError = 0;
+        double currentError = 0;
         for (unsigned j = 0; j < dataset.N; ++j)
         {
             currentError += as_scalar(log(1 + exp(- dataset.y[j] * w.t()
                     * dataset.X.row(j).t())));
         }
-        currentError /= ((float) dataset.N);
+        currentError /= dataset.N;
 
         return currentError;
     }

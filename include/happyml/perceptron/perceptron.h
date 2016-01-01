@@ -4,7 +4,7 @@
 
 
 #include "happyml/types.h"
-#include "happyml/classifier.h"
+#include "happyml/predictor.h"
 
 
 namespace happyml
@@ -67,7 +67,7 @@ namespace happyml
              *
              * @return \f$-1\f$ or \f$+1\f$.
              */
-            double classify(const Input& x) const;
+            double predict(const Input& x) const;
 
             /**
              * Compute the error of the perceptron on the given dataset.

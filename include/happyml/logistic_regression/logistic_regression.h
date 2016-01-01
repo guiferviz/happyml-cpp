@@ -3,7 +3,9 @@
 #define _HAPPY_ML_LOGISTIC_REGRESSION_H_
 
 
-#include "happyml.h"
+#include "happyml/types.h"
+#include "happyml/utils.h"
+#include "happyml/predictor.h"
 
 
 using namespace arma;
@@ -44,7 +46,7 @@ namespace happyml
 
             /**
              * Destroys the logistic regression algorithm (sets the weights
-             * to \f$0\f$).
+             * size to \f$0\f$).
              */
             ~LogisticRegression();
 
@@ -62,13 +64,13 @@ namespace happyml
              * Data must contain the \f$x_0 = 1\f$ property.
              * 
              * @param data Training set.
-             * @param iter Maximun number of iterations.
-             * @param learning_rate Learning rate.
+             * @param iter Maximun number of iterations (\f$1000\f$ by default).
+             * @param learning_rate Learning rate (\f$0.1\f$ by default.).
              *
              * @return Returns the error of the best weights found.
              */
-            double train(const DataSet& data, unsigned iter,
-                    double learning_rate);
+            double train(const DataSet& data, unsigned iter = 1000,
+                    double learning_rate = 0.1);
 
             /**
              * Classifies an input vector.
@@ -76,7 +78,7 @@ namespace happyml
              * @return Probability of the input to belong to +1 class.
              *         Output in the interval \f$[0, 1]\f$.
              */
-            double classify(const Input& x) const;
+            double predict(const Input& x) const;
 
             /**
              * Compute the error of the logistic regression on the given

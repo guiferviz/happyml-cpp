@@ -18,7 +18,7 @@ namespace happyml
 {
 
     /**
-     * Set of inputs features.
+     * Vector of inputs features.
      * \f$
      * \mathbf{x} = \begin{pmatrix}
      *      x_0 \\

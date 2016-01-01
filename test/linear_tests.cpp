@@ -79,7 +79,7 @@ TEST_F(LinearRegressionTests, TestTrain2)
     linear = happyml::LinearRegression(dataset.d);
     double error = linear.train(dataset);
     
-    //linear.saveLine("line.data", -5, 5, 50, t);
+    //linear.saveSampling("line.data", -5, 5, 50, t);
     //system("happyplot -d fixtures/parabola.data");
     
     //cout << linear.getWeights() << endl;
