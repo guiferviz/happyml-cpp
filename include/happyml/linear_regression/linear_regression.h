@@ -3,7 +3,10 @@
 #define _HAPPY_ML_LINEAR_REGRESSION_H_
 
 
-#include "happyml.h"
+#include "happyml/types.h"
+#include "happyml/utils.h"
+#include "happyml/classifier.h"
+#include "happyml/transformer.h"
 
 
 using namespace arma;
@@ -91,6 +94,12 @@ namespace happyml
              */
             void saveLine(const string& filename, double minx, double maxx,
                     unsigned samples) const;
+
+            /**
+             * TODO: Add comment.
+             */
+            void saveLine(const string& filename, double minx, double maxx,
+                    unsigned samples, const Transformer& t) const;
     };
 
 }

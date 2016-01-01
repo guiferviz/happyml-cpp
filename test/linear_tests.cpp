@@ -36,8 +36,8 @@ class LinearRegressionTests : public testing::Test
 
         virtual void TearDown()
         {
-            linear.saveLine("line.data", -10, 10, 20);
-            //system("happyplot -d fixtures/4points.data");
+            //linear.saveLine("line.data", -10, 10, 20);
+            //system("happyplot -d fixtures/parabola.data");
             
             //remove("points.data");
             //remove("boundary.data");
@@ -70,11 +70,21 @@ TEST_F(LinearRegressionTests, TestTrain1)
 TEST_F(LinearRegressionTests, TestTrain2)
 {
     dataset.load("fixtures/parabola.data");
+    //vec w(3); w[0] = -1; w[1] = -2; w[2] = 1;
+    
+    happyml::Transformer t;
+    t.addPower(1, 2);
+    t.apply(dataset);
 
     linear = happyml::LinearRegression(dataset.d);
     double error = linear.train(dataset);
+    
+    //linear.saveLine("line.data", -5, 5, 50, t);
+    //system("happyplot -d fixtures/parabola.data");
+    
+    //cout << linear.getWeights() << endl;
 
-    //ASSERT_NEAR(0, error, 0.001);
+    ASSERT_NEAR(0, error, 0.001);
 }
 
 

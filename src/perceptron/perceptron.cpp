@@ -3,6 +3,8 @@
 
 #include <iomanip>  // std::setprecision
 
+#include "happyml/utils.h"
+
 
 using namespace std;
 

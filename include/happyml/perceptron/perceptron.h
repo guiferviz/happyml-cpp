@@ -3,10 +3,8 @@
 #define _HAPPY_ML_PERCEPTRON_H_
 
 
-#include "happyml.h"
-
-
-using namespace arma;
+#include "happyml/types.h"
+#include "happyml/classifier.h"
 
 
 namespace happyml
