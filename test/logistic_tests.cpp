@@ -66,13 +66,13 @@ TEST_F(LogisticRegressionTests, TestTrain2)
     t.remove(1);
     t.remove(2);
     t.apply(dataset);
-    //dataset.save("points.data");
+    //dataset.save("points.data");  // Save transformed data.
 
     logistic = happyml::LogisticRegression(dataset.d);
-    double error = logistic.train(dataset, 100, 0.1);
+    double error = logistic.train(dataset, 50, 0.4);
     
     //logistic.saveBoundary("boundary.data", 50, -3, 3, -3, 3, t);
-    //system("happyplot");
+    //system("happyplot");  // Plot transformed boundary and data.
 
     ASSERT_NEAR(0, error, 0.1);
 }
