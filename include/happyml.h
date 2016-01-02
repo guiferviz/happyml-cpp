@@ -13,6 +13,7 @@
 #include "happyml/perceptron/perceptron.h"
 #include "happyml/logistic_regression/logistic_regression.h"
 #include "happyml/linear_regression/linear_regression.h"
+#include "happyml/neural_network/neural_network.h"
 
 
 using namespace std;
