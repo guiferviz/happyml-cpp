@@ -13,10 +13,6 @@ namespace happyml
 
     class Perceptron : public Classifier, LinearModel
     {
-        private:
-
-            vec w;
-
         public:
 
             /**
@@ -33,10 +29,7 @@ namespace happyml
              */
             Perceptron(const vec& weights) : LinearModel(weights) {}
 
-            /**
-             * Creates a perceptron from the weights of the other perceptron.
-             */
-            Perceptron(const Perceptron& p) : LinearModel(p) {}
+            Perceptron(const LinearModel& lm) : LinearModel(lm) {}
 
 
             /**
