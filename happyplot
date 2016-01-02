@@ -74,10 +74,12 @@ if exist(BOUNDARY_FILE, "file")
     % The levels of the contour depends on whether the outputs are almost all
     % +-1 or if they have decimals and are near to 0.
     levels = [];
-    if sum(sum(abs(z))) > u_size * v_size * 0.8
+    if sum(sum(abs(z))) == u_size * v_size
         levels = [-1 1];
     else
-        levels = [-1 0 1];
+        % Using 1.0001 to avoid that appears more lines if the output is
+        % exactly 1.
+        levels = [-1.0001 0 1.0001];
     end
     % Drawing the contour. Set the line color to a colormap color to 'hide'
     % the lines of the contour.
