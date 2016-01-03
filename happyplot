@@ -120,8 +120,8 @@ if exist(POINTS_FILE, 'file')
     if d == 2
         iPositive = find(y ==  1);
         iNegative = find(y == -1);
-        plot(X(iPositive, 1), X(iPositive, 2), 'k.', 'MarkerSize', 15, 'color', 'blue');
-        plot(X(iNegative, 1), X(iNegative, 2), 'k.', 'MarkerSize', 15, 'color', 'red');
+        plot(X(iPositive, 1), X(iPositive, 2), 'k.', 'MarkerSize', 25, 'color', 'blue');
+        plot(X(iNegative, 1), X(iNegative, 2), 'k.', 'MarkerSize', 25, 'color', 'red');
     else  % Linear regression data.
         plot(X, y, 'k.', 'MarkerSize', 15, 'color', 'green');
     end
@@ -131,6 +131,8 @@ end
 % ------------------------------------------------------------------------------
 fprintf('\nSaving to a file (%s).\n', OUTPUT_FILE);
 
+% Axis font size.
+set(gca, "fontsize", 20)
 print("png", OUTPUT_FILE);%, "-S640,480")
 
 hold off;
