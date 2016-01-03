@@ -14,6 +14,7 @@
 #include "happyml/logistic_regression/logistic_regression.h"
 #include "happyml/linear_regression/linear_regression.h"
 #include "happyml/neural_network/neural_network.h"
+#include "happyml/happytools.h"
 
 
 using namespace std;
