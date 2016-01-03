@@ -11,7 +11,7 @@
 namespace happyml
 {
 
-    class Perceptron : public Classifier, LinearModel
+    class Perceptron : public Classifier, public LinearModel
     {
         public:
 
