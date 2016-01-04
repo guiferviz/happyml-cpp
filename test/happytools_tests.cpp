@@ -60,13 +60,14 @@ TEST_F(HappyToolsTests, TestSaveDot)
 
     logistic = happyml::LogisticRegression(dataset.d);
     double error = logistic.train(dataset, 1000, 2);
-    
 
-    happyml::tools::modelToDot(logistic, "model.dot");
-    
     cout << logistic.getWeights() << endl;
     
+    vec w(30, fill::randu);
+    logistic = happyml::LogisticRegression(w);
+    happyml::tools::modelToDot(logistic, "model.dot", true);
     system("dot -Tpng -omodel.png -Gsize=9,15\\! -Gdpi=100 model.dot");
+    // dot2tex --figpreamble="\Large" --template template.tex model.dot > file.tex && pdflatex -shell-escape file.tex
     //logistic.saveSampling("boundary.data", -10, 10, 50, -10, 10, 50);
     //system("happyplot -d fixtures/4points.data");
 }

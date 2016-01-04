@@ -34,7 +34,7 @@ namespace happyml
          * </code>
          * 
          * The DOT file can also be generated for Latex (formulas can be
-         * included on the node names and edges tags). For generating a
+         * included in nodes or edges names). For generating a
          * DOT-Latex files use dot2tex. First generate the tex file from your
          * DOT file and then compile it with pdflatex:
          * 
