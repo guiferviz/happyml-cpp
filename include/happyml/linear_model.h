@@ -44,7 +44,7 @@ namespace happyml
             LinearModel(const vec& weights) : w(weights) {}
 
             /**
-             * Creates a linear model from the weights of other linear model.
+             * Creates a linear model from the weights of another linear model.
              * 
              * @param lm Linear model from which weights are copied.
              */
