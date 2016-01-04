@@ -41,21 +41,22 @@ namespace happyml
             ""
             "	subgraph {"
             "		rank=same;"
-            "		x0;"
+            "		{{bias}};"
             "	    node [color=green];"
-            "		{{nodes}};"
+            "		{{nodes}}"
             //x0 -> x1 -> x2 [style=invis];
             "	}"
             "	subgraph {"
             "       node [color=red];"
-            "		output [label=\"h(x)\"];"
+            "		{{output}};"
             "	}"
             ""
             "   {{edges}}"
             "}";
 
         string edgeTemplate = "x{{i}} -> output [label=\"{{weight}}\","
-            "color=\"0 0 {{color}}\", fontcolor=\"0 0 {{color}}\"];";
+            "color=\"0 0 {{color}}\",{{color_int}}"
+            "fontcolor=\"0 0 {{color}}\"];";
 
         void modelToDot(const LinearModel& lm, const string& filename,
                 bool latex)
@@ -72,14 +73,26 @@ namespace happyml
         {
             dictionary dic;
             dic["title"] = "Linear Model";
+            dic["bias"] = latex ? "x0[texlbl=\"$x_0$\",lblstyle=\"font=\\huge\"]"
+                    : "x0";
+            dic["output"] = latex ? "output[label=\"h(x)\",texlbl=\"$h(\\mathbf{x})$\"]"
+                    : "output[label=\"h(x)\"]";
             
             vec w = lm.getWeights();
             unsigned size = w.size();
-            double max = w.max();
+            vec maxV = abs(w);
+            double max = maxV.max();
             
             stringstream ss;
+            // Create input node list.
             for (unsigned i = 1; i < size; ++i)
-                ss << "x" << i << " ";
+            {
+                if (latex)
+                    ss << "x" << i << "[texlbl=\"$x_{" << i
+                            << "}$\",lblstyle=\"font=\\huge\"];";
+                else
+                    ss << "x" << i << " ";
+            }
             dic["nodes"] = ss.str();
             
             ss.str("");
@@ -87,9 +100,14 @@ namespace happyml
             {
                 stringstream sss;
                 
-                double color = 1 - (w[i] / max) / 2 - 0.5;
+                double color = 1 - abs(w[i] / max) / 10 * 9 - 0.1;
+                color = abs(round(color * 100) / 100);
                 sss << setprecision(4) << color;
                 string colorStr = sss.str();
+                sss.str("");
+                sss << "lblstyle=\"text=black!" << 100 - round(color * 10) * 10
+                        << "\",";
+                string colorIntStr = sss.str();
                 sss.str("");
                 
                 sss << setprecision(4) << w[i];
@@ -104,6 +122,7 @@ namespace happyml
                 dicEdge["i"] = iStr;
                 dicEdge["weight"] = weightStr;
                 dicEdge["color"] = colorStr;
+                dicEdge["color_int"] = latex ? colorIntStr : "";
                 
                 ss << substitute(edgeTemplate, dicEdge);
             }
