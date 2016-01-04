@@ -17,7 +17,7 @@ namespace happyml
     {
 
         /**
-         * Diccionary containing variables names as keys and his values.
+         * Dictionary containing variables names as keys and his values.
          * 
          * @see substitute
          */
