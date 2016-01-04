@@ -6,6 +6,7 @@
 #include "happyml/types.h"
 #include "happyml/utils.h"
 #include "happyml/predictor.h"
+#include "happyml/linear_model.h"
 
 
 using namespace arma;
@@ -14,12 +15,8 @@ using namespace arma;
 namespace happyml
 {
 
-    class LogisticRegression : public Classifier
+    class LogisticRegression : public Classifier, public LinearModel
     {
-        private:
-
-            vec w;
-
         public:
 
             /**
@@ -28,7 +25,7 @@ namespace happyml
              * 
              * @param d Dimension \f$d\f$ of the input feature vectors.
              */
-            LogisticRegression(unsigned d = 0);
+            LogisticRegression(unsigned d = 0) : LinearModel(d) {}
 
             /**
              * Creates a logistic regression algorithm with the indicated
@@ -36,27 +33,10 @@ namespace happyml
              * 
              * @param weights Weight vector with \f$d + 1\f$ size.
              */
-            LogisticRegression(const vec& weights);
+            LogisticRegression(const vec& weights) : LinearModel(weights) {}
 
-            /**
-             * Creates a logistic regression algorithm from the weights of
-             * the other algorithm.
-             */
-            LogisticRegression(const LogisticRegression&);
+            LogisticRegression(const LinearModel& lm) : LinearModel(lm) {}
 
-            /**
-             * Destroys the logistic regression algorithm (sets the weights
-             * size to \f$0\f$).
-             */
-            ~LogisticRegression();
-
-
-            /**
-             * Get a copy of the logistic regression weights.
-             * 
-             * @return Copy of the logistic regression weights.
-             */
-            vec getWeights() const { return w; }
 
             /**
              * Train the logistic regression until the training loops over the

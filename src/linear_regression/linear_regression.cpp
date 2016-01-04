@@ -7,24 +7,6 @@
 namespace happyml
 {
 
-    LinearRegression::LinearRegression(unsigned d) : w(d + 1)
-    {
-    }
-
-    LinearRegression::LinearRegression(const vec& weights) : w(weights)
-    {
-    }
-
-    LinearRegression::LinearRegression(const LinearRegression& l) : w(l.w)
-    {
-    }
-
-    LinearRegression::~LinearRegression()
-    {
-        w.set_size(0);
-    }
-
-
     double LinearRegression::train(const DataSet& dataset)
     {
         cout << colors::BLUE << "Training Logistic Regression"

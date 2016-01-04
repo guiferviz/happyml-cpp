@@ -6,7 +6,7 @@
 #include "happyml/types.h"
 #include "happyml/utils.h"
 #include "happyml/predictor.h"
-#include "happyml/transformer.h"
+#include "happyml/linear_model.h"
 
 
 using namespace arma;
@@ -15,12 +15,8 @@ using namespace arma;
 namespace happyml
 {
 
-    class LinearRegression : public Classifier
+    class LinearRegression : public Classifier, public LinearModel
     {
-        private:
-
-            vec w;
-
         public:
 
             /**
@@ -30,7 +26,7 @@ namespace happyml
              * @param d Dimension \f$d\f$, number of features of the input
              *          vectors.
              */
-            LinearRegression(unsigned d = 0);
+            LinearRegression(unsigned d = 0) : LinearModel(d) {}
 
             /**
              * Creates a linear regression algorithm with the indicated
@@ -38,29 +34,10 @@ namespace happyml
              * 
              * @param weights Weight vector with \f$d + 1\f$ size.
              */
-            LinearRegression(const vec& weights);
+            LinearRegression(const vec& weights) : LinearModel(weights) {}
 
-            /**
-             * Creates a linear regression algorithm from the weights of
-             * the other algorithm.
-             * 
-             * @param lr Linear regression to copy.
-             */
-            LinearRegression(const LinearRegression& lr);
+            LinearRegression(const LinearModel& lm) : LinearModel(lm) {}
 
-            /**
-             * Destroys the linear regression algorithm (sets the weights
-             * size to \f$0\f$).
-             */
-            ~LinearRegression();
-
-
-            /**
-             * Get a copy of the linear regression weights.
-             * 
-             * @return Copy of the linear regression weights.
-             */
-            vec getWeights() const { return w; }
 
             /**
              * Train the linear regression.
@@ -88,7 +65,6 @@ namespace happyml
              *         grater than \f$0\f$.
              */
             double error(const DataSet& data) const;
-
     };
 
 }

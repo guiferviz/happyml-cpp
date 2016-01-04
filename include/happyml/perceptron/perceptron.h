@@ -5,17 +5,14 @@
 
 #include "happyml/types.h"
 #include "happyml/predictor.h"
+#include "happyml/linear_model.h"
 
 
 namespace happyml
 {
 
-    class Perceptron : public Classifier
+    class Perceptron : public Classifier, public LinearModel
     {
-        private:
-
-            vec w;
-
         public:
 
             /**
@@ -23,32 +20,17 @@ namespace happyml
              * 
              * @param d Dimension \f$d\f$ of the input feature vectors.
              */
-            Perceptron(unsigned d = 0);
+            Perceptron(unsigned d = 0) : LinearModel(d) {}
 
             /**
              * Creates a perceptron with the indicated weights.
              * 
              * @param weights Weight vector with \f$d + 1\f$ dimensions.
              */
-            Perceptron(const vec& weights);
+            Perceptron(const vec& weights) : LinearModel(weights) {}
 
-            /**
-             * Creates a perceptron from the weights of the other perceptron.
-             */
-            Perceptron(const Perceptron&);
+            Perceptron(const LinearModel& lm) : LinearModel(lm) {}
 
-            /**
-             * Destroys the percetron (sets the weights to \f$0\f$).
-             */
-            ~Perceptron();
-
-
-            /**
-             * Get a copy of the perceptron weights.
-             * 
-             * @return Copy of the perceptron weights.
-             */
-            vec getWeights() const { return w; }
 
             /**
              * Train the perceptron until the training loops over the data nTimes,

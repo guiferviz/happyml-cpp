@@ -12,23 +12,6 @@ using namespace std;
 namespace happyml
 {
 
-    Perceptron::Perceptron(unsigned d) : w(d + 1, fill::zeros)
-    {
-    }
-
-    Perceptron::Perceptron(const vec& weights) : w(weights)
-    {
-    }
-
-    Perceptron::Perceptron(const Perceptron& p) : w(p.w)
-    {
-    }
-
-    Perceptron::~Perceptron()
-    {
-    }
-
-
     double Perceptron::train(const DataSet& data, unsigned iter)
     {
         vec bestW;

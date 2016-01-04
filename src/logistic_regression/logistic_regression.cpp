@@ -7,24 +7,6 @@
 namespace happyml
 {
 
-    LogisticRegression::LogisticRegression(unsigned d) : w(d + 1, fill::randn)
-    {
-    }
-
-    LogisticRegression::LogisticRegression(const vec& weights) : w(weights)
-    {
-    }
-
-    LogisticRegression::LogisticRegression(const LogisticRegression& l) : w(l.w)
-    {
-    }
-
-    LogisticRegression::~LogisticRegression()
-    {
-        w.set_size(0);
-    }
-
-
     double LogisticRegression::train(const DataSet& dataset, unsigned iter,
             double learning_rate)
     {
