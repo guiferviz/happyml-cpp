@@ -47,7 +47,7 @@ TITLE_PLOT
 % ------------------------------------------------------------------------------
 close all;
 figure(1);
-title(TITLE_PLOT);
+title(TITLE_PLOT, "fontsize", 20);
 hold on;
 
 
