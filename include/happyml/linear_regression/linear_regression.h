@@ -49,6 +49,16 @@ namespace happyml
             double train(const DataSet& data);
 
             /**
+             * Train the linear regression.
+             * 
+             * @param data Training set.
+             * @param lambda Regularization paramiter \f$\lambda\f$.
+             *
+             * @return Returns the final error.
+             */
+            double train(const DataSet& data, double lambda);
+
+            /**
              * Predict the output of an input vector.
              *
              * @return Estimated real output.
