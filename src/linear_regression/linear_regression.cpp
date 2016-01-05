@@ -21,6 +21,21 @@ namespace happyml
         return currentError;
     }
 
+    double LinearRegression::train(const DataSet& dataset, double lambda)
+    {
+        cout << colors::BLUE << "Training Logistic Regression"
+                << colors::RESET << endl;
+
+        mat I(dataset.N, dataset.N, fill::eye); I(0, 0) = 0;
+        w = inv(dataset.X.t() * dataset.X + lambda * I) * dataset.X.t() * dataset.y; 
+
+        double currentError = error(dataset);
+        cout << colors::RED << "End of the training. Error " << setprecision(4)
+                << currentError << colors::RESET << endl;
+
+        return currentError;
+    }
+
     double LinearRegression::predict(const Input& x) const
     {
         return as_scalar(w.t() * x);
