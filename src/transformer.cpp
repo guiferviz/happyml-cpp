@@ -56,6 +56,11 @@ namespace happyml
         {
             x.shed_col(*it);
         }
+        // Let's normalize the dataset.
+        if (toNormalize)
+        {
+            applyNormalization(x);
+        }
     }
 
     void Transformer::applyCreateNew(mat& x, unsigned i) const
@@ -94,10 +99,37 @@ namespace happyml
         }
     }
 
-    void Transformer::apply(DataSet& dataset) const
+    void Transformer::applyNormalization(mat& x) const
     {
+        // Assumes stdDeviationVec and meanVec have been correctly initialized.
+        mat stdDeviationMat = vec(x.n_rows, fill::ones) * stdDeviationVec;
+        mat meanMat = vec(x.n_rows, fill::ones) * meanVec;
+        
+        x -= meanMat;
+        x /= stdDeviationMat;
+    }
+
+    void Transformer::apply(DataSet& dataset)
+    {
+        // Initialize meanVec and stdDeviationVec using the currect dataset.
+        if (toNormalize && meanVec.size() == 0)
+        {
+            // Compute and save the mean.
+            meanVec = mean(dataset.X);
+            
+            // Compute and save the standard deviation.
+            stdDeviationVec = stddev(dataset.X);
+            // Change 0s to 1e-100 to avoid NaN in the division.
+            stdDeviationVec.elem(find(stdDeviationVec == 0)).fill(1e-100);
+        }
+        
         applyToMatrix(dataset.X);
         dataset.d = dataset.X.n_cols - 1;
+    }
+
+    void Transformer::normalize()
+    {
+        toNormalize = true;
     }
 
     Input Transformer::apply(const Input& input) const

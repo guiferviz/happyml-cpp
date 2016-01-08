@@ -37,6 +37,12 @@ namespace happyml
             
             deque<unsigned> removeOrder;
 
+            bool toNormalize;
+
+            rowvec stdDeviationVec;
+
+            rowvec meanVec;
+
             /*
              * Applies the actions in the given order to a matrix.
              */
@@ -52,9 +58,14 @@ namespace happyml
              */
             void applyNoCreateNew(mat& x, unsigned actionIndex) const;
 
+            /**
+             * Applies the normalization to the whole matrix.
+             */
+            void applyNormalization(mat& x) const;
+
         public:
 
-            Transformer() {}
+            Transformer() { toNormalize = false; }
             
             ~Transformer() {}
 
@@ -97,11 +108,18 @@ namespace happyml
             void remove(unsigned feature);
 
             /**
+             * Normalize the dataset when you call to apply.
+             * The normalization is done after all the other transformations
+             * are performed.
+             */
+            void normalize();
+
+            /**
              * Applies all the transformations in the given dataset.
              * 
              * @param dataset Dataset to transform.
              */
-            void apply(DataSet& dataset) const;
+            void apply(DataSet& dataset);
 
             /**
              * Applies all the transformations in the given input.
