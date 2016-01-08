@@ -52,15 +52,16 @@ TEST_F(NormalizerTests, TestNormalizer1)
 {
     t.normalize();
     t.apply(dataset);
-
-    ASSERT_EQ(1, dataset.X(0, 1));
-    ASSERT_EQ(1, dataset.X(0, 2));
-    ASSERT_EQ(1, dataset.X(1, 1));
-    ASSERT_EQ(-1, dataset.X(1, 1));
-    ASSERT_EQ(-1, dataset.X(2, 1));
-    ASSERT_EQ(1, dataset.X(2, 2));
-    ASSERT_EQ(-1, dataset.X(3, 1));
-    ASSERT_EQ(-1, dataset.X(3, 1));
+    
+    ASSERT_NEAR(0, dataset.X(0, 0), 0.001);
+    ASSERT_NEAR(0.8660, dataset.X(0, 1), 0.001);
+    ASSERT_NEAR(0.8660, dataset.X(0, 2), 0.001);
+    ASSERT_NEAR(0.8660, dataset.X(1, 1), 0.001);
+    ASSERT_NEAR(-0.8660, dataset.X(1, 2), 0.001);
+    ASSERT_NEAR(-0.8660, dataset.X(2, 1), 0.001);
+    ASSERT_NEAR(0.8660, dataset.X(2, 2), 0.001);
+    ASSERT_NEAR(-0.8660, dataset.X(3, 1), 0.001);
+    ASSERT_NEAR(-0.8660, dataset.X(3, 2), 0.001);
 }
 
 
