@@ -11,7 +11,7 @@ OUTPUT_FILE = 'output.png';
 TITLE_PLOT = '';
 
 % Reading parameters.
-arg_list = argv()
+arg_list = argv();
 if mod(size(arg_list, 1), 2) == 0
     for i = 1:2:size(arg_list)
         if strcmp(arg_list{i}, '-o')
