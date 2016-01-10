@@ -167,6 +167,20 @@ namespace happyml
                 {
                     eigVec = eigVec.cols(eigVec.n_cols - pcaK, eigVec.n_cols - 1);
                 }
+                else // if (pcaVariance > 0)
+                {
+                    double total = sum(eigVal);
+                    double sum = 0;
+                    for (int i = eigVec.n_cols - 1; i >= 0; --i)
+                    {
+                        sum += eigVal(i);
+                        if (sum / total >= pcaVariance)
+                        {
+                            eigVec = eigVec.cols(i, eigVec.n_cols - 1);
+                            break;
+                        }
+                    }
+                }
             }
             // Apply PCA.
             applyPCA(dataset.X);
