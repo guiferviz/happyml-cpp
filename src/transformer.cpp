@@ -34,10 +34,8 @@ namespace happyml
         removeOrder.push_back(feature);
     }
 
-    void Transformer::applyToMatrix(mat& x) const
+    void Transformer::applyActions(mat& x) const
     {
-        colvec feature_i;
-        
         unsigned nActions = actions.size();
         for (unsigned i = 0; i < nActions; ++i)
         {
@@ -55,11 +53,6 @@ namespace happyml
                 it != removeOrder.rend(); ++it)
         {
             x.shed_col(*it);
-        }
-        // Let's normalize the dataset.
-        if (toNormalize)
-        {
-            applyNormalization(x);
         }
     }
 
@@ -109,21 +102,70 @@ namespace happyml
         x /= stdDeviationMat;
     }
 
+    void Transformer::applyPCA(mat& x) const
+    {
+        // Assumes eigVec has been correctly initialized.
+        x *= eigVec;
+        // x is now a z vector (transformed).
+    }
+
     void Transformer::apply(DataSet& dataset)
     {
-        // Initialize meanVec and stdDeviationVec using the currect dataset.
-        if (toNormalize && meanVec.size() == 0)
+        // Apply all the actions (add, sub, pow and delete).
+        applyActions(dataset.X);
+        // Let's normalize the dataset.
+        if (toNormalize)
         {
-            // Compute and save the mean.
-            meanVec = mean(dataset.X);
-            
-            // Compute and save the standard deviation.
-            stdDeviationVec = stddev(dataset.X);
-            // Change 0s to 1e-100 to avoid NaN in the division.
-            stdDeviationVec.elem(find(stdDeviationVec == 0)).fill(1e-100);
+            // Remove x_0 feature.
+            dataset.X = dataset.X.cols(1, dataset.X.n_cols - 1);
+            // Initialize meanVec and stdDeviationVec using the currect dataset.
+            if (meanVec.size() == 0)
+            {
+                // Compute and save the mean.
+                meanVec = mean(dataset.X);
+                
+                // Compute and save the standard deviation.
+                stdDeviationVec = stddev(dataset.X);
+                // Change 0s to 1e-100 to avoid NaN in the division.
+                stdDeviationVec.elem(find(stdDeviationVec == 0)).fill(1e-100);
+            }
+            // Apply normalization.
+            applyNormalization(dataset.X);
+            // Add x_0 = 1 feature.
+            dataset.X = join_rows(vec(dataset.N, fill::ones), dataset.X);
         }
-        
-        applyToMatrix(dataset.X);
+        // Initialize eigenvalues and eigenvectors if PCA is required.
+        if (pcaK > 0 || pcaVariance > 0)
+        {
+            // Remove x_0 feature.
+            dataset.X = dataset.X.cols(1, dataset.X.n_cols - 1);
+            mat covMat;
+            if (toNormalize)
+            {
+                covMat = cov(dataset.X);
+            }
+            else  // if (meanVec.size() == 0)
+            {
+                // Compute and save the mean.
+                meanVec = mean(dataset.X);
+                // X mean.
+                mat Xm = dataset.X - vec(dataset.N, fill::ones) * meanVec;
+                // Covariance matrix.
+                covMat = cov(Xm);
+            }
+            // Save eigenvectors and eigenvalues.
+            eig_sym(eigVal, eigVec, covMat);  // return eig in ascendenting order.
+            
+        cout << "SEMEN " << eigVec << endl;
+            if (pcaK > 0)
+            {
+                eigVec = eigVec.cols(eigVec.n_cols - pcaK, eigVec.n_cols - 1);
+            }
+            // Apply PCA.
+            applyPCA(dataset.X);
+            // Add x_0 = 1 feature.
+            dataset.X = join_rows(vec(dataset.N, fill::ones), dataset.X);
+        }
         dataset.d = dataset.X.n_cols - 1;
     }
 
@@ -132,10 +174,27 @@ namespace happyml
         toNormalize = true;
     }
 
+    void Transformer::pca(int k)
+    {
+        pcaVariance = 0;
+        pcaK = k;
+    }
+
+    void Transformer::pcaMinVariance(double pcaVar)
+    {
+        pcaVariance = pcaVar;
+        pcaK = 0;
+    }
+
     Input Transformer::apply(const Input& input) const
     {
         mat x = input.t();
-        applyToMatrix(x);
+        applyActions(x);
+        
+        if (toNormalize)
+            applyNormalization(x);
+        if (pcaK > 0 || pcaVariance > 0)
+            applyPCA(x);
         
         return x.t();
     }

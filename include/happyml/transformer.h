@@ -43,17 +43,25 @@ namespace happyml
 
             rowvec meanVec;
 
-            /*
+            mat eigVec;
+
+            vec eigVal;
+
+            int pcaK;
+
+            double pcaVariance;
+
+            /**
              * Applies the actions in the given order to a matrix.
              */
-            void applyToMatrix(mat&) const;
+            void applyActions(mat&) const;
 
-            /*
+            /**
              * Applies the action and add the result as a new feature.
              */
             void applyCreateNew(mat&, unsigned actionIndex) const;
 
-            /*
+            /**
              * Applies the action at the existing feature.
              */
             void applyNoCreateNew(mat& x, unsigned actionIndex) const;
@@ -63,9 +71,19 @@ namespace happyml
              */
             void applyNormalization(mat& x) const;
 
+            /**
+             * Applies PCA extractor.
+             */
+            void applyPCA(mat& x) const;
+
         public:
 
-            Transformer() { toNormalize = false; }
+            Transformer()
+            {
+                toNormalize = false;
+                pcaK = 0;
+                pcaVariance = 0;
+            }
             
             ~Transformer() {}
 
@@ -113,6 +131,21 @@ namespace happyml
              * are performed.
              */
             void normalize();
+
+            /**
+             * PCA extranctor.
+             * 
+             * @param k Number of dimensions to choose.
+             */
+            void pca(int k);
+
+            /**
+             * PCA extractor.
+             * 
+             * @param pcaVar Choose \f$k\f$ dimensions ultils total variance
+             *               is at least <code>pcaVar</code>.
+             */
+            void pcaMinVariance(double pcaVar);
 
             /**
              * Applies all the transformations in the given dataset.
