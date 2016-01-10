@@ -105,6 +105,12 @@ namespace happyml
     void Transformer::applyPCA(mat& x) const
     {
         // Assumes eigVec has been correctly initialized.
+        // Normalize if is not already normalized.
+        if (!toNormalize)
+        {
+            mat meanMat = vec(x.n_rows, fill::ones) * meanVec;
+            x -= meanMat;
+        }
         x *= eigVec;
         // x is now a z vector (transformed).
     }
@@ -144,7 +150,7 @@ namespace happyml
             {
                 covMat = cov(dataset.X);
             }
-            else  // if (meanVec.size() == 0)
+            else if (meanVec.size() == 0)
             {
                 // Compute and save the mean.
                 meanVec = mean(dataset.X);
@@ -154,12 +160,13 @@ namespace happyml
                 covMat = cov(Xm);
             }
             // Save eigenvectors and eigenvalues.
-            eig_sym(eigVal, eigVec, covMat);  // return eig in ascendenting order.
-            
-        cout << "SEMEN " << eigVec << endl;
-            if (pcaK > 0)
+            if (eigVal.size() == 0)
             {
-                eigVec = eigVec.cols(eigVec.n_cols - pcaK, eigVec.n_cols - 1);
+                eig_sym(eigVal, eigVec, covMat);  // return eig in ascendenting order.
+                if (pcaK > 0)
+                {
+                    eigVec = eigVec.cols(eigVec.n_cols - pcaK, eigVec.n_cols - 1);
+                }
             }
             // Apply PCA.
             applyPCA(dataset.X);
@@ -190,11 +197,16 @@ namespace happyml
     {
         mat x = input.t();
         applyActions(x);
-        
+        x = x.cols(1, x.n_cols - 1);
         if (toNormalize)
+        {
             applyNormalization(x);
+        }
         if (pcaK > 0 || pcaVariance > 0)
+        {
             applyPCA(x);
+        }
+        x = join_rows(vec(x.n_rows, fill::ones), x);
         
         return x.t();
     }

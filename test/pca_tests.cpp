@@ -51,22 +51,15 @@ TEST_F(PCATests, TestSquareNewFeatureTransform)
 {
     dataset.load("fixtures/pca.data");
     
-    //t.normalize();
-    t.pca(2);
+    t.pca(1);
     t.apply(dataset);
     
     dataset.save("points.data");
-    // z = Xm*V(:,1)
-    //vec z = Xm * eigVec.col(1);
-    // p = z*V(:,1)'
-    //mat p = z * eigVec.col(1).t();
-    // p = bsxfun(@plus, p, mu)
-    //p = p + vec(dataset.N, fill::ones) * meanVec;
     
-    vec w1(3); w1(0) = 1; w1(1) = -.85065; w1(2) = -.52573;
-    vec w2(3); w2(0) = 1; w2(1) = 0.52573; w2(2) = -.85065;
-    happyml::Perceptron p(w1);
-    //p.saveSampling("boundary.data", -2, 4, 500, -2, 4, 500);
+    vec w1(3); w1(0) = 0; w1(1) = -.85065; w1(2) = -.52573;
+    vec w2(3); w2(0) = 0; w2(1) = 0.525731; w2(2) = -0.850651;
+    happyml::Perceptron p(w2);
+    p.saveSampling("boundary.data", -2, 2, 500, -2, 2, 500);
     
     system("happyplot -t PCA");
     //system("happyplot -d fixtures/pca.data");
@@ -75,16 +68,16 @@ TEST_F(PCATests, TestSquareNewFeatureTransform)
     ASSERT_EQ(4, dataset.N);
     
     ASSERT_NEAR(1, dataset.X(0, 0), 0.001);
-    ASSERT_NEAR(-0.10041, dataset.X(0, 1), 0.001);
+    ASSERT_NEAR(1.11352, dataset.X(0, 1), 0.001);
     
     ASSERT_NEAR(1, dataset.X(1, 0), 0.001);
-    ASSERT_NEAR(-0.42533, dataset.X(1, 1), 0.001);
+    ASSERT_NEAR(-0.26287, dataset.X(1, 1), 0.001);
     
     ASSERT_NEAR(1, dataset.X(2, 0), 0.001);
-    ASSERT_NEAR(0.42533, dataset.X(2, 1), 0.001);
+    ASSERT_NEAR(0.26287, dataset.X(2, 1), 0.001);
     
     ASSERT_NEAR(1, dataset.X(3, 0), 0.001);
-    ASSERT_NEAR(0.10041, dataset.X(3, 1), 0.001);
+    ASSERT_NEAR(-1.11352, dataset.X(3, 1), 0.001);
 }
 
 
