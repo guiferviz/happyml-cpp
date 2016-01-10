@@ -8,11 +8,12 @@ POINTS_FILE = 'points.data';
 BOUNDARY_FILE = 'boundary.data';
 LINE_FILE = 'line.data';
 OUTPUT_FILE = 'output.png';
+TITLE_PLOT = '';
 
 % Reading parameters.
 arg_list = argv();
 if mod(size(arg_list, 1), 2) == 0
-    for i = 1:size(arg_list):2
+    for i = 1:2:size(arg_list)
         if strcmp(arg_list{i}, '-o')
             OUTPUT_FILE = arg_list{i + 1};
         elseif strcmp(arg_list{i}, '-b')
@@ -21,6 +22,8 @@ if mod(size(arg_list, 1), 2) == 0
             POINTS_FILE = arg_list{i + 1};
         elseif strcmp(arg_list{i}, '-l')
             LINE_FILE = arg_list{i + 1};
+        elseif strcmp(arg_list{i}, '-t')
+            TITLE_PLOT = arg_list{i + 1};
         else
             error('ERROR: %s unknow parameter.', arg_list{i});
         end
@@ -38,21 +41,15 @@ POINTS_FILE
 BOUNDARY_FILE
 LINE_FILE
 OUTPUT_FILE
-
-
-% ------------------------------------------------------------------------------
-fprintf('\nLoading points.\n');
-data = load(POINTS_FILE);
-[N, d] = size(data);
-d = d - 1;  % Output is not a dimension.
-X = data(:, 1:d);
-y = data(:, d + 1);
+TITLE_PLOT
 
 
 % ------------------------------------------------------------------------------
 close all;
 figure(1);
+title(TITLE_PLOT, "fontsize", 20);
 hold on;
+
 
 % ------------------------------------------------------------------------------
 if exist(BOUNDARY_FILE, "file")
@@ -109,6 +106,12 @@ end
 % ------------------------------------------------------------------------------
 if exist(POINTS_FILE, 'file')
     fprintf('\nDrawing data.\n');
+    
+    data = load(POINTS_FILE);
+    [N, d] = size(data);
+    d = d - 1;  % Output is not a dimension.
+    X = data(:, 1:d);
+    y = data(:, d + 1);
     
     if d == 1
         if sum(abs(y)) == N

@@ -53,15 +53,41 @@ TEST_F(NormalizerTests, TestNormalizer1)
     t.normalize();
     t.apply(dataset);
     
-    ASSERT_NEAR(0, dataset.X(0, 0), 0.001);
+    ASSERT_NEAR(1, dataset.X(0, 0), 0.001);
     ASSERT_NEAR(0.8660, dataset.X(0, 1), 0.001);
     ASSERT_NEAR(0.8660, dataset.X(0, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(1, 0), 0.001);
     ASSERT_NEAR(0.8660, dataset.X(1, 1), 0.001);
     ASSERT_NEAR(-0.8660, dataset.X(1, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(2, 0), 0.001);
     ASSERT_NEAR(-0.8660, dataset.X(2, 1), 0.001);
     ASSERT_NEAR(0.8660, dataset.X(2, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(3, 0), 0.001);
     ASSERT_NEAR(-0.8660, dataset.X(3, 1), 0.001);
     ASSERT_NEAR(-0.8660, dataset.X(3, 2), 0.001);
+}
+
+TEST_F(NormalizerTests, TestNormalizerWithTransformations)
+{
+    t.addPower(1, 2);
+    t.remove(1);
+    
+    t.normalize();
+    
+    t.apply(dataset);
+    
+    ASSERT_NEAR(1, dataset.X(0, 0), 0.001);
+    ASSERT_NEAR(0.8660, dataset.X(0, 1), 0.001);
+    ASSERT_NEAR(0, dataset.X(0, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(1, 0), 0.001);
+    ASSERT_NEAR(-0.8660, dataset.X(1, 1), 0.001);
+    ASSERT_NEAR(0, dataset.X(1, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(2, 0), 0.001);
+    ASSERT_NEAR(0.8660, dataset.X(2, 1), 0.001);
+    ASSERT_NEAR(0, dataset.X(2, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(3, 0), 0.001);
+    ASSERT_NEAR(-0.8660, dataset.X(3, 1), 0.001);
+    ASSERT_NEAR(0, dataset.X(3, 2), 0.001);
 }
 
 
