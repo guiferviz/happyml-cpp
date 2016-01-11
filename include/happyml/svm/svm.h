@@ -22,6 +22,17 @@ namespace happyml
              */
             DataSet sv;
 
+            /**
+             * Weight vector.
+             */
+            vec w;
+
+            /**
+             * Bias.
+             */
+            double b;
+
+
         public:
 
             /**
@@ -35,15 +46,16 @@ namespace happyml
              * Train the SVM using the given dataset and the given parameters.
              * 
              * @param data Training set.
-             * @param C \f$C\f$ constant.
-             * @param iter Maximun number of iterations.
+             * @param C    SVM regularization parameter.
+             * @param iter Maximun number of iterations that the SMO algorithm
+             *             does all over the dataset.
              * @param tolerance Tolerance that checks if a change in any alpha
              *                  is significant to continue with other iteration.
              *
              * @return Returns the error of the SVM.
              */
-            double train(const DataSet& data, double C, unsigned iter,
-                    double tolerance);
+            double train(DataSet& data, double C = 1, unsigned iter = 5,
+                    double tolerance = 0.001);
 
             /**
              * Classifies an input vector.
