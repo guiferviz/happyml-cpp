@@ -18,6 +18,11 @@
 #include "happyml/happytools.h"
 
 
+#ifndef HAPPY_ML_VERSION
+    #define HAPPY_ML_VERSION "1.0"
+#endif
+
+
 using namespace std;
 using namespace arma;
 
