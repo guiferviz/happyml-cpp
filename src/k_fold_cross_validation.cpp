@@ -39,6 +39,7 @@ namespace happyml
             {
                 trainingset.X.shed_row(allSelected[j]);
                 trainingset.y.shed_row(allSelected[j]);
+                trainingset.N--;
             }
             
             // Create CV set.
