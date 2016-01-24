@@ -15,7 +15,7 @@ using namespace arma;
 namespace happyml
 {
 
-    class LinearRegression : public Classifier, public LinearModel
+    class LinearRegression : public Predictor, public LinearModel
     {
         public:
 

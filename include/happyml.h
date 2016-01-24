@@ -16,6 +16,7 @@
 #include "happyml/neural_network/neural_network.h"
 #include "happyml/svm/svm.h"
 #include "happyml/happytools.h"
+#include "happyml/k_fold_cross_validation.h"
 
 
 #ifndef HAPPY_ML_VERSION
