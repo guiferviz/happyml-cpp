@@ -1,0 +1,30 @@
+\form#0:$\mathcal{D}$
+\form#1:$d$
+\form#2:$(\mathbf{x}, y)$
+\form#3:$N$
+\form#4:$ \mathbf{X} = \begin{pmatrix} \mathbf{x}^{\rm T}_0 \\ \mathbf{x}^{\rm T}_1 \\ \vdots \\ \mathbf{x}^{\rm T}_{N - 1} \end{pmatrix} = \begin{pmatrix} x_{00} & \cdots & x_{0d} \\ x_{10} & \cdots & x_{1d} \\ \vdots & \ddots & \vdots \\ x_{(N-1)0} & \cdots & x_{(N-1)d} \end{pmatrix} $
+\form#5:$ \mathbf{y} = \begin{pmatrix} y_0 \\ y_1 \\ \vdots \\ y_{N - 1} \end{pmatrix} $
+\form#6:$\\ x_{01},x_{02},\cdots,x_{0d},y_{0}\\ x_{11},x_{12},\cdots,x_{1d},y_{1}\\ \ \ \vdots\ \ ,\ \ \vdots\ \ ,\ \cdots\ ,\ \ \vdots\ \ ,\ \ \vdots\\ x_{(N-1)1},x_{(N-1)2},\cdots,x_{(N-1)d},y_{(N-1)} $
+\form#7:$w_0 \cdot x_0 + w_1 \cdot x_1 + \cdots + w_d \cdot x_d$
+\form#8:$d + 1$
+\form#9:$0$
+\form#10:$\lambda$
+\form#11:$x_0 = 1$
+\form#12:$1000$
+\form#13:$0.1$
+\form#14:$[0, 1]$
+\form#15:$\eta$
+\form#16:$-1$
+\form#17:$+1$
+\form#18:$(minx_1, minx_2)$
+\form#19:$(maxx_1, maxx_2)$
+\form#20:$\\ minx_1,maxx_1,samples_1\\ minx_2,maxx_2,samples_2\\ h_{1\ 1},h_{1\ 2},\cdots,h_{1\ samples_1}\\ \ \vdots\ ,\ \vdots\ ,\cdots,\ \vdots\ \\ h_{samples\ 1},h_{samples\ 2},\cdots,h_{samples_2\ samples_1} $
+\form#21:$[minx, maxx]$
+\form#22:$\\ minx,maxx,samples\\ h_{1},h_{2},\cdots,h_{samples}\\ $
+\form#23:$feature$
+\form#24:$power$
+\form#25:$n$
+\form#26:$k$
+\form#27:$ \mathbf{x} = \begin{pmatrix} x_0 \\ x_1 \\ \vdots \\ x_d \end{pmatrix} $
+\form#28:$ \operatorname {sgn}(x) := {\begin{cases} -1 & {\text{if }} x < 0, \\ 1 & {\text{if }} x \geq 0. \end{cases}} $
+\form#29:$ g(x) = \dfrac{1}{1 + e^{-x}} $
