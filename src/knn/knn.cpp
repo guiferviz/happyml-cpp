@@ -13,9 +13,9 @@ namespace happyml
     {
         double minDistance = 9e99;
         int argmin = -1;
-        for (int i = 0; i < dataset->N; ++i)
+        for (int i = 0; i < dataset.N; ++i)
         {
-            vec aux = dataset->X.row(i).t() - x;
+            vec aux = dataset.X.row(i).t() - x;
             aux %= aux;
             double distance = sum(aux);
             if (distance < minDistance)
@@ -26,7 +26,7 @@ namespace happyml
         }
         
         if (argmin != -1)
-            return dataset->y[argmin];
+            return dataset.y[argmin];
         
         return 0;
     }

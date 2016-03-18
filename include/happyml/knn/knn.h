@@ -21,7 +21,7 @@ namespace happyml
             /**
              * Training set.
              */
-            const DataSet* dataset;
+            const DataSet dataset;
 
             int k;
 
@@ -33,9 +33,9 @@ namespace happyml
              * 
              * @param d Training set used to compute distances.
              */
-            KNN(const DataSet& d, int k = 1) { dataset = &d; this->k = k; }
+            KNN(const DataSet& d, int k = 1) : dataset(d) { this->k = k; }
 
-            KNN(const KNN& knn) { dataset = knn.dataset; k = knn.k; }
+            KNN(const KNN& knn) : dataset(knn.dataset), k(knn.k) {}
 
 
             /**
