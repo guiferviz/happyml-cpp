@@ -15,6 +15,7 @@
 #include "happyml/linear_regression/linear_regression.h"
 #include "happyml/neural_network/neural_network.h"
 #include "happyml/svm/svm.h"
+#include "happyml/knn/knn.h"
 #include "happyml/happytools.h"
 #include "happyml/k_fold_cross_validation.h"
 
