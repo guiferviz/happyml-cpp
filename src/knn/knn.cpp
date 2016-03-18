@@ -17,7 +17,7 @@ namespace happyml
         {
             vec aux = dataset.X.row(i).t() - x;
             aux %= aux;
-            double distance = sum(aux);
+            double distance = sqrt(sum(aux));
             if (distance < minDistance)
             {
                 minDistance = distance;
