@@ -8,6 +8,7 @@ using namespace std;
 namespace happyml
 {
 
+    // TODO: use k, only 1-NN is implemented.
     double KNN::predict(const Input& x) const
     {
         double minDistance = 9e99;
