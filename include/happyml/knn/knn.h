@@ -41,7 +41,8 @@ namespace happyml
             /**
              * Classifies an input vector.
              *
-             * @return +1 or -1.
+             * @return Number of the output of the nearest point in the
+             *         training set.
              */
             double predict(const Input& x) const;
             

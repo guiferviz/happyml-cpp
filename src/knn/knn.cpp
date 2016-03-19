@@ -1,6 +1,8 @@
 
 #include "happyml/knn/knn.h"
 
+#include <map>
+
 
 using namespace std;
 
@@ -8,27 +10,29 @@ using namespace std;
 namespace happyml
 {
 
-    // TODO: use k, only 1-NN is implemented.
     double KNN::predict(const Input& x) const
     {
-        double minDistance = 9e99;
-        int argmin = -1;
-        for (int i = 0; i < dataset.N; ++i)
+        // Thanks to sukharevd.
+        mat distances = repmat(x.t(), dataset.N, 1) - dataset.X;
+        distances = sqrt(sum(square(distances), 1));
+        umat sortedDistIndicies = sort_index(distances);
+        std::map<uword, int> classCount;
+        int maxVotes = -1;
+        int maxClass = -1;
+        for (unsigned i = 0; i < k; ++i)
         {
-            vec aux = dataset.X.row(i).t() - x;
-            aux %= aux;
-            double distance = sqrt(sum(aux));
-            if (distance < minDistance)
+            uword label = dataset.y[sortedDistIndicies[i]];
+            if (!classCount.count(label))
+                classCount.insert(std::make_pair(label, 0));
+            classCount.at(label) += 1;
+            if (classCount.at(label) > maxVotes)
             {
-                minDistance = distance;
-                argmin = i;
+                maxVotes = classCount.at(label);
+                maxClass = label;
             }
         }
         
-        if (argmin != -1)
-            return dataset.y[argmin];
-        
-        return 0;
+        return maxClass;
     }
 
 }

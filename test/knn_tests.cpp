@@ -60,27 +60,6 @@ TEST_F(KNNTests, TestTrain1)
     ASSERT_NEAR(-1, y, 0.01);
 }
 
-TEST_F(KNNTests, TestTrain2)
-{
-    /*dataset.load("fixtures/circle.data");
-
-    happyml::Transformer t;
-    t.addPower(1, 2);
-    t.addPower(2, 2);
-    t.remove(1);
-    t.remove(2);
-    t.apply(dataset);
-    //dataset.save("points.data");  // Save transformed data.
-
-    logistic = happyml::LogisticRegression(dataset.d);
-    double error = logistic.train(dataset, 50, 0.4);
-    
-    //logistic.saveSampling("boundary.data", -3, 3, 50, -3, 3, 50, t);
-    //system("happyplot");  // Plot transformed boundary and data.
-
-    ASSERT_NEAR(0, error, 0.1);*/
-}
-
 
 int main(int argc, char **argv)
 {
