@@ -103,12 +103,9 @@ namespace happyml
             // Updating weights.
             for (unsigned l = 1; l <= L; ++l)
             {
-                //cout << "g(" << l << ")" << endl << g[l] << endl;
                 weights[l] = weights[l] * (1 - 2 * learning_rate * lambda / N)
                         - learning_rate * g[l];
             }
-
-            cout << "Error -> " << error_in << endl;
         }
 
         cout << colors::RED << "End of the training. Error " << setprecision(4)

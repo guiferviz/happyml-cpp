@@ -32,8 +32,8 @@ class NeuralNetworkTests : public testing::Test
         virtual void SetUp()
         {
             //#include <time.h>
-            srand(time(NULL));
-            //srand(0);
+            //srand(time(NULL));
+            srand(0);
         }
 
         virtual void TearDown()
@@ -70,24 +70,25 @@ TEST_F(NeuralNetworkTests, TestTrain2)
 
 TEST_F(NeuralNetworkTests, TestTrain3)
 {
-    dataset.load("fixtures/p.data");
+    dataset.load("fixtures/parabola.data");
     
     happyml::Transformer t;
     t.normalize();
     t.apply(dataset);
+    // It's important to normalize que outputs too.
     double mean_ = as_scalar(mean(dataset.y));
     double stddev_ = as_scalar(stddev(dataset.y));
     dataset.y -= mean_;
     dataset.y /= stddev_;
-    dataset.save("borrame.data");
+    //dataset.save("borrame.data");
 
-    nnr = happyml::NNRegression(4, 1, 10, 10, 1);
-    double error = nnr.train(dataset, 10000, 0.1, 0);
+    nnr = happyml::NNRegression(3, 1, 10, 1);
+    double error = nnr.train(dataset, 500, 0.1, 0);
     
-    nnr.saveSampling("line.data", -4, 4, 50, t);
-    system("happyplot -d borrame.data");
+    //nnr.saveSampling("line.data", -4, 4, 500);
+    //system("happyplot -d borrame.data");
 
-    //ASSERT_NEAR(0, error, 0.1);
+    ASSERT_NEAR(0, error, 0.01);
 }
 
 
