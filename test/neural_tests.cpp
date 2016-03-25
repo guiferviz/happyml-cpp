@@ -18,8 +18,10 @@ class NeuralNetworkTests : public testing::Test
 
         happyml::NeuralNetwork nn;
 
+        happyml::NNRegression nnr;
 
-        NeuralNetworkTests() : nn(2, 2, 1)
+
+        NeuralNetworkTests() : nn(2, 2, 1), nnr(2, 1, 1)
         {
         }
 
@@ -30,8 +32,8 @@ class NeuralNetworkTests : public testing::Test
         virtual void SetUp()
         {
             //#include <time.h>
-            //srand(time(NULL));
-            srand(0);
+            srand(time(NULL));
+            //srand(0);
         }
 
         virtual void TearDown()
@@ -64,6 +66,28 @@ TEST_F(NeuralNetworkTests, TestTrain2)
     //system("happyplot -d fixtures/circle.data");
 
     ASSERT_NEAR(0, error, 0.1);
+}
+
+TEST_F(NeuralNetworkTests, TestTrain3)
+{
+    dataset.load("fixtures/p.data");
+    
+    happyml::Transformer t;
+    t.normalize();
+    t.apply(dataset);
+    double mean_ = as_scalar(mean(dataset.y));
+    double stddev_ = as_scalar(stddev(dataset.y));
+    dataset.y -= mean_;
+    dataset.y /= stddev_;
+    dataset.save("borrame.data");
+
+    nnr = happyml::NNRegression(4, 1, 10, 10, 1);
+    double error = nnr.train(dataset, 10000, 0.1, 0);
+    
+    nnr.saveSampling("line.data", -4, 4, 50, t);
+    system("happyplot -d borrame.data");
+
+    //ASSERT_NEAR(0, error, 0.1);
 }
 
 
