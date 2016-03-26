@@ -8,7 +8,7 @@
 
 #include "happyml/types.h"
 #include "happyml/utils.h"
-#include "happyml/transformer.h"
+#include "happyml/transformers/transformer.h"
 #include "happyml/predictor.h"
 #include "happyml/perceptron/perceptron.h"
 #include "happyml/logistic_regression/logistic_regression.h"
