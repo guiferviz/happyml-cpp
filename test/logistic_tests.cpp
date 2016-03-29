@@ -58,10 +58,10 @@ TEST_F(LogisticRegressionTests, TestTrain2)
     dataset.load("fixtures/circle.data");
 
     happyml::TransformerCollection t;
-    t.add(new happyml::transforms::Pow(1, 2));
-    t.add(new happyml::transforms::Pow(2, 2));
-    t.add(new happyml::transforms::Remove(1));
+    t.add(new happyml::transforms::Pow(1, 2, true));
+    t.add(new happyml::transforms::Pow(2, 2, true));
     t.add(new happyml::transforms::Remove(2));
+    t.add(new happyml::transforms::Remove(1));
     t.apply(dataset);
     //dataset.save("points.data");  // Save transformed data.
 

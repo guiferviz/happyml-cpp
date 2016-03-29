@@ -51,15 +51,16 @@ class SVMTests : public testing::Test
 
 TEST_F(SVMTests, TestSVM)
 {
-    happyml::Normalizer n(dataset);
-    n.apply(dataset);
+    happyml::Standarizer s(dataset);
+    s.apply(dataset);
     dataset.save("points.data");
     
     svm.train(dataset, /* C */ 100, /* Iter */ 10, /* Tolerance */ 0.001);
     
-    svm.saveSampling("boundary.data", -2, 2, 500, -2, 2, 500);
+    // TODO: asserts
     
-    system("happyplot");
+    //svm.saveSampling("boundary.data", -2, 2, 500, -2, 2, 500);
+    //system("happyplot");
 }
 
 
