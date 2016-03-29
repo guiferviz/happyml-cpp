@@ -51,9 +51,8 @@ class SVMTests : public testing::Test
 
 TEST_F(SVMTests, TestSVM)
 {
-    happyml::Transformer t;
-    t.normalize();
-    t.apply(dataset);
+    happyml::Normalizer n(dataset);
+    n.apply(dataset);
     dataset.save("points.data");
     
     svm.train(dataset, /* C */ 100, /* Iter */ 10, /* Tolerance */ 0.001);

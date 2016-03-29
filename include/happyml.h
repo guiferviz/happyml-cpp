@@ -11,6 +11,7 @@
 #include "happyml/transformers/transformer.h"
 #include "happyml/transformers/normalizer.h"
 #include "happyml/transformers/standarizer.h"
+#include "happyml/transformers/pca.h"
 #include "happyml/predictor.h"
 #include "happyml/perceptron/perceptron.h"
 #include "happyml/logistic_regression/logistic_regression.h"

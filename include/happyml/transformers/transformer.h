@@ -166,19 +166,11 @@ namespace happyml
                 Remove(int f) : feature(f) {}
 
 
-                void apply(DataSet& dataset) const { apply(dataset.X); };
+                void apply(DataSet& dataset) const;
 
-                Input apply(const Input& input) const
-                {
-                    mat x = input.t();
-                    apply(x);
-                    return x.t();
-                };
+                Input apply(const Input& input) const;
 
-                void apply(mat& x) const
-                {
-                    x.shed_col(feature);
-                }
+                void apply(mat& x) const;
         };
 
     }

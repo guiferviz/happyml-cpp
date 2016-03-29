@@ -61,6 +61,7 @@ namespace happyml
         void Arithmetic::apply(DataSet& dataset) const
         {
             applyFeature(dataset.X);
+            dataset.d = dataset.X.n_cols - 1;
         };
 
         Input Arithmetic::apply(const Input& input) const
@@ -83,6 +84,24 @@ namespace happyml
         void Mul::apply(mat& x, int col) const
         {
             x.col(col) *= param;
+        }
+
+        void Remove::apply(DataSet& dataset) const
+        {
+            apply(dataset.X);
+            dataset.d = dataset.X.n_cols - 1;
+        };
+
+        Input Remove::apply(const Input& input) const
+        {
+            mat x = input.t();
+            apply(x);
+            return x.t();
+        };
+
+        void Remove::apply(mat& x) const
+        {
+            x.shed_col(feature);
         }
 
     }

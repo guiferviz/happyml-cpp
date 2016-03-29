@@ -16,7 +16,7 @@ class TransformerTests : public testing::Test
 
         happyml::DataSet dataset;
 
-        happyml::Transformer t;
+        happyml::TransformerCollection t;
 
 
         TransformerTests()
@@ -50,7 +50,7 @@ class TransformerTests : public testing::Test
 
 TEST_F(TransformerTests, TestSquareNewFeatureTransform)
 {
-    t.addPower(1, 2);
+    t.add(new happyml::transforms::Pow(1, 2, true));
     t.apply(dataset);
 
     ASSERT_EQ(3, dataset.d);
@@ -60,7 +60,7 @@ TEST_F(TransformerTests, TestSquareNewFeatureTransform)
 
 TEST_F(TransformerTests, TestAddTransform)
 {
-    t.addAddition(1, 2);
+    t.add(new happyml::transforms::Add(1, 2, false));
     t.apply(dataset);
 
     ASSERT_EQ(2, dataset.d);
@@ -70,7 +70,7 @@ TEST_F(TransformerTests, TestAddTransform)
 
 TEST_F(TransformerTests, TestMultTransform)
 {
-    t.addProduct(1, 3);
+    t.add(new happyml::transforms::Mul(1, 3, false));
     t.apply(dataset);
 
     ASSERT_EQ(2, dataset.d);
@@ -80,7 +80,7 @@ TEST_F(TransformerTests, TestMultTransform)
 
 TEST_F(TransformerTests, TestSquareTransform)
 {
-    t.addPower(2, 2, false);
+    t.add(new happyml::transforms::Pow(2, 2, false));
     t.apply(dataset);
 
     ASSERT_EQ(2, dataset.d);
@@ -90,7 +90,7 @@ TEST_F(TransformerTests, TestSquareTransform)
 
 TEST_F(TransformerTests, TestAddNewFeatureTransform)
 {
-    t.addAddition(1, 2, true);
+    t.add(new happyml::transforms::Add(1, 2, true));
     t.apply(dataset);
 
     ASSERT_EQ(3, dataset.d);
@@ -100,7 +100,7 @@ TEST_F(TransformerTests, TestAddNewFeatureTransform)
 
 TEST_F(TransformerTests, TestMultNewFeatureTransform)
 {
-    t.addProduct(1, 3, true);
+    t.add(new happyml::transforms::Mul(1, 3, true));
     t.apply(dataset);
 
     ASSERT_EQ(3, dataset.d);
@@ -110,7 +110,7 @@ TEST_F(TransformerTests, TestMultNewFeatureTransform)
 
 TEST_F(TransformerTests, TestRemoveTransform)
 {
-    t.remove(1);
+    t.add(new happyml::transforms::Remove(1));
     t.apply(dataset);
 
     ASSERT_EQ(1, dataset.d);
@@ -122,8 +122,8 @@ TEST_F(TransformerTests, TestRemove2Transform)
 {
     dataset.load("fixtures/3features.data");
 
-    t.remove(1);
-    t.remove(3);
+    t.add(new happyml::transforms::Remove(3));
+    t.add(new happyml::transforms::Remove(1));
     t.apply(dataset);
 
     ASSERT_EQ(1, dataset.d);
