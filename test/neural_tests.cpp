@@ -72,9 +72,10 @@ TEST_F(NeuralNetworkTests, TestTrain3)
 {
     dataset.load("fixtures/parabola.data");
     
-    happyml::Transformer t;
-    t.normalize();
-    t.apply(dataset);
+    // FIXME
+    //happyml::Transformer t;
+    //t.normalize();
+    //t.apply(dataset);
     // It's important to normalize que outputs too.
     double mean_ = as_scalar(mean(dataset.y));
     double stddev_ = as_scalar(stddev(dataset.y));
