@@ -24,7 +24,11 @@ namespace happyml
 
             rowvec meanVec;
 
-            rowvec eigVec, eigValVec;
+            vec eigVal;
+            
+            mat eigVec;
+
+            mat covMat;
 
             int k;
 
