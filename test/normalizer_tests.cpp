@@ -111,6 +111,29 @@ TEST_F(NormalizerTests, TestNormalizerWithTransformations)
     ASSERT_NEAR(0, dataset.X(3, 2), 0.001);
 }
 
+TEST_F(NormalizerTests, TestNormalizerMinMax)
+{
+    dataset.load("fixtures/4points.data");
+    
+    vec minvec(2); minvec(0) = -5; minvec(1) = -5;
+    vec maxvec(2); maxvec(0) =  5; maxvec(1) =  5;
+    happyml::Normalizer n(minvec, maxvec);
+    n.apply(dataset);
+    
+    ASSERT_NEAR(1, dataset.X(0, 0), 0.001);
+    ASSERT_NEAR(1, dataset.X(0, 1), 0.001);
+    ASSERT_NEAR(1, dataset.X(0, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(1, 0), 0.001);
+    ASSERT_NEAR(1, dataset.X(1, 1), 0.001);
+    ASSERT_NEAR(0, dataset.X(1, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(2, 0), 0.001);
+    ASSERT_NEAR(0, dataset.X(2, 1), 0.001);
+    ASSERT_NEAR(1, dataset.X(2, 2), 0.001);
+    ASSERT_NEAR(1, dataset.X(3, 0), 0.001);
+    ASSERT_NEAR(0, dataset.X(3, 1), 0.001);
+    ASSERT_NEAR(0, dataset.X(3, 2), 0.001);
+}
+
 
 int main(int argc, char **argv)
 {
