@@ -48,7 +48,7 @@ namespace happyml
              * @param dataset Dataset from which it will be extracted the min
              *                and max that will be use when apply normalization.
              */
-            Normalizer(vec min, vec max);
+            Normalizer(const vec& min, const vec& max);
             
             ~Normalizer() {}
 

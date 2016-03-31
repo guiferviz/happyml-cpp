@@ -39,7 +39,7 @@ namespace happyml
              * 
              * @return A transformated version of the input.
              */
-            virtual Input apply(const Input& input) const {};
+            virtual Input apply(const Input& input) const { return input; };
 
     };
 

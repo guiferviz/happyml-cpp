@@ -15,6 +15,11 @@ namespace happyml
         init(x);
     }
 
+    Normalizer::Normalizer(const vec& minvec, const vec& maxvec)
+    {
+        init(join_cols(minvec.t(), maxvec.t()));
+    }
+
 
     void Normalizer::init(const mat& x)
     {
