@@ -47,6 +47,13 @@ namespace happyml
             NeuralNetwork(unsigned layers ...);
 
             /**
+             * Creates a neural network using the indicated weights matrices.
+             * 
+             * @param w Wheights matrices to use.
+             */
+            NeuralNetwork(const vector<mat> w);
+
+            /**
              * Creates a copy of a neural network.
              */
             NeuralNetwork(const NeuralNetwork& nn);

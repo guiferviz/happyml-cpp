@@ -24,23 +24,12 @@ namespace happyml
             weights[l] = mat(d[l - 1] + 1, d[l], fill::randn);
         }
 
-        /* DELETE
-        weights[1](0, 0) = 0.1;
-        weights[1](0, 1) = 0.2;
-        weights[1](1, 0) = 0.3;
-        weights[1](1, 1) = 0.4;
-        weights[2][0] = 0.2;
-        weights[2][1] = 1;
-        weights[2][2] = -3;
-        weights[3][0] = 1;
-        weights[3][1] = 2; */
-        //for (unsigned l = 1; l <= L; ++l)
-        //{
-        //    cout << "Initial w(" << l << ")" << endl << weights[l] << endl;
-        //}
-        // END DELETE
-
         va_end(args);
+    }
+
+    NeuralNetwork::NeuralNetwork(const vector<mat> w) :
+            L(w.size() - 1), weights(w), d(w.size())
+    {
     }
 
     NeuralNetwork::NeuralNetwork(const NeuralNetwork& p)
