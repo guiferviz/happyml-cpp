@@ -16,8 +16,6 @@ class PCATests : public testing::Test
 
         happyml::DataSet dataset;
 
-        happyml::Transformer t;
-
 
         PCATests()
         {
@@ -69,16 +67,16 @@ class PCATests : public testing::Test
 
 TEST_F(PCATests, TestPCAUntilK)
 {
-    t.pca(1);
-    t.apply(dataset);
+    happyml::PCA pca(dataset, 1);
+    pca.apply(dataset);
     
     checkDataset();
 }
 
 TEST_F(PCATests, TestPCAMinVariance)
 {
-    t.pcaMinVariance(0.85);
-    t.apply(dataset);
+    happyml::PCA pca(dataset, 0.85);
+    pca.apply(dataset);
     
     checkDataset();
 }

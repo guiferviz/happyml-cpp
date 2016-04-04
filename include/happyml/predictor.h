@@ -4,7 +4,7 @@
 
 
 #include "happyml/types.h"
-#include "happyml/transformer.h"
+#include "happyml/transformers/transformer.h"
 
 
 namespace happyml

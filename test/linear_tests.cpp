@@ -72,8 +72,8 @@ TEST_F(LinearRegressionTests, TestTrain2)
     dataset.load("fixtures/parabola.data");
     //vec w(3); w[0] = -1; w[1] = -2; w[2] = 1;
     
-    happyml::Transformer t;
-    t.addPower(1, 2);
+    happyml::TransformerCollection t;
+    t.add(new happyml::transforms::Pow(1, 2, true));
     t.apply(dataset);
 
     linear = happyml::LinearRegression(dataset.d);
