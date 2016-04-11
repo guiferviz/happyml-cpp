@@ -99,15 +99,28 @@ TEST_F(NeuralNetworkTests, TestTrain4)
     happyml::Normalizer ny(dataset.y);
     ny.apply(dataset.y);
     
-    dataset.save("borrame.data");
+    //dataset.save("borrame.data");
 
     nnr = happyml::NNRegression(4, 1, 10, 10, 1);
-    double error = nnr.train(dataset, 1000000, 0.1);
+    double error = nnr.train(dataset, 500, 0.1);
     
-    nnr.saveSampling("line.data", 0, 1, 500);
-    system("happyplot -d borrame.data");
+    //nnr.saveSampling("line.data", 0, 1, 500);
+    //system("happyplot -d borrame.data");
 
-    ASSERT_NEAR(0, error, 0.01);
+    ASSERT_NEAR(0, error, 0.03);
+}
+
+TEST_F(NeuralNetworkTests, TestTrain5)
+{
+    dataset.load("fixtures/4points.data");
+
+    vector<unsigned> layers;
+    layers.push_back(2);
+    layers.push_back(1);
+    nn = happyml::NeuralNetwork(layers);
+    double error = nn.train(dataset, 100, 0.1);
+
+    ASSERT_NEAR(0, error, 0.1);
 }
 
 

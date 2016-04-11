@@ -39,12 +39,22 @@ namespace happyml
             /**
              * Creates a neural network with the layers and number of neurons
              * indicated in the arguments.
-             * Initialize the weight to a random values.
+             * Initialize the weights to a random values.
              * 
              * @param layers Number of layers, number of neurons on the input
              *               layer, number of neurons on the second layer...
              */
             NeuralNetwork(unsigned layers ...);
+
+            /**
+             * Creates a neural network with the layers and number of neurons
+             * indicated in the vector.
+             * Initialize the weights to a random values.
+             * 
+             * @param layers Number of neurons on the input layer, number of
+             *               neurons on the second layer...
+             */
+            NeuralNetwork(const vector<unsigned>& layers);
 
             /**
              * Creates a neural network using the indicated weights matrices.

@@ -27,6 +27,17 @@ namespace happyml
         va_end(args);
     }
 
+    NeuralNetwork::NeuralNetwork(const vector<unsigned>& layers) :
+            L(layers.size() - 1), weights(layers.size()), d(layers.size())
+    {
+        d[0] = layers[0];
+        for (unsigned l = 1; l <= L; ++l)
+        {
+            d[l] = layers[l];
+            weights[l] = mat(d[l - 1] + 1, d[l], fill::randn);
+        }
+    }
+
     NeuralNetwork::NeuralNetwork(const vector<mat> w) :
             L(w.size() - 1), weights(w), d(w.size())
     {
