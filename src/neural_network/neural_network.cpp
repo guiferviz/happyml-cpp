@@ -11,8 +11,8 @@
 namespace happyml
 {
 
-    NeuralNetwork::NeuralNetwork(unsigned layers ...) :
-            L(layers - 1), weights(layers), d(layers)
+    NeuralNetwork::NeuralNetwork(unsigned layers, ...) :
+            NeuralNetworkModel(layers, false)
     {
         if (layers >= 2)
         {
@@ -29,41 +29,6 @@ namespace happyml
             va_end(args);
         }
     }
-
-    NeuralNetwork::NeuralNetwork(const vector<unsigned>& layers) :
-            L(layers.size() - 1), weights(layers.size()), d(layers.size())
-    {
-        d[0] = layers[0];
-        for (unsigned l = 1; l <= L; ++l)
-        {
-            d[l] = layers[l];
-            weights[l] = mat(d[l - 1] + 1, d[l], fill::randn);
-        }
-    }
-
-    NeuralNetwork::NeuralNetwork(const vector<mat> w) :
-            L(w.size() + 2), weights(w), d(w.size() + 2)
-    {
-        vector<mat>::iterator it = weights.begin();
-        it = weights.insert(it, mat());
-        
-        d[0] = weights[1].n_rows;
-        for (int i = 1; i <= L; ++i)
-        {
-            d[i] = weights[i].n_cols;
-        }
-        L = weights.size() - 1;
-    }
-
-    NeuralNetwork::NeuralNetwork(const NeuralNetwork& p) :
-            L(p.L), weights(p.weights), d(p.d)
-    {
-    }
-
-    NeuralNetwork::~NeuralNetwork()
-    {
-    }
-
 
     double NeuralNetwork::train(const DataSet& dataset, unsigned iter,
             float learning_rate, float lambda)
@@ -162,35 +127,6 @@ namespace happyml
         }
         // Return the output vector.
         return as_scalar(x);
-    }
-
-    void NeuralNetwork::read(istream& stream)
-    {
-        field<mat> matrices;
-        matrices.load(stream);
-        
-        weights.clear();
-        weights.push_back(mat());
-        d.clear();
-        d.push_back(matrices[0].n_rows);
-        for (int i = 0; i < matrices.size(); ++i)
-        {
-            d.push_back(matrices[i].n_cols);
-            weights.push_back(matrices[i]);
-        }
-        L = weights.size() - 1;
-    }
-
-    void NeuralNetwork::write(ostream& stream) const
-    {
-        field<mat> matrices(L);
-        
-        for (int i = 0; i < L; ++i)
-        {
-            matrices[i] = weights[i + 1];
-        }
-        
-        matrices.save(stream);
     }
 
 }

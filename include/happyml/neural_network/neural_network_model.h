@@ -1,6 +1,6 @@
 
-#ifndef _HAPPY_ML_NEURAL_NETWORK_H_
-#define _HAPPY_ML_NEURAL_NETWORK_H_
+#ifndef _HAPPY_ML_NEURAL_NETWORK_MODEL_H_
+#define _HAPPY_ML_NEURAL_NETWORK_MODEL_H_
 
 
 #include "happyml/serializable.h"
@@ -47,6 +47,15 @@ namespace happyml
              */
             vector<unsigned> d;
 
+            /**
+             * Protected constructor that allow to create networks with the given
+             * number of layer but without neurons on each layer. Used on
+             * subclases to enable variable args in constructors.
+             * The second parameter is unused and allows differentiate this
+             * constructor from the others.
+             */
+            NeuralNetworkModel(unsigned layers, bool unused);
+
 
         public:
 
@@ -88,9 +97,9 @@ namespace happyml
             /**
              * Creates a copy of a neural network.
              */
-            NeuralNetwork(const NeuralNetwork& nn);
+            NeuralNetworkModel(const NeuralNetworkModel& nn);
 
-            ~NeuralNetwork();
+            ~NeuralNetworkModel();
 
 
             /**
