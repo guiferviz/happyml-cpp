@@ -62,7 +62,6 @@ namespace happyml
 
     NeuralNetwork::~NeuralNetwork()
     {
-        // TODO
     }
 
 
