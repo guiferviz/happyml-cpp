@@ -110,7 +110,7 @@ TEST_F(NeuralNetworkTests, TestTrain4)
     ASSERT_NEAR(0, error, 0.03);
 }
 
-TEST_F(NeuralNetworkTests, TestConstructorVector)
+TEST_F(NeuralNetworkTests, TestConstructorVectorLayers)
 {
     dataset.load("fixtures/4points.data");
 
@@ -135,6 +135,20 @@ TEST_F(NeuralNetworkTests, TestSaveLoad)
     nn2.load("borrame.nn");
     
     error = nn2.error(dataset);
+
+    ASSERT_NEAR(0, error, 0.1);
+}
+
+TEST_F(NeuralNetworkTests, TestConstructorWeights)
+{
+    dataset.load("fixtures/4points.data");
+
+    vector<mat> weights;
+    vec w(3); w(0) = 1.1550; w(1) = 0.6802; w(2) = 0.0167;
+    weights.push_back(w);
+
+    nn = happyml::NeuralNetwork(weights);
+    double error = nn.error(dataset);
 
     ASSERT_NEAR(0, error, 0.1);
 }

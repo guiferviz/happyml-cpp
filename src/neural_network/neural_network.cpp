@@ -44,14 +44,20 @@ namespace happyml
     NeuralNetwork::NeuralNetwork(const vector<mat> w) :
             L(w.size() + 2), weights(w), d(w.size() + 2)
     {
-        mat voidMatrix;
         vector<mat>::iterator it = weights.begin();
-        it = weights.insert(it, voidMatrix);
+        it = weights.insert(it, mat());
+        
+        d[0] = weights[1].n_rows;
+        for (int i = 1; i <= L; ++i)
+        {
+            d[i] = weights[i].n_cols;
+        }
+        L = weights.size() - 1;
     }
 
-    NeuralNetwork::NeuralNetwork(const NeuralNetwork& p)
+    NeuralNetwork::NeuralNetwork(const NeuralNetwork& p) :
+            L(p.L), weights(p.weights), d(p.d)
     {
-        // TODO
     }
 
     NeuralNetwork::~NeuralNetwork()
@@ -165,8 +171,7 @@ namespace happyml
         matrices.load(stream);
         
         weights.clear();
-        mat voidMatrix;
-        weights.push_back(voidMatrix);
+        weights.push_back(mat());
         d.clear();
         d.push_back(matrices[0].n_rows);
         for (int i = 0; i < matrices.size(); ++i)
