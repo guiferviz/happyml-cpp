@@ -38,7 +38,7 @@ class NeuralNetworkTests : public testing::Test
 
         virtual void TearDown()
         {
-            //remove("points.data");
+            remove("borrame.nn");
             //remove("boundary.data");
             //remove("output.png");
         }
@@ -110,7 +110,7 @@ TEST_F(NeuralNetworkTests, TestTrain4)
     ASSERT_NEAR(0, error, 0.03);
 }
 
-TEST_F(NeuralNetworkTests, TestTrain5)
+TEST_F(NeuralNetworkTests, TestConstructorVector)
 {
     dataset.load("fixtures/4points.data");
 
@@ -119,6 +119,22 @@ TEST_F(NeuralNetworkTests, TestTrain5)
     layers.push_back(1);
     nn = happyml::NeuralNetwork(layers);
     double error = nn.train(dataset, 100, 0.1);
+
+    ASSERT_NEAR(0, error, 0.1);
+}
+
+TEST_F(NeuralNetworkTests, TestSaveLoad)
+{
+    dataset.load("fixtures/4points.data");
+
+    nn = happyml::NeuralNetwork(2, 2, 1);
+    double error = nn.train(dataset, 100, 0.1);
+    nn.save("borrame.nn");
+    
+    happyml::NeuralNetwork nn2;
+    nn2.load("borrame.nn");
+    
+    error = nn2.error(dataset);
 
     ASSERT_NEAR(0, error, 0.1);
 }
