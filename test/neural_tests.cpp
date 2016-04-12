@@ -153,6 +153,18 @@ TEST_F(NeuralNetworkTests, TestConstructorWeights)
     ASSERT_NEAR(0, error, 0.1);
 }
 
+TEST_F(NeuralNetworkTests, TestDeltaStop)
+{
+    dataset.load("fixtures/4points.data");
+
+    nn = happyml::NeuralNetwork(2, 2, 1);
+    double error = nn.train(dataset, 1000000, 0.1, 0, 1e-7);
+    unsigned iterations = nn.getLastIterations();
+
+    ASSERT_NEAR(0, error, 0.001);
+    ASSERT_EQ(495, iterations);
+}
+
 
 int main(int argc, char **argv)
 {

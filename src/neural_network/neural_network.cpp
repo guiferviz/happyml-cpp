@@ -31,7 +31,7 @@ namespace happyml
     }
 
     double NeuralNetwork::train(const DataSet& dataset, unsigned iter,
-            float learning_rate, float lambda)
+            float learning_rate, float lambda, float delta_stop)
     {
         //srand(time(0));
         float error_in = -1;
@@ -41,8 +41,11 @@ namespace happyml
 
         // Unit vector to join the inputs as a bias term.
         const vec u(1, fill::ones);
-        for (unsigned i = 0; i < iter; ++i)
+        float last_error_in = -100000;
+        unsigned i;
+        for (i = 0; i < iter && abs(last_error_in - error_in) > delta_stop; ++i)
         {
+            last_error_in = error_in;
             error_in = 0;
             mat g[L + 1];
             for (unsigned l = 1; l <= L; ++l) g[l] = 0 * weights[l];
@@ -100,11 +103,12 @@ namespace happyml
                         - learning_rate * g[l];
             }
 
-            //cout << error_in << ",";
+            //cout << error_in << "  ->  " << last_error_in - error_in << "\n";
         }
 
-        cout << colors::RED << "End of the training. Error " << setprecision(4)
-                << error_in << colors::RESET << endl;
+        lastIterations = i;
+        cout << colors::RED << "End of the training. " << i << " iterations. Error: "
+                << setprecision(4) << error_in << colors::RESET << endl;
 
         return error_in;
     }
