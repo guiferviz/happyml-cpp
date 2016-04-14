@@ -38,18 +38,37 @@ namespace happyml
         public:
 
             /**
-             * Creates a PCA extractor.
+             * Creates a PCA extractor using the dataset data.
              * 
-             * @param dataset Dataset from which it will be extracted the
-             *                eigenvecs for the PCA.
+             * @param dataset Dataset from which the eigenvecs for the PCA
+             *                will be extracted.
              * @param n Number of dimension to preserve or min mariance if it
              *          is a number between 0 and 1.
              */
             PCA(const DataSet& dataset, double n);
-            PCA(const mat& x);
-            
+
+            /**
+             * Creates a PCA extractor using the matrix data.
+             * 
+             * @param x Matrix from which the eigenvecs for the PCA will be
+             *          extracted.
+             * @param n Number of dimension to preserve or min mariance if it
+             *          is a number between 0 and 1.
+             */
+            PCA(const mat& x, double n);
+
             ~PCA() {}
 
+
+            /**
+             * Returns the retained data variance of the PCA transformation.
+             * It's a number between 0 and 1.
+             * If you pass a min variance to the constructor remember that
+             * the retained variance is >= the min variance choosen.
+             * 
+             * @return The retained data variance of the PCA transformation.
+             */
+            double getRetainedVariance() const { return minVar; }
 
             void apply(DataSet& dataset) const;
 

@@ -1,5 +1,5 @@
 
-#include "happyml/transformers/pca.h"
+#include "happyml/transformers/lda.h"
 
 
 using namespace std;
@@ -8,31 +8,38 @@ using namespace std;
 namespace happyml
 {
 
-    PCA::PCA(const DataSet& dataset, double n)
+    LDA::LDA(const DataSet& dataset, double n)
     {
         k = (int) n;
         minVar = n;
-        init(dataset.X.cols(1, dataset.X.n_cols - 1));
-    }
-    
-    PCA::PCA(const mat& x, double n)
-    {
-        k = (int) n;
-        minVar = n;
-        init(x);
-    }
-
-
-    void PCA::init(const mat& x)
-    {
+        mat x = dataset.X.cols(1, dataset.X.n_cols - 1);
+        mat y = dataset.y;
+        // Number of classes.
+        // TODO: make it work with more than 2 classes.
+        int classes = 2;
+        // Select elements by class.
+        uvec pClassIndex = find(y ==  1);  // positive class
+        uvec nClassIndex = find(y == -1);  // negavive class
+        mat pClass = x.rows(pClassIndex);
+        mat nClass = x.rows(nClassIndex);
+        mat pMean = mean(pClass);
+        mat nMean = mean(nClass);
+        mat mu = join_vert(pMean, nMean);
         // Compute and save the mean.
         meanVec = mean(x);
-        // X mean.
-        mat Xm = x - vec(x.n_rows, fill::ones) * meanVec;
-        // Covariance matrix.
-        covMat = cov(Xm);
+        // Sw
+        uvec c(y.n_rows);
+        c(pClassIndex).fill(0);
+        c(nClassIndex).fill(1);
+        mat Sw = (x - mu.rows(c));
+        Sw = Sw.t() * Sw;
+        // Sb
+        mat Sb = ones(classes) * meanVec - mu;
+        Sb = Sb.t() * Sb;
+        // 
+        mat matrix = pinv(Sw) * Sb;
         // Compute and save eigen vectors and values.
-        eig_sym(eigVal, eigVec, covMat);  // return eig in ascendenting order
+        eig_sym(eigVal, eigVec, matrix);  // return eig in ascendenting order
         
         if (k == minVar)
         {
@@ -61,7 +68,7 @@ namespace happyml
         }
     }
 
-    void PCA::apply(DataSet& dataset) const
+    void LDA::apply(DataSet& dataset) const
     {
         // Remove x_0 feature.
         dataset.X = dataset.X.cols(1, dataset.X.n_cols - 1);
@@ -73,7 +80,7 @@ namespace happyml
         dataset.d = dataset.X.n_cols - 1;
     }
 
-    void PCA::apply(mat& x) const
+    void LDA::apply(mat& x) const
     {
         mat meanMat = vec(x.n_rows, fill::ones) * meanVec;
         
@@ -81,7 +88,7 @@ namespace happyml
         x *= eigVec;
     }
 
-    Input PCA::apply(const Input& x) const
+    Input LDA::apply(const Input& x) const
     {
         mat input = x.t();
         input = input.cols(1, input.n_cols - 1);
