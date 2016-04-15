@@ -39,6 +39,7 @@ namespace happyml
             double total = sum(eigVal);
             // Selects first k vectors.
             eigVec = eigVec.cols(eigVec.n_cols - k, eigVec.n_cols - 1);
+            eigVal = eigVal.cols(eigVal.n_cols - k, eigVal.n_cols - 1);
             // Compute variance retained.
             double partial_sum = sum(eigVal);
             minVar = partial_sum / total;
