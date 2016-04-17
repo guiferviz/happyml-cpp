@@ -61,6 +61,20 @@ TEST(DataSetTests, TestLoad)
     ASSERT_EQ(1, dataset.y.n_cols);
 }
 
+TEST(DataSetTests, TestMultipleOutputs)
+{
+    happyml::DataSet dataset;
+    dataset.load("fixtures/parabolas.data", 2);
+    
+    ASSERT_EQ(1, dataset.d);
+    ASSERT_EQ(6, dataset.N);
+    ASSERT_EQ(2, dataset.k);
+    ASSERT_EQ(6, dataset.X.n_rows);
+    ASSERT_EQ(2, dataset.X.n_cols);
+    ASSERT_EQ(6, dataset.y.n_rows);
+    ASSERT_EQ(2, dataset.y.n_cols);
+}
+
 
 int main(int argc, char **argv)
 {

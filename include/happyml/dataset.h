@@ -35,6 +35,11 @@ namespace happyml
             unsigned N;
 
             /**
+             * Number of outputs by sample.
+             */
+            unsigned k;
+
+            /**
              * Matrix with all the inputs.
              * \f$
              * \mathbf{X} = \begin{pmatrix}
@@ -71,9 +76,11 @@ namespace happyml
              * 
              * @param dim Dimension \f$d\f$ of the inputs.
              * @param size Number of inputs (\f$N\f$) in the dataset.
+             * @param output Number of tail columns to be used
              */
-            DataSet(unsigned dim = 0, unsigned size = 0) : d(dim), N(size),
-                    X(N, d + 1, fill::ones), y(N, 1, fill::zeros)
+            DataSet(unsigned dim = 0, unsigned size = 0, unsigned outputs = 1) :
+                    d(dim), N(size), k(outputs), X(N, d + 1, fill::ones),
+                    y(N, outputs, fill::zeros)
             {
             }
 
@@ -90,6 +97,8 @@ namespace happyml
              * \f$
              */
             void read(istream& stream);
+            void read(istream& stream, int n_outputs);
+            void load(const string& filename, int n_outputs = 1);
 
             /**
              * Write to an output stream the next data:
