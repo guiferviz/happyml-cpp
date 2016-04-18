@@ -97,7 +97,12 @@ namespace happyml
 
             Input apply(const Input& input) const
             {
-                nx.apply(input);
+                return nx.apply(input);
+            }
+
+            vec applyOutput(const vec& output) const
+            {
+                return ny.apply(output);
             }
     };
 
@@ -174,12 +179,12 @@ namespace happyml
 
             Input apply(const Input& input) const
             {
-                dx.apply(input);
+                return dx.apply(input);
             }
 
             vec applyOutput(const vec& output) const
             {
-                dy.apply(output);
+                return dy.apply(output, false);
             }
     };
 

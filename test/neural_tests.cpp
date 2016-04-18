@@ -110,6 +110,26 @@ TEST_F(NeuralNetworkTests, TestTrain4)
     ASSERT_NEAR(0, error, 0.03);
 }
 
+TEST_F(NeuralNetworkTests, TestTrain5)
+{
+    dataset.load("fixtures/parabolas.data", 2);
+    
+    happyml::NormalizerXY n(dataset);
+    n.apply(dataset);
+
+    nnr = happyml::NNRegression(3, 1, 10, 2);
+    double error = nnr.train(dataset, 5000, 0.3);
+    
+    happyml::Input x(2);  x[0] = 1;  x[1] = 2;
+    vec output = nnr.predictVec(n.apply(x));
+    
+    happyml::DenormalizerXY d(n);
+    output = d.applyOutput(output);
+    
+    ASSERT_NEAR(-1, output[0], 0.25);
+    ASSERT_NEAR( 2, output[1], 0.25);
+}
+
 TEST_F(NeuralNetworkTests, TestConstructorVectorLayers)
 {
     dataset.load("fixtures/4points.data");

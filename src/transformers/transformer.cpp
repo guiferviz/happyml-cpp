@@ -117,16 +117,24 @@ namespace happyml
             dataset.X = join_rows(vec(dataset.N, fill::ones), dataset.X);
         }
 
-        Input SimpleTransformer::apply(const Input& x) const
+        Input SimpleTransformer::apply(const Input& x, bool hasX0) const
         {
-            // Remove x_0 feature.
             mat input = x.t();
-            input = input.cols(1, input.n_cols - 1);
+            
+            if (hasX0)
+            {
+                // Remove x_0 feature.
+                input = input.cols(1, input.n_cols - 1);
+            }
             
             apply(input);
             
-            // Add x_0 = 1 feature.
-            input = join_rows(vec(input.n_rows, fill::ones), input);
+            if (hasX0)
+            {
+                // Add x_0 = 1 feature.
+                input = join_rows(vec(input.n_rows, fill::ones), input);
+            }
+            
             return input.t();
         }
     }

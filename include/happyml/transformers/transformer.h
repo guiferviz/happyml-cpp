@@ -182,7 +182,7 @@ namespace happyml
 
                 void apply(DataSet& dataset) const;
 
-                Input apply(const Input& input) const;
+                Input apply(const Input& input, bool hasX0 = true) const;
 
                 virtual void apply(mat& x) const {};
         };

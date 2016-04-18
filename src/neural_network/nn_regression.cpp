@@ -76,7 +76,7 @@ namespace happyml
                 // Backpropagation.
                 vec delta[L + 1];
                 // Delta last layer.
-                delta[L] = x[L] - dataset.y[n];
+                delta[L] = x[L] - dataset.y.row(n).t();
                 for (unsigned l = L - 1; l > 0; --l)
                 {
                     // Sensitivities of the signal in layer l: 1 - x(l)^2
@@ -89,12 +89,11 @@ namespace happyml
                 }
 
                 // E_in.
-                error_in += as_scalar(1.0f / N * (x[L] - dataset.y[n]) * (x[L] - dataset.y[n]));
+                error_in += as_scalar(1.0f / N * (x[L] - dataset.y[n]).t() * (x[L] - dataset.y[n]));
 
                 // Updating gradients.
                 for (unsigned l = 1; l <= L; ++l)
                 {
-                    // FIXME: this works only with one output neuron.
                     mat gn = x[l - 1] * delta[l].t();
                     g[l] = g[l] + 1.0f / N * gn;
                 }
@@ -133,7 +132,30 @@ namespace happyml
         // Last layer with linear activation function.
         x = weights[L].t() * x;
         // Return the output vector.
+        cout <<  x << endl;
         return as_scalar(x);
+    }
+
+    vec NNRegression::predictVec(const Input& input) const
+    {
+        // Unit vector to join the inputs as a bias term.
+        const vec u(1, fill::ones);
+        // Inputs plus bias term.
+        vec x = input;
+        // Forward propagation.
+        for (unsigned l = 1; l < L; ++l)
+        {
+            // Compute the signal using last inputs and weights.
+            vec s = weights[l].t() * x;
+            // Apply soft threshold to the signal.
+            s = tanh(s);
+            // Add bias neuron if it isn't the last layer.
+            x = (l == L) ? s : join_vert(u, s);
+        }
+        // Last layer with linear activation function.
+        x = weights[L].t() * x;
+        // Return the output vector.
+        return x;
     }
 
 }

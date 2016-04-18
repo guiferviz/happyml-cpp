@@ -83,6 +83,7 @@ namespace happyml
              * @return Predicted value
              */
             double predict(const Input& x) const;
+            vec predictVec(const Input& x) const;
     };
 
 }
