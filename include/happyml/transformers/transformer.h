@@ -173,6 +173,19 @@ namespace happyml
                 void apply(mat& x) const;
         };
 
+        class SimpleTransformer : public Transformer
+        {
+            public:
+
+                SimpleTransformer() {}
+
+
+                void apply(DataSet& dataset) const;
+
+                Input apply(const Input& input) const;
+
+                virtual void apply(mat& x) const {};
+        };
     }
 
 }

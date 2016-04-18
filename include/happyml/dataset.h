@@ -98,7 +98,9 @@ namespace happyml
              */
             void read(istream& stream);
             void read(istream& stream, int n_outputs);
-            void load(const string& filename, int n_outputs = 1);
+            
+            using Serializable::load;
+            void load(const string& filename, int n_outputs);
 
             /**
              * Write to an output stream the next data:

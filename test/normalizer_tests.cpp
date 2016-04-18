@@ -134,6 +134,48 @@ TEST_F(NormalizerTests, TestNormalizerMinMax)
     ASSERT_NEAR(0, dataset.X(3, 2), 0.001);
 }
 
+TEST_F(NormalizerTests, TestNormalizerXY)
+{
+    dataset.load("fixtures/parabola.data");
+    
+    happyml::NormalizerXY n(dataset);
+    n.apply(dataset);
+    
+    // Check row 0.
+    ASSERT_NEAR(1, dataset.X(0, 0), 0.001);
+    ASSERT_NEAR(0, dataset.X(0, 1), 0.001);
+    ASSERT_NEAR(1,    dataset.y[0], 0.001);
+    
+    // Check row 1.
+    ASSERT_NEAR(     1, dataset.X(1, 0), 0.001);
+    ASSERT_NEAR(   0.2, dataset.X(1, 1), 0.001);
+    ASSERT_NEAR(0.4444,    dataset.y[1], 0.001);
+    
+    // Check row 2.
+    ASSERT_NEAR(     1, dataset.X(2, 0), 0.001);
+    ASSERT_NEAR(   0.4, dataset.X(2, 1), 0.001);
+    ASSERT_NEAR(0.1111,    dataset.y[2], 0.001);
+}
+
+TEST_F(NormalizerTests, TestDenormalizerXY)
+{
+    dataset.load("fixtures/parabola.data");
+    
+    happyml::NormalizerXY n(dataset);
+    n.apply(dataset);
+    
+    ASSERT_NEAR(     1,    dataset.y[0], 0.001);
+    ASSERT_NEAR(0.4444,    dataset.y[1], 0.001);
+    ASSERT_NEAR(0.1111,    dataset.y[2], 0.001);
+    
+    happyml::DenormalizerXY d(n);
+    d.apply(dataset);
+    
+    ASSERT_NEAR( 7,    dataset.y[0], 0.001);
+    ASSERT_NEAR( 2,    dataset.y[1], 0.001);
+    ASSERT_NEAR(-1,    dataset.y[2], 0.001);
+}
+
 
 int main(int argc, char **argv)
 {

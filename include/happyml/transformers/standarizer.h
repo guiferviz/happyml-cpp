@@ -14,16 +14,14 @@ namespace happyml
      * Applies Z-Score transformation:
      * x' = x - mean(x) / stddev(x)
      */
-    class Standarizer : public Transformer
+    class Standarizer : public transforms::SimpleTransformer
     {
-        private:
-        
-            void init(const mat&);
-
-
         protected:
 
             rowvec meanVec, stdVec;
+
+
+            void init(const mat&);
 
 
         public:
@@ -36,7 +34,10 @@ namespace happyml
              *                and stddev that will be used when apply Z-Score.
              * //@param normY If true, it standarizes also the outputs.
              */
-            Standarizer(const DataSet& dataset);
+            Standarizer(const DataSet& dataset)
+            {
+                init(dataset.X.cols(1, dataset.X.n_cols - 1));
+            }
 
             /**
              * Creates a standarizer that will use mean and stddev data obtained
@@ -45,7 +46,10 @@ namespace happyml
              * @param x Matrix from which it will be extracted the mean and
              *          stddev vectors that will be used when apply Z-Score.
              */
-            Standarizer(const mat& x);
+            Standarizer(const mat& x)
+            {
+                init(x);
+            }
 
             /**
              * Creates a standarizer that will use mean and stddev vectors.
@@ -53,16 +57,18 @@ namespace happyml
              * @param mean Vector with the mean of each column.
              * @param stddev Vector with the stddev of each column.
              */
-            Standarizer(vec mean, vec stddev);
+            Standarizer(vec mean, vec stddev)
+            {
+                meanVec =   mean;
+                stdVec  = stddev;
+            }
             
             ~Standarizer() {}
 
 
-            void apply(DataSet& dataset) const;
+            using SimpleTransformer::apply;
 
             void apply(mat& x) const;
-
-            Input apply(const Input& input) const;
     };
 
 }

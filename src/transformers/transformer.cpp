@@ -104,6 +104,31 @@ namespace happyml
             x.shed_col(feature);
         }
 
+        // SIMPLE TRANSFORMER.
+        
+        void SimpleTransformer::apply(DataSet& dataset) const
+        {
+            // Remove x_0 feature.
+            dataset.X = dataset.X.cols(1, dataset.X.n_cols - 1);
+            
+            apply(dataset.X);
+            
+            // Add x_0 = 1 feature.
+            dataset.X = join_rows(vec(dataset.N, fill::ones), dataset.X);
+        }
+
+        Input SimpleTransformer::apply(const Input& x) const
+        {
+            // Remove x_0 feature.
+            mat input = x.t();
+            input = input.cols(1, input.n_cols - 1);
+            
+            apply(input);
+            
+            // Add x_0 = 1 feature.
+            input = join_rows(vec(input.n_rows, fill::ones), input);
+            return input.t();
+        }
     }
 
 }
