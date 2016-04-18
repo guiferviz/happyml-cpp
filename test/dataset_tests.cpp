@@ -75,6 +75,29 @@ TEST(DataSetTests, TestMultipleOutputs)
     ASSERT_EQ(2, dataset.y.n_cols);
 }
 
+TEST(DataSetTests, TestOneHot)
+{
+    happyml::DataSet dataset;
+    dataset.load("fixtures/parabola.data", true);
+    
+    ASSERT_EQ(1, dataset.d);
+    ASSERT_EQ(6, dataset.N);
+    ASSERT_EQ(4, dataset.k);
+    ASSERT_EQ(6, dataset.X.n_rows);
+    ASSERT_EQ(2, dataset.X.n_cols);
+    ASSERT_EQ(6, dataset.y.n_rows);
+    ASSERT_EQ(4, dataset.y.n_cols);
+    
+    // y -> [-2 -1 2 7]
+    mat output;
+    output << 0 << 0 << 0 << 1 << endr
+           << 0 << 0 << 1 << 0 << endr
+           << 0 << 1 << 0 << 0 << endr
+           << 1 << 0 << 0 << 0 << endr
+           << 0 << 1 << 0 << 0 << endr
+           << 0 << 0 << 1 << 0 << endr;
+    ASSERT_TRUE(approx_equal(output, dataset.y, "absdiff", 1e-10));
+}
 
 int main(int argc, char **argv)
 {

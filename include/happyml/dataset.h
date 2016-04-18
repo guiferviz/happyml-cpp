@@ -101,6 +101,7 @@ namespace happyml
             
             using Serializable::load;
             void load(const string& filename, int n_outputs);
+            void load(const string& filename, bool one_hot);
 
             /**
              * Write to an output stream the next data:

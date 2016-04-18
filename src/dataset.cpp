@@ -1,6 +1,8 @@
 
 #include "happyml/dataset.h"
 
+#include <map>
+
 
 namespace happyml
 {
@@ -30,6 +32,36 @@ namespace happyml
         k = nOutputs;
         
         Serializable::load(filename);
+    }
+
+    void DataSet::load(const string& filename, bool oneHotOutput)
+    {
+        k = 1;
+        
+        Serializable::load(filename);
+        
+        if (oneHotOutput)
+        {
+            map<double, unsigned> count;
+            for (int i = 0; i < N; ++i)
+            {
+                count[y[i]] = count[y[i]] + 1;
+            }
+            k = count.size();
+            mat oneHot(N, k, fill::zeros);
+            
+            int i;
+            map<double, unsigned>::iterator it;
+            for (it = count.begin(), i = 0; it != count.end(); ++it, ++i)
+            {
+                uvec pos = find(y == it->first);
+                vec col(N, fill::zeros);
+                col(pos).fill(1);
+                
+                oneHot.col(i) = col;
+            }
+            y = oneHot;
+        }
     }
 
     void DataSet::write(ostream& stream) const
