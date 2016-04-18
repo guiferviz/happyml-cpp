@@ -25,4 +25,13 @@ namespace happyml
         x /= stdMat;
     }
 
+    void Destandarizer::apply(mat& x) const
+    {
+        mat meanMat = vec(x.n_rows, fill::ones) * meanVec;
+        mat stdMat = vec(x.n_rows, fill::ones) * stdVec;
+        
+        x %= stdMat;
+        x += meanMat;
+    }
+
 }
