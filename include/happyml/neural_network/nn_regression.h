@@ -6,60 +6,25 @@
 #include "happyml/types.h"
 #include "happyml/utils.h"
 #include "happyml/predictor.h"
+#include "happyml/neural_network/neural_network_model.h"
 
 
 namespace happyml
 {
 
-    class NNRegression : public Predictor
+    class NNRegression : public NeuralNetworkModel
     {
-        private:
-
-            /*
-             * Number of layers. The input layer is the first layer and the
-             * output layer is the last one.
-             */
-            unsigned L;
-
-            /*
-             * Weights of the neuronal network.
-             * The size of this vector is always \f$L - 1\f$.
-             */
-            vector<mat> weights;
-
-            /*
-             * Number of neurons of each layer.
-             * The size of this vector is \f$L\f$.
-             */
-            vector<unsigned> d;
-
-
         public:
 
-            /**
-             * Creates a neural network with the layers and number of neurons
-             * indicated in the arguments.
-             * Initialize the weight to a random values.
-             * 
-             * @param layers Number of layers, number of neurons on the input
-             *               layer, number of neurons on the second layer...
-             */
             NNRegression(unsigned layers ...);
 
-            /**
-             * Creates a copy of a neural network.
-             */
-            NNRegression(const NNRegression& nn);
+            NNRegression(const vector<unsigned>& layers) : NeuralNetworkModel(layers) {}
 
-            ~NNRegression();
+            NNRegression(const vector<mat> w) : NeuralNetworkModel(w) {}
 
+            NNRegression(const NNRegression& nn) : NeuralNetworkModel(nn) {}
 
-            /**
-             * Returns a copy of all the weights of the neural network.
-             * 
-             * @return Copy of all the weights of the neural network.
-             */
-            const vector<mat> getWeights() const { return weights; }
+            ~NNRegression() {};
 
             /**
              * Train the neural network until the training loops over the

@@ -12,29 +12,22 @@ namespace happyml
 {
 
     NNRegression::NNRegression(unsigned layers ...) :
-            L(layers - 1), weights(layers), d(layers)
+            NeuralNetworkModel(layers, false)
     {
-        va_list args;
-        va_start(args, layers);
-
-        d[0] = va_arg(args, unsigned);
-        for (unsigned l = 1; l <= L; ++l)
+        if (layers >= 2)
         {
-            d[l] = va_arg(args, unsigned);
-            weights[l] = mat(d[l - 1] + 1, d[l], fill::randn);
+            va_list args;
+            va_start(args, layers);
+    
+            d[0] = va_arg(args, unsigned);
+            for (unsigned l = 1; l <= L; ++l)
+            {
+                d[l] = va_arg(args, unsigned);
+                weights[l] = mat(d[l - 1] + 1, d[l], fill::randn);
+            }
+    
+            va_end(args);
         }
-
-        va_end(args);
-    }
-
-    NNRegression::NNRegression(const NNRegression& p)
-    {
-        // TODO
-    }
-
-    NNRegression::~NNRegression()
-    {
-        // TODO
     }
 
 

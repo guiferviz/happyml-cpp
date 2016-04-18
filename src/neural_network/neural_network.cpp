@@ -89,7 +89,7 @@ namespace happyml
                 for (unsigned l = 1; l <= L; ++l)
                 {
                     // FIXME: this works only with one output neuron.
-                    mat gn = 2 * (as_scalar(x[L]) - dataset.y[n])
+                    mat gn = 2 * sum(x[L] - dataset.y.row(n).t())
                             * x[l - 1] * delta[l].t();
                     g[l] = g[l] + 1.0f / N * gn;
                 }
@@ -132,5 +132,26 @@ namespace happyml
         // Return the output vector.
         return as_scalar(x);
     }
+
+    vec NeuralNetwork::predictVec(const Input& input) const
+    {
+        // Unit vector to join the inputs as a bias term.
+        const vec u(1, fill::ones);
+        // Inputs plus bias term.
+        vec x = input;
+        // Forward propagation.
+        for (unsigned l = 1; l <= L; ++l)
+        {
+            // Compute the signal using last inputs and weights.
+            vec s = weights[l].t() * x;
+            // Apply soft threshold to the signal.
+            s = tanh(s);
+            // Add bias neuron if it isn't the last layer.
+            x = (l == L) ? s : join_vert(u, s);
+        }
+        // Return the output vector.
+        return x;
+    }
+
 
 }

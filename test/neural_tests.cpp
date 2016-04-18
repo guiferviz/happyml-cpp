@@ -185,6 +185,35 @@ TEST_F(NeuralNetworkTests, TestDeltaStop)
     ASSERT_EQ(495, iterations);
 }
 
+TEST_F(NeuralNetworkTests, TestTrain6)
+{
+    dataset.load("fixtures/4points_2outputs.data", 2);
+
+    happyml::Normalizer n(dataset);
+    n.apply(dataset);
+
+    nn = happyml::NeuralNetwork(3, 2, 10, 2);
+    //double error = nn.train(dataset, 10000, 0.2);
+
+    // Test point (5, 5) -> (1, 1)
+    happyml::Input x(3);  x[0] = 1;  x[1] = 5;  x[2] = 5;
+    vec output = nn.predictVec(x);
+    
+    cout << output << endl;
+
+    //ASSERT_NEAR(1, output[0], 0.001);
+    //ASSERT_NEAR(1, output[1], 0.001);
+    
+    // Testing point (5, -5) -> (1, -1)
+    x[1] = 5;  x[2] = -5;
+    output = nn.predictVec(x);
+    
+    cout << output << endl;
+
+    //ASSERT_NEAR( 1, output[0], 0.001);
+    //ASSERT_NEAR(-1, output[1], 0.001);
+}
+
 
 int main(int argc, char **argv)
 {

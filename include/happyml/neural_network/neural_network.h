@@ -8,8 +8,6 @@
 #include "happyml/predictor.h"
 #include "happyml/neural_network/neural_network_model.h"
 
-#include <utility>  // forward
-
 
 namespace happyml
 {
@@ -49,7 +47,7 @@ namespace happyml
              */
             double train(const DataSet& dataset, unsigned iter = 500,
                     float learning_rate = 0.1, float lambda = 0,
-                    float delta_stop = 0);
+                    float delta_stop = -1);
 
             /**
              * Uses the forward propagation algorithm to predict an output.
@@ -59,6 +57,7 @@ namespace happyml
              * @return Predicted value
              */
             double predict(const Input& x) const;
+            vec predictVec(const Input& x) const;
             
             /**
              * Returns the number of iterations performed in last training.
