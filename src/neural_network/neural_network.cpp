@@ -83,13 +83,14 @@ namespace happyml
                 }
 
                 // E_in.
-                error_in += as_scalar(1.0f / N * (x[L] - dataset.y[n]) * (x[L] - dataset.y[n]));
+                vec diff = x[L] - dataset.y.row(n).t();
+                error_in += as_scalar(1.0f / N * diff.t() * diff);
 
                 // Updating gradients.
                 for (unsigned l = 1; l <= L; ++l)
                 {
                     // FIXME: this works only with one output neuron.
-                    mat gn = 2 * sum(x[L] - dataset.y.row(n).t())
+                    mat gn = 2 * sum(x[L] - dataset.y.row(n).t()) / dataset.k
                             * x[l - 1] * delta[l].t();
                     g[l] = g[l] + 1.0f / N * gn;
                 }
@@ -103,7 +104,7 @@ namespace happyml
                         - learning_rate * g[l];
             }
 
-            //cout << error_in << "  ->  " << last_error_in - error_in << "\n";
+            //cout << error_in << "  ";
         }
 
         lastIterations = i;
