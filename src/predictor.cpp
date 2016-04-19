@@ -85,4 +85,10 @@ namespace happyml
         file.close();
     }
 
+
+    double Classifier::error(const Input& x, double y) const
+    {
+        double h = predict(x);
+        return h * y < 0;
+    }
 }

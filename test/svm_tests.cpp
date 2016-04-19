@@ -36,7 +36,7 @@ class SVMTests : public testing::Test
             remove("points.data");
             remove("boundary.data");
             
-            dataset.load("fixtures/2points.data");
+            dataset.load("fixtures/svm.data");
         }
 
         virtual void TearDown()
@@ -51,13 +51,19 @@ class SVMTests : public testing::Test
 
 TEST_F(SVMTests, TestSVM)
 {
-    happyml::Standarizer s(dataset);
-    s.apply(dataset);
-    dataset.save("points.data");
+    double error = svm.train(dataset,
+            /* C         */   100,
+            /* Iter      */    10,
+            /* Tolerance */ 1e-10);
     
-    svm.train(dataset, /* C */ 100, /* Iter */ 10, /* Tolerance */ 0.001);
+    int nSV = svm.getNumberSupportVectors();
+    ASSERT_EQ(3, nSV);
+    ASSERT_EQ(0, error);
     
-    // TODO: asserts
+    vec expectedWeights;
+    expectedWeights << 0 << endr << 0.5 << endr << 0.5 << endr;
+    vec acutalWeights = svm.getWeights();
+    ASSERT_TRUE(approx_equal(expectedWeights, acutalWeights, "absdiff", 1e-5));
     
     //svm.saveSampling("boundary.data", -2, 2, 500, -2, 2, 500);
     //system("happyplot");

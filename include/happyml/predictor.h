@@ -107,7 +107,23 @@ namespace happyml
      * Abstract class that represent an algorithm that classifies
      * an input in classes.
      */
-    class Classifier : public Predictor {};
+    class Classifier : public Predictor
+    {
+        public:
+
+            using Predictor::error;
+
+            /**
+             * Compute the error of the classifier in a given input.
+             * By default it computes the binary error.
+             * 
+             * @param x The input vector.
+             * @param y Correct output.
+             * 
+             * @return 0 if x is correctly predicted or 1 if not.
+             */
+            virtual double error(const Input& x, double y) const;
+    };
 
 }
 

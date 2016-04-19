@@ -5,6 +5,7 @@
 
 #include "happyml/types.h"
 #include "happyml/predictor.h"
+#include "happyml/linear_model.h"
 
 
 namespace happyml
@@ -13,7 +14,7 @@ namespace happyml
     /**
      * Support vector machine with linear kernel.
      */
-    class SVM : public Classifier
+    class SVM : public Classifier, public LinearModel
     {
         private:
 
@@ -21,16 +22,6 @@ namespace happyml
              * Support vectors.
              */
             DataSet sv;
-
-            /**
-             * Weight vector.
-             */
-            vec w;
-
-            /**
-             * Bias.
-             */
-            double b;
 
 
         public:
@@ -41,6 +32,28 @@ namespace happyml
              */
             SVM() {}
 
+
+            /**
+             * Returns the bias term. It's the first weight of the vector of
+             * weights.
+             * 
+             * @return Bias term.
+             */
+            double getBias() const { return w[0]; }
+
+            /**
+             * Returns the number of support vectors found.
+             * 
+             * @return Number of support vectors.
+             */
+            int getNumberSupportVectors() const { return sv.N; }
+
+            /**
+             * Returns a dataset with the support vectors found.
+             * 
+             * @return Dataset with the support vectors.
+             */
+            DataSet getSupportVectors() const { return sv; }
 
             /**
              * Train the SVM using the given dataset and the given parameters.
@@ -54,7 +67,7 @@ namespace happyml
              *
              * @return Returns the error of the SVM.
              */
-            double train(DataSet& data, double C = 1, unsigned iter = 5,
+            double train(const DataSet& data, double C = 1, unsigned iter = 5,
                     double tolerance = 0.001);
 
             /**
@@ -63,15 +76,6 @@ namespace happyml
              * @return \f$-1\f$ or \f$+1\f$.
              */
             double predict(const Input& x) const;
-
-            /**
-             * Compute the error of the SVM on the given dataset.
-             * 
-             * @param data Dataset with the correct output.
-             * 
-             * @return Error of classify the given dataset.
-             */
-            double error(const DataSet& data) const;
     };
 
 }

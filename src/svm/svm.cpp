@@ -1,45 +1,49 @@
 
 #include "happyml/svm/svm.h"
+#include "happyml/utils.h"
 
 #include <math.h>
-
-#include "happyml/utils.h"
+#include <iomanip> // std::setprecision
 
 
 namespace happyml
 {
 
-    double SVM::train(DataSet& dataset, double C, unsigned iter,
+    double SVM::train(const DataSet& dataset, double C, unsigned iter,
             double tolerance)
     {
         // Output message.
         cout << colors::BLUE << "Training SVM (" << iter << " loops)."
                 << colors::RESET << endl;
         
-        // Remove x_0 feature.
-        dataset.X = dataset.X.cols(1, dataset.d);
+        // Clone dataset and remove x_0 feature.
+        DataSet d = dataset;
+        d.X = d.X.cols(1, d.d);
         
         // Init values.
-        vec alphas(dataset.N, fill::zeros);
-        vec errors(dataset.N);
-        w = vec(dataset.d);
-        b = 0;
+        vec alphas(d.N, fill::zeros);
+        vec errors(d.N);
+        w = vec(d.d);
+        double b = 0;
         
         // Linear Kernel computation. All to all dot product.
         // Inefficient: symmetric matrix, wasted time and space.
-        mat K = dataset.X * dataset.X.t();
+        mat K = d.X * d.X.t();
         
-        for (int i = 0; i < iter; ++i)
+        int i;
+        for (i = 0; i < iter; ++i)
         {
+            if (i % 10) cout << ".";
+            
             unsigned updatedAlphas = 0;
-            for (int n = 0; n < dataset.N; ++n)
+            for (int n = 0; n < d.N; ++n)
             {
-                errors(n) = b + sum(alphas % dataset.y % K.row(n).t()) - dataset.y(n);
+                errors(n) = b + sum(alphas % d.y % K.row(n).t()) - d.y(n);
                 
                 // If misclassified and alpha not satisfy constraint
                 // or well classified but not alpha 0.
-                if ((dataset.y(n) * errors(n) < -tolerance && alphas(n) < C)
-                    || (dataset.y(n) * errors(n) > tolerance && alphas(n) > 0))
+                if ((d.y(n) * errors(n) < -tolerance && alphas(n) < C)
+                    || (d.y(n) * errors(n) > tolerance && alphas(n) > 0))
                 {
                     // Random x not equal to n.
                     int m;
@@ -50,7 +54,7 @@ namespace happyml
                     while (n == m);
                     
                     // Error of the new x.
-                    errors(m) = b + sum(alphas % dataset.y % K.row(m).t()) - dataset.y(m);
+                    errors(m) = b + sum(alphas % d.y % K.row(m).t()) - d.y(m);
                     
                     // Save old alphas.
                     double alpha_n = alphas(n);
@@ -59,7 +63,7 @@ namespace happyml
                     // Compute L and H.
                     double L = 0;
                     double H = 0;
-                    if (dataset.y(n) == dataset.y(m))
+                    if (d.y(n) == d.y(m))
                     {
                         L = max(0.0, alpha_m + alpha_n - C);
                         H = min(C, alpha_m + alpha_n);
@@ -76,7 +80,7 @@ namespace happyml
                     if (eta >= 0) continue;
                     
                     // Compute new value for alpha m.
-                    alphas(m) = alphas(m) - (dataset.y(m) * (errors(n) - errors(m))) / eta;
+                    alphas(m) = alphas(m) - (d.y(m) * (errors(n) - errors(m))) / eta;
                     
                     // Clip.
                     alphas(m) = min(H, alphas(m));
@@ -90,15 +94,15 @@ namespace happyml
                     }
                     
                     // Determine value for alpha n.
-                    alphas(n) = alphas(n) + dataset.y(n) * dataset.y(m)
+                    alphas(n) = alphas(n) + d.y(n) * d.y(m)
                             * (alpha_m - alphas(m));
                     
                     // Compute b1 and b2.
-                    double b1 = b - errors(n) - dataset.y(n) * (alphas(n)
-                            - alpha_n) *  K(n, m)/*.t()*/ - dataset.y(m) * (alphas(m)
+                    double b1 = b - errors(n) - d.y(n) * (alphas(n)
+                            - alpha_n) *  K(n, m)/*.t()*/ - d.y(m) * (alphas(m)
                             - alpha_m) *  K(n, m)/*.t()*/;
-                    double b2 = b - errors(m) - dataset.y(n) * (alphas(n)
-                            - alpha_n) *  K(n, m)/*.t()*/ - dataset.y(m) * (alphas(m)
+                    double b2 = b - errors(m) - d.y(n) * (alphas(n)
+                            - alpha_n) *  K(n, m)/*.t()*/ - d.y(m) * (alphas(m)
                             - alpha_m) *  K(m, m)/*.t()*/;
 
                     // Compute b.
@@ -125,35 +129,34 @@ namespace happyml
             }
         }
 
-        // Save the model
+        // Save the model.
         uvec idx = find(alphas > 0);
         vec supportAlpha = alphas(idx);
-        w = ((alphas % dataset.y).t() * dataset.X).t();
-        cout << b << endl << w << endl;
-        
-        // Add x_0 = 1 feature.
-        dataset.X = join_rows(vec(dataset.N, fill::ones), dataset.X);
-        /*model.X= X(idx,:);
-        model.y= Y(idx);
-        model.kernelFunction = kernelFunction;
-        model.b= b;
-        model.alphas= alphas(idx);
-        model.w = ((alphas.*Y)'*X)';*/
+        w = ((alphas % d.y).t() * d.X).t();
+        vec bVec(1);
+        bVec[0] = b;
+        w = join_cols(bVec, w);
+        sv.X = dataset.X.rows(idx);
+        sv.y = dataset.y.rows(idx);
+        sv.d = sv.X.n_cols - 1;
+        sv.N = sv.X.n_rows;
+        sv.k = 1;
+
+        double currentError = error(dataset);
+
+        cout << endl << colors::RED << "End of the training. " << i
+                << " iterations. Error: " << setprecision(4) << currentError
+                << colors::RESET << endl;
+
+        return currentError;
     }
     
     double SVM::predict(const Input& input) const
     {
-        // Extract x_0.
-        vec x = input.rows(1, input.n_rows - 1);
-        
-        double output = as_scalar(w.t() * x) + b;
+        // Bias term is included on weights.
+        double output = as_scalar(w.t() * input);
         
         return sgn(output);
-    }
-    
-    double SVM::error(const DataSet& data) const
-    {
-        return 1;
     }
 
 }
