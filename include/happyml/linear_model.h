@@ -5,6 +5,8 @@
 
 #include <armadillo>
 
+#include "happyml/serializable.h"
+
 
 using namespace arma;
 
@@ -18,7 +20,7 @@ namespace happyml
      * 
      * This class contains a protected weight vector and a public getter.
      */
-    class LinearModel
+    class LinearModel : public Serializable
     {
         protected:
 
@@ -26,6 +28,7 @@ namespace happyml
              * Vector of weights.
              */
             vec w;
+
 
         public:
 
@@ -62,6 +65,40 @@ namespace happyml
              * @return Copy of the model weights.
              */
             vec getWeights() const { return w; }
+
+            /**
+             * Read the weight vector from the text stream.
+             * Format of the stream:
+             * \f$\\
+             * w_{0}\\
+             * w_{1}\\
+             * \ \ \vdots\\
+             * w_{d}
+             * \f$
+             * 
+             * @param stream Input stream.
+             */
+            void read(istream& stream)
+            {
+                w.load(stream, csv_ascii);
+            }
+
+            /**
+             * Write the weight vector to a text stream.
+             * The format of the stream will be:
+             * \f$\\
+             * w_{0}\\
+             * w_{1}\\
+             * \ \ \vdots\\
+             * w_{d}
+             * \f$
+             * 
+             * @param stream Output stream.
+             */
+            void write(ostream& stream) const
+            {
+                w.save(stream, csv_ascii);
+            }
     };
 
 }
