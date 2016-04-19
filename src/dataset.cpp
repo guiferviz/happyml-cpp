@@ -70,4 +70,13 @@ namespace happyml
         outputMat.save(stream, csv_ascii);
     }
 
+    void DataSet::shuffle()
+    {
+        uvec all = find(X.col(0) > 0);
+        all = arma::shuffle(all);
+
+        X = X.rows(all);
+        y = y.rows(all);
+    }
+
 }
