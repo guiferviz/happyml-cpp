@@ -33,7 +33,7 @@ namespace happyml
         int i;
         for (i = 0; i < iter; ++i)
         {
-            if (i % 10) cout << ".";
+            if (i % 10) cout << "." << flush;
             
             unsigned updatedAlphas = 0;
             for (int n = 0; n < d.N; ++n)

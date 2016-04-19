@@ -84,6 +84,8 @@ namespace happyml
 
             NormalizerXY(const DataSet& d) : nx(d), ny(d.y) {}
 
+            NormalizerXY(const Normalizer& x, const Normalizer& y) : nx(x), ny(y) {}
+
 
             Normalizer getNormalizerX() const { return nx; }
 

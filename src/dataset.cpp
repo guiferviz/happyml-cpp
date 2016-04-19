@@ -79,4 +79,21 @@ namespace happyml
         y = y.rows(all);
     }
 
+    void DataSet::reduce(int n)
+    {
+        if (N > n)
+        {
+            X.shed_rows(n, X.n_rows - 1);
+            y.shed_rows(n, y.n_rows - 1);
+            
+            d = X.n_cols - 1;
+            N = X.n_rows;
+        }
+    }
+
+    void DataSet::noise(int n)
+    {
+        y.rows(0, n) *= -1;
+    }
+
 }

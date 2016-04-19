@@ -116,6 +116,10 @@ namespace happyml
             void write(ostream& stream) const;
 
             void shuffle();
+
+            void reduce(int);
+
+            void noise(int);
     };
 }
 
