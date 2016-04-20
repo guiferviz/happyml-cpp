@@ -23,20 +23,15 @@ namespace happyml
         // Init values.
         alphas = vec(d.N, fill::zeros);
         vec errors(d.N);
-        w = vec(d.d);
-        double b = 0;
+        b = 0;
         
-        // Linear Kernel computation. All to all dot product.
-        // Inefficient: symmetric matrix, wasted time and space.
-        //mat K = d.X * d.X.t();
-        sigma = 1;
+        // Kernel matrix computation. All to all kernel.
         mat K(d.N, d.N);
         for (int i = 0; i < d.N; ++i)
         {
             for (int j = 0; j < d.N; ++j)
             {
-                //K(i, j) = linear_kernel(d.X.row(i).t(), d.X.row(j).t());
-                K(i, j) = gaussian_kernel(d.X.row(i).t(), d.X.row(j).t());
+                K(i, j) = kernel(d.X.row(i).t(), d.X.row(j).t());
                 K(j, i) = K(i, j);
             }
         }
@@ -143,17 +138,13 @@ namespace happyml
         // Save the model.
         uvec idx = find(alphas > 0);
         vec supportAlpha = alphas(idx);
-        w = ((alphas % d.y).t() * d.X).t();
-        vec bVec(1);
-        bVec[0] = b;
-        w = join_cols(bVec, w);
         sv.X = dataset.X.rows(idx);
         sv.y = dataset.y.rows(idx);
         sv.d = sv.X.n_cols - 1;
         sv.N = sv.X.n_rows;
         sv.k = 1;
 
-        double currentError = error(dataset);
+        double currentError = sum(errors);  //error(dataset);
 
         cout << endl << colors::RED << "End of the training. " << i
                 << " iterations. Error: " << setprecision(4) << currentError
@@ -168,21 +159,11 @@ namespace happyml
         double output = 0; //as_scalar(w.t() * input);
         for (int j = 0; j < sv.N; ++j)
         {
-            output += alphas[j] * sv.y[j] * gaussian_kernel(input, sv.X.row(j).t());
+            output += alphas[j] * sv.y[j] * kernel(input, sv.X.row(j).t());
         }
-        output += w[0];
+        output += b;
         
         return sgn(output);
-    }
-
-    double SVM::linear_kernel(vec x1, vec x2) const
-    {
-        return as_scalar(x1.t() * x2);
-    }
-    
-    double SVM::gaussian_kernel(vec x1, vec x2) const
-    {
-        return exp(-pow(norm(x1 - x2), 2) / (2 * pow(sigma, 2)));
     }
 
 }

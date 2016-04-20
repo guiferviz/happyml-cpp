@@ -5,7 +5,6 @@
 
 #include "happyml/types.h"
 #include "happyml/predictor.h"
-#include "happyml/linear_model.h"
 
 
 namespace happyml
@@ -14,9 +13,9 @@ namespace happyml
     /**
      * Support vector machine with linear kernel.
      */
-    class SVM : public Classifier, public LinearModel
+    class SVM : public Classifier
     {
-        private:
+        protected:
 
             /**
              * Support vectors.
@@ -24,6 +23,11 @@ namespace happyml
             DataSet sv;
 
             vec alphas;
+
+            /**
+             * Bias term.
+             */
+            double b;
 
 
         public:
@@ -41,7 +45,7 @@ namespace happyml
              * 
              * @return Bias term.
              */
-            double getBias() const { return w[0]; }
+            double getBias() const { return b; }
 
             /**
              * Returns the number of support vectors found.
@@ -69,19 +73,23 @@ namespace happyml
              *
              * @return Returns the error of the SVM.
              */
-            double train(const DataSet& data, double C = 1, unsigned iter = 5,
-                    double tolerance = 0.001);
+            virtual double train(const DataSet& data, double C = 1,
+                    unsigned iter = 5, double tolerance = 0.001);
 
             /**
              * Classifies an input vector.
              *
              * @return \f$-1\f$ or \f$+1\f$.
              */
-            double predict(const Input& x) const;
-            
-            double linear_kernel(vec x, vec z) const;
-            double gaussian_kernel(vec x, vec z) const;
-            double sigma;
+            virtual double predict(const Input& x) const;
+
+            /**
+             * Computes the similarity of the 2 vectors.
+             * 
+             * @param x1 Vector 1.
+             * @param x2 Vector 2.
+             */
+            virtual double kernel(vec x1, vec x2) const = 0;
     };
 
 }

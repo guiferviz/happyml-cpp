@@ -16,8 +16,6 @@ class SVMTests : public testing::Test
 
         happyml::DataSet dataset;
 
-        happyml::SVM svm;
-
 
         SVMTests()
         {
@@ -49,8 +47,9 @@ class SVMTests : public testing::Test
 };
 
 
-TEST_F(SVMTests, TestSVM)
+TEST_F(SVMTests, TestSVMLinear)
 {
+    happyml::SVMLinear svm;
     double error = svm.train(dataset,
             /* C         */   100,
             /* Iter      */    10,
@@ -58,15 +57,31 @@ TEST_F(SVMTests, TestSVM)
     
     int nSV = svm.getNumberSupportVectors();
     ASSERT_EQ(3, nSV);
-    ASSERT_EQ(0, error);
+    ASSERT_NEAR(0, error, 1e-5);
     
     vec expectedWeights;
     expectedWeights << 0 << endr << 0.5 << endr << 0.5 << endr;
-    vec acutalWeights = svm.getWeights();
-    ASSERT_TRUE(approx_equal(expectedWeights, acutalWeights, "absdiff", 1e-5));
+    vec actualWeights = svm.getWeights();
+    ASSERT_TRUE(approx_equal(expectedWeights, actualWeights, "absdiff", 1e-5));
     
     //svm.saveSampling("boundary.data", -2, 2, 500, -2, 2, 500);
-    //system("happyplot");
+    //system("happyplot -d fixtures/svm.data");
+}
+
+TEST_F(SVMTests, TestSVMGaussian)
+{
+    happyml::SVMGaussian svm(2);
+    double error = svm.train(dataset,
+            /* C         */   100,
+            /* Iter      */    10,
+            /* Tolerance */ 1e-10);
+    
+    int nSV = svm.getNumberSupportVectors();
+    ASSERT_EQ(4, nSV);
+    ASSERT_NEAR(0, error, 0.2);
+
+    //svm.saveSampling("boundary.data", -2, 2, 500, -2, 2, 500);
+    //system("happyplot -d fixtures/svm.data");
 }
 
 
