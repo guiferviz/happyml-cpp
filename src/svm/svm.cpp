@@ -21,14 +21,25 @@ namespace happyml
         d.X = d.X.cols(1, d.d);
         
         // Init values.
-        vec alphas(d.N, fill::zeros);
+        alphas = vec(d.N, fill::zeros);
         vec errors(d.N);
         w = vec(d.d);
         double b = 0;
         
         // Linear Kernel computation. All to all dot product.
         // Inefficient: symmetric matrix, wasted time and space.
-        mat K = d.X * d.X.t();
+        //mat K = d.X * d.X.t();
+        sigma = 1;
+        mat K(d.N, d.N);
+        for (int i = 0; i < d.N; ++i)
+        {
+            for (int j = 0; j < d.N; ++j)
+            {
+                //K(i, j) = linear_kernel(d.X.row(i).t(), d.X.row(j).t());
+                K(i, j) = gaussian_kernel(d.X.row(i).t(), d.X.row(j).t());
+                K(j, i) = K(i, j);
+            }
+        }
         
         int i;
         for (i = 0; i < iter; ++i)
@@ -154,9 +165,24 @@ namespace happyml
     double SVM::predict(const Input& input) const
     {
         // Bias term is included on weights.
-        double output = as_scalar(w.t() * input);
+        double output = 0; //as_scalar(w.t() * input);
+        for (int j = 0; j < sv.N; ++j)
+        {
+            output += alphas[j] * sv.y[j] * gaussian_kernel(input, sv.X.row(j).t());
+        }
+        output += w[0];
         
         return sgn(output);
+    }
+
+    double SVM::linear_kernel(vec x1, vec x2) const
+    {
+        return as_scalar(x1.t() * x2);
+    }
+    
+    double SVM::gaussian_kernel(vec x1, vec x2) const
+    {
+        return exp(-pow(norm(x1 - x2), 2) / (2 * pow(sigma, 2)));
     }
 
 }

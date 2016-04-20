@@ -23,6 +23,8 @@ namespace happyml
              */
             DataSet sv;
 
+            vec alphas;
+
 
         public:
 
@@ -76,6 +78,10 @@ namespace happyml
              * @return \f$-1\f$ or \f$+1\f$.
              */
             double predict(const Input& x) const;
+            
+            double linear_kernel(vec x, vec z) const;
+            double gaussian_kernel(vec x, vec z) const;
+            double sigma;
     };
 
 }
