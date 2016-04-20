@@ -84,6 +84,26 @@ TEST_F(SVMTests, TestSVMGaussian)
     //system("happyplot -d fixtures/svm.data");
 }
 
+TEST_F(SVMTests, TestSVMLinearLoadSave)
+{
+    happyml::SVMLinear svm;
+    svm.train(dataset, 100, 10, 1e-10);
+    svm.SVM::save("happy.svm");
+    
+    happyml::SVMLinear svm2;
+    svm2.SVM::load("happy.svm");
+    
+    int nSV = svm2.getNumberSupportVectors();
+    ASSERT_EQ(3, nSV);
+    double error = svm2.error(dataset);
+    ASSERT_NEAR(0, error, 1e-5);
+    
+    vec expectedWeights;
+    expectedWeights << 0 << endr << 0.5 << endr << 0.5 << endr;
+    vec actualWeights = svm2.getWeights();
+    ASSERT_TRUE(approx_equal(expectedWeights, actualWeights, "absdiff", 1e-5));
+}
+
 
 int main(int argc, char **argv)
 {

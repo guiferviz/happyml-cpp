@@ -13,7 +13,7 @@ namespace happyml
     /**
      * Support vector machine with linear kernel.
      */
-    class SVM : public Classifier
+    class SVM : public Classifier, public Serializable
     {
         protected:
 
@@ -90,6 +90,10 @@ namespace happyml
              * @param x2 Vector 2.
              */
             virtual double kernel(vec x1, vec x2) const = 0;
+            
+            void read(istream& stream);
+        
+            void write(ostream& stream) const;
     };
 
 }

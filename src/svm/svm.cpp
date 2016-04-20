@@ -166,4 +166,29 @@ namespace happyml
         return sgn(output);
     }
 
+    void SVM::read(istream& stream)
+    {
+        field<mat> matrices;
+        matrices.load(stream);
+        
+        sv.X = matrices[0];
+        sv.y = matrices[1];
+        sv.d = sv.X.n_cols - 1;
+        sv.N = sv.X.n_rows;
+        sv.k = 1;
+        alphas = matrices[2];
+        b = as_scalar(matrices[3]);
+    }
+
+    void SVM::write(ostream& stream) const
+    {
+        field<mat> matrices(4);
+        
+        matrices[0] = sv.X;
+        matrices[1] = sv.y;
+        matrices[2] = alphas;
+        matrices[3] = b;
+        
+        matrices.save(stream);
+    }
 }

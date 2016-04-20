@@ -30,4 +30,13 @@ namespace happyml
         return as_scalar(x1.t() * x2);
     }
 
+    void SVMLinear::read(istream& stream)
+    {
+        SVM::read(stream);
+        
+        uvec idx = find(alphas > 0);
+        w = ((alphas(idx) % sv.y).t() * sv.X).t();
+        w[0] = b;
+    }
+
 }

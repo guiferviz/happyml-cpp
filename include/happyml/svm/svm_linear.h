@@ -31,8 +31,10 @@ namespace happyml
                     double tolerance = 0.001);
 
             double kernel(vec x, vec z) const;
-            
+
             double predict(const Input& input) const;
+
+            void read(istream& stream);
     };
 
 }
