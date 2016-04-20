@@ -34,6 +34,10 @@ namespace happyml
             ~SVMGaussian() {}
 
 
+            double getSigma() const { return sigma; }
+
+            void setSigma(double s) { sigma = s; }
+
             double kernel(vec x, vec z) const;
     };
 
