@@ -151,4 +151,35 @@ namespace happyml
         return x;
     }
 
+    double NNRegression::error(const DataSet& dataset) const
+    {
+        double error_in = 0;
+        // Unit vector to join the inputs as a bias term.
+        const vec u(1, fill::ones);
+        for (unsigned n = 0; n < dataset.N; ++n)
+        {
+            // Forward propagation.
+            vec x[L + 1];
+            vec s[L + 1];
+            // Point plus bias term.
+            x[0] = dataset.X.row(n).t();
+            for (unsigned l = 1; l < L; ++l)
+            {
+                // Compute the signal using last inputs and weights.
+                s[l] = weights[l].t() * x[l - 1];
+                // Apply soft threshold to the signal.
+                x[l] = tanh(s[l]);
+                // Add bias neuron.
+                x[l] = join_vert(u, x[l]);
+            }
+            // Last layer without activation function.
+            x[L] = weights[L].t() * x[L - 1];
+
+            // E_in.
+            vec error = dataset.y.row(n).t() - x[L];
+            error_in += 1.0f / dataset.N * sum(error % error);
+        }
+
+        return error_in;
+    }
 }

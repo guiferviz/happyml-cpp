@@ -12,7 +12,7 @@
 namespace happyml
 {
 
-    class NNRegression : public NeuralNetworkModel
+    class NNRegression : public Predictor, public NeuralNetworkModel
     {
         public:
 
@@ -49,6 +49,8 @@ namespace happyml
              */
             double predict(const Input& x) const;
             vec predictVec(const Input& x) const;
+
+            double error(const DataSet&) const;
     };
 
 }
