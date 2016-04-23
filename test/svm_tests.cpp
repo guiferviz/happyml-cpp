@@ -52,7 +52,7 @@ TEST_F(SVMTests, TestSVMLinear)
     happyml::SVMLinear svm;
     double error = svm.train(dataset,
             /* C         */   100,
-            /* Iter      */    10,
+            /* Iter      */ 10000,
             /* Tolerance */ 1e-10);
     
     int nSV = svm.getNumberSupportVectors();
@@ -73,12 +73,12 @@ TEST_F(SVMTests, TestSVMGaussian)
     happyml::SVMGaussian svm(2);
     double error = svm.train(dataset,
             /* C         */   100,
-            /* Iter      */    10,
+            /* Iter      */  1000,
             /* Tolerance */ 1e-10);
     
     int nSV = svm.getNumberSupportVectors();
     ASSERT_EQ(4, nSV);
-    ASSERT_NEAR(0, error, 0.2);
+    ASSERT_NEAR(0, error, 0.15);
 
     //svm.saveSampling("boundary.data", -2, 2, 500, -2, 2, 500);
     //system("happyplot -d fixtures/svm.data");
@@ -87,7 +87,7 @@ TEST_F(SVMTests, TestSVMGaussian)
 TEST_F(SVMTests, TestSVMLinearLoadSave)
 {
     happyml::SVMLinear svm;
-    svm.train(dataset, 100, 10, 1e-10);
+    svm.train(dataset, 100, 1000, 1e-10);
     svm.SVM::save("happy.svm");
     
     happyml::SVMLinear svm2;
