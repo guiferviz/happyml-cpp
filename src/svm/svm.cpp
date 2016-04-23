@@ -39,7 +39,7 @@ namespace happyml
         int i;
         for (i = 0; i < iter; ++i)
         {
-            if (i % 10) cout << "." << flush;
+            if (i % (iter / 10) == 0) cout << "." << flush;
             
             unsigned updatedAlphas = 0;
             for (int n = 0; n < d.N; ++n)
@@ -131,7 +131,7 @@ namespace happyml
             
             if (updatedAlphas != 0)
             {
-                i = -1;
+                //i = -1;
             }
         }
 
@@ -156,7 +156,7 @@ namespace happyml
     double SVM::predict(const Input& input) const
     {
         // Bias term is included on weights.
-        double output = 0; //as_scalar(w.t() * input);
+        double output = 0;
         for (int j = 0; j < sv.N; ++j)
         {
             output += alphas[j] * sv.y[j] * kernel(input, sv.X.row(j).t());
