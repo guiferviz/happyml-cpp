@@ -32,8 +32,8 @@ class NeuralNetworkTests : public testing::Test
         virtual void SetUp()
         {
             //#include <time.h>
-            //srand(time(NULL));
-            srand(0);
+            srand(time(NULL));
+            //srand(0);
         }
 
         virtual void TearDown()
@@ -220,6 +220,31 @@ TEST_F(NeuralNetworkTests, TestTrain6)
     ASSERT_TRUE(output[1] > 0);
 }
 
+TEST_F(NeuralNetworkTests, TestSGD)
+{
+    dataset.load("fixtures/4points.data");
+
+    nn = happyml::NeuralNetwork(2, 2, 1);
+    double error = nn.sgdTrain(dataset, 50, 0.1, 0, 4);
+
+    ASSERT_NEAR(0, error, 1e-10);
+}
+/*
+TEST_F(NeuralNetworkTests, TestSGDOverfit)
+{
+    dataset.load("fixtures/overfitme.data");
+    dataset.save("points.data");
+
+    nn = happyml::NeuralNetwork(4, 2, 20, 20, 1);
+    double error = nn.sgdTrain(dataset, 300000, 0.1, 0, 3);
+    //double error = nn.train(dataset, 3000, 0.1, 0.1);
+
+    nn.saveSampling("boundary.data", -1, 1, 500, -1, 1, 500);
+    system("happyplot -o images/output.png");
+    
+    ASSERT_NEAR(0, error, 1e-10);
+}
+*/
 
 int main(int argc, char **argv)
 {

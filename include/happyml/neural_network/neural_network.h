@@ -49,6 +49,11 @@ namespace happyml
                     float learning_rate = 0.1, float lambda = 0,
                     float delta_stop = -1);
 
+
+            double sgdTrain(const DataSet& dataset, unsigned iter = 500,
+                    float learning_rate = 0.1, float lambda = 0,
+                    int batch_size = 32);
+
             /**
              * Uses the forward propagation algorithm to predict an output.
              * 
