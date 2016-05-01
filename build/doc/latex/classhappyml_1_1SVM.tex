@@ -1,0 +1,258 @@
+\hypertarget{classhappyml_1_1SVM}{}\section{happyml\+:\+:S\+VM Class Reference}
+\label{classhappyml_1_1SVM}\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+
+
+Support vector machine with linear kernel.  
+
+
+
+
+{\ttfamily \#include $<$svm.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:S\+VM\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classhappyml_1_1SVM}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1SVM_a5507aedca56418aeb63abb0d18b1f133}{S\+VM} ()
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classhappyml_1_1SVM}{S\+VM} without any support vector. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1SVM_a9fce220acd57223df101009175dee53a}{get\+Bias} () const 
+\begin{DoxyCompactList}\small\item\em Returns the bias term. \end{DoxyCompactList}\item 
+int \hyperlink{classhappyml_1_1SVM_a4cc4569eb44c66c9a3a613042140319c}{get\+Number\+Support\+Vectors} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of support vectors found. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1DataSet}{Data\+Set} \hyperlink{classhappyml_1_1SVM_a99e11b69c3b6583eb144ec1cd1f88000}{get\+Support\+Vectors} () const 
+\begin{DoxyCompactList}\small\item\em Returns a dataset with the support vectors found. \end{DoxyCompactList}\item 
+virtual double \hyperlink{classhappyml_1_1SVM_ac5d83933da1fdf70f1d20995136cfddd}{train} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&data, double C=1, unsigned iter=5, double tolerance=0.\+001)
+\begin{DoxyCompactList}\small\item\em Train the \hyperlink{classhappyml_1_1SVM}{S\+VM} using the given dataset and the given parameters. \end{DoxyCompactList}\item 
+virtual double \hyperlink{classhappyml_1_1SVM_af29c307be8f6457806851f7274fc7c50}{predict} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\begin{DoxyCompactList}\small\item\em Classifies an input vector. \end{DoxyCompactList}\item 
+virtual double \hyperlink{classhappyml_1_1SVM_a940caf4789e40d6a2b237184765a16ea}{kernel} (vec x1, vec x2) const  =0
+\begin{DoxyCompactList}\small\item\em Computes the similarity of the 2 vectors. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1SVM_a180e169777af513b76cada99044ad3c3}{read} (istream \&stream)
+\begin{DoxyCompactList}\small\item\em Read the object from an input stream. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1SVM_a71cdc4e06322b9555dbcc118b45c4f73}{write} (ostream \&stream) const 
+\begin{DoxyCompactList}\small\item\em Write the object to an output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1DataSet}{Data\+Set} \hyperlink{classhappyml_1_1SVM_aa6fca9de47d16e821964229f660a8cdd}{sv}
+\begin{DoxyCompactList}\small\item\em Support vectors. \end{DoxyCompactList}\item 
+vec \hyperlink{classhappyml_1_1SVM_ab25126e39d5dc413f6acb22cf1d25cc8}{alphas}
+\item 
+double \hyperlink{classhappyml_1_1SVM_a84a61489971f2b76c78587aff4782fdc}{b}
+\begin{DoxyCompactList}\small\item\em Bias term. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Support vector machine with linear kernel. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!S\+VM@{S\+VM}}
+\index{S\+VM@{S\+VM}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{S\+V\+M()}{SVM()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+S\+V\+M\+::\+S\+VM (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1SVM_a5507aedca56418aeb63abb0d18b1f133}{}\label{classhappyml_1_1SVM_a5507aedca56418aeb63abb0d18b1f133}
+
+
+Creates a \hyperlink{classhappyml_1_1SVM}{S\+VM} without any support vector. 
+
+Needs to be trained. 
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!get\+Bias@{get\+Bias}}
+\index{get\+Bias@{get\+Bias}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{get\+Bias() const }{getBias() const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+S\+V\+M\+::get\+Bias (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1SVM_a9fce220acd57223df101009175dee53a}{}\label{classhappyml_1_1SVM_a9fce220acd57223df101009175dee53a}
+
+
+Returns the bias term. 
+
+It\textquotesingle{}s the first weight of the vector of weights.
+
+\begin{DoxyReturn}{Returns}
+Bias term. 
+\end{DoxyReturn}
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!get\+Number\+Support\+Vectors@{get\+Number\+Support\+Vectors}}
+\index{get\+Number\+Support\+Vectors@{get\+Number\+Support\+Vectors}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{get\+Number\+Support\+Vectors() const }{getNumberSupportVectors() const }}]{\setlength{\rightskip}{0pt plus 5cm}int happyml\+::\+S\+V\+M\+::get\+Number\+Support\+Vectors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1SVM_a4cc4569eb44c66c9a3a613042140319c}{}\label{classhappyml_1_1SVM_a4cc4569eb44c66c9a3a613042140319c}
+
+
+Returns the number of support vectors found. 
+
+\begin{DoxyReturn}{Returns}
+Number of support vectors. 
+\end{DoxyReturn}
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!get\+Support\+Vectors@{get\+Support\+Vectors}}
+\index{get\+Support\+Vectors@{get\+Support\+Vectors}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{get\+Support\+Vectors() const }{getSupportVectors() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data\+Set} happyml\+::\+S\+V\+M\+::get\+Support\+Vectors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1SVM_a99e11b69c3b6583eb144ec1cd1f88000}{}\label{classhappyml_1_1SVM_a99e11b69c3b6583eb144ec1cd1f88000}
+
+
+Returns a dataset with the support vectors found. 
+
+\begin{DoxyReturn}{Returns}
+Dataset with the support vectors. 
+\end{DoxyReturn}
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!kernel@{kernel}}
+\index{kernel@{kernel}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{kernel(vec x1, vec x2) const  =0}{kernel(vec x1, vec x2) const  =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double happyml\+::\+S\+V\+M\+::kernel (
+\begin{DoxyParamCaption}
+\item[{vec}]{x1, }
+\item[{vec}]{x2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhappyml_1_1SVM_a940caf4789e40d6a2b237184765a16ea}{}\label{classhappyml_1_1SVM_a940caf4789e40d6a2b237184765a16ea}
+
+
+Computes the similarity of the 2 vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Vector 1. \\
+\hline
+{\em x2} & Vector 2. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classhappyml_1_1SVMGaussian_a639e1a4002720ee7041db68be4254052}{happyml\+::\+S\+V\+M\+Gaussian}, and \hyperlink{classhappyml_1_1SVMLinear_ac7cb3d8280247f252b28d05d2fd10961}{happyml\+::\+S\+V\+M\+Linear}.
+
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!predict@{predict}}
+\index{predict@{predict}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{predict(const Input \&x) const }{predict(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+S\+V\+M\+::predict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1SVM_af29c307be8f6457806851f7274fc7c50}{}\label{classhappyml_1_1SVM_af29c307be8f6457806851f7274fc7c50}
+
+
+Classifies an input vector. 
+
+\begin{DoxyReturn}{Returns}
+$-1$ or $+1$. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{happyml\+::\+Predictor}.
+
+
+
+Reimplemented in \hyperlink{classhappyml_1_1SVMLinear_a7bf1f8e60104e34e0589b0b6cab1f447}{happyml\+::\+S\+V\+M\+Linear}.
+
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!read@{read}}
+\index{read@{read}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{read(istream \&stream)}{read(istream &stream)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+S\+V\+M\+::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1SVM_a180e169777af513b76cada99044ad3c3}{}\label{classhappyml_1_1SVM_a180e169777af513b76cada99044ad3c3}
+
+
+Read the object from an input stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Input stream. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classhappyml_1_1Serializable_aef5c211d8e9c1c425b33c657824c2f0c}{happyml\+::\+Serializable}.
+
+
+
+Reimplemented in \hyperlink{classhappyml_1_1SVMLinear_a4259c29ba1acd320703bf8c1ae8fd780}{happyml\+::\+S\+V\+M\+Linear}.
+
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!train@{train}}
+\index{train@{train}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{train(const Data\+Set \&data, double C=1, unsigned iter=5, double tolerance=0.\+001)}{train(const DataSet &data, double C=1, unsigned iter=5, double tolerance=0.001)}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+S\+V\+M\+::train (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{data, }
+\item[{double}]{C = {\ttfamily 1}, }
+\item[{unsigned}]{iter = {\ttfamily 5}, }
+\item[{double}]{tolerance = {\ttfamily 0.001}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1SVM_ac5d83933da1fdf70f1d20995136cfddd}{}\label{classhappyml_1_1SVM_ac5d83933da1fdf70f1d20995136cfddd}
+
+
+Train the \hyperlink{classhappyml_1_1SVM}{S\+VM} using the given dataset and the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Training set. \\
+\hline
+{\em C} & \hyperlink{classhappyml_1_1SVM}{S\+VM} regularization parameter. \\
+\hline
+{\em iter} & Maximun number of iterations that the S\+MO algorithm does all over the dataset. \\
+\hline
+{\em tolerance} & Tolerance that checks if a change in any alpha is significant to continue with other iteration.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the error of the \hyperlink{classhappyml_1_1SVM}{S\+VM}. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classhappyml_1_1SVMLinear_a318e94752a99c25c000e9e176b8fa47e}{happyml\+::\+S\+V\+M\+Linear}.
+
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!write@{write}}
+\index{write@{write}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{write(ostream \&stream) const }{write(ostream &stream) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+S\+V\+M\+::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1SVM_a71cdc4e06322b9555dbcc118b45c4f73}{}\label{classhappyml_1_1SVM_a71cdc4e06322b9555dbcc118b45c4f73}
+
+
+Write the object to an output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Output stream. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classhappyml_1_1Serializable_a2d503e4c2e39c5be8a33bcc8b691949f}{happyml\+::\+Serializable}.
+
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!alphas@{alphas}}
+\index{alphas@{alphas}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{alphas}{alphas}}]{\setlength{\rightskip}{0pt plus 5cm}vec happyml\+::\+S\+V\+M\+::alphas\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1SVM_ab25126e39d5dc413f6acb22cf1d25cc8}{}\label{classhappyml_1_1SVM_ab25126e39d5dc413f6acb22cf1d25cc8}
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!b@{b}}
+\index{b@{b}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{b}{b}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+S\+V\+M\+::b\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1SVM_a84a61489971f2b76c78587aff4782fdc}{}\label{classhappyml_1_1SVM_a84a61489971f2b76c78587aff4782fdc}
+
+
+Bias term. 
+
+\index{happyml\+::\+S\+VM@{happyml\+::\+S\+VM}!sv@{sv}}
+\index{sv@{sv}!happyml\+::\+S\+VM@{happyml\+::\+S\+VM}}
+\subsubsection[{\texorpdfstring{sv}{sv}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data\+Set} happyml\+::\+S\+V\+M\+::sv\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1SVM_aa6fca9de47d16e821964229f660a8cdd}{}\label{classhappyml_1_1SVM_aa6fca9de47d16e821964229f660a8cdd}
+
+
+Support vectors. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/svm/\hyperlink{svm_8h}{svm.\+h}\item 
+src/svm/\hyperlink{svm_8cpp}{svm.\+cpp}\end{DoxyCompactItemize}

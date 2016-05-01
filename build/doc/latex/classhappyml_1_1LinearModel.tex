@@ -1,0 +1,188 @@
+\hypertarget{classhappyml_1_1LinearModel}{}\section{happyml\+:\+:Linear\+Model Class Reference}
+\label{classhappyml_1_1LinearModel}\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+
+
+Hypothesis of the form $w_0 \cdot x_0 + w_1 \cdot x_1 + \cdots + w_d \cdot x_d$.  
+
+
+
+
+{\ttfamily \#include $<$linear\+\_\+model.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Linear\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.346369cm]{classhappyml_1_1LinearModel}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1LinearModel_a6d26af3c2b81bcd0fe08c5e23d90d5a7}{Linear\+Model} (unsigned d=0)
+\begin{DoxyCompactList}\small\item\em Creates a linear model with the indicated input size. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1LinearModel_a6954d769ddfab54858045055a808d3dc}{Linear\+Model} (const vec \&weights)
+\begin{DoxyCompactList}\small\item\em Creates a linear model with the indicated weights. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1LinearModel_a4670005cb3a41b6f600e4742cfbfb43c}{Linear\+Model} (const \hyperlink{classhappyml_1_1LinearModel}{Linear\+Model} \&lm)
+\begin{DoxyCompactList}\small\item\em Creates a linear model from the weights of another linear model. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1LinearModel_a14d0bf3258e08f2f8974db865181741c}{$\sim$\+Linear\+Model} ()
+\begin{DoxyCompactList}\small\item\em Destroys the linear model (sets the weights size to $0$). \end{DoxyCompactList}\item 
+vec \hyperlink{classhappyml_1_1LinearModel_a22958325c41969e10fb72375eb9174a3}{get\+Weights} () const 
+\begin{DoxyCompactList}\small\item\em Get a copy of the model weights. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1LinearModel_abdc75a19c7234d8bc13b4dd7ad621c9e}{read} (istream \&stream)
+\begin{DoxyCompactList}\small\item\em Read the weight vector from the text stream. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1LinearModel_ad788fb6f13ba64d8164a89a8be96949d}{write} (ostream \&stream) const 
+\begin{DoxyCompactList}\small\item\em Write the weight vector to a text stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vec \hyperlink{classhappyml_1_1LinearModel_af47eec5fba48e81065101c630070a0d9}{w}
+\begin{DoxyCompactList}\small\item\em Vector of weights. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hypothesis of the form $w_0 \cdot x_0 + w_1 \cdot x_1 + \cdots + w_d \cdot x_d$. 
+
+In other words, each input feature has a weight asociated.
+
+This class contains a protected weight vector and a public getter. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}!Linear\+Model@{Linear\+Model}}
+\index{Linear\+Model@{Linear\+Model}!happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+\subsubsection[{\texorpdfstring{Linear\+Model(unsigned d=0)}{LinearModel(unsigned d=0)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Linear\+Model\+::\+Linear\+Model (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{d = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LinearModel_a6d26af3c2b81bcd0fe08c5e23d90d5a7}{}\label{classhappyml_1_1LinearModel_a6d26af3c2b81bcd0fe08c5e23d90d5a7}
+
+
+Creates a linear model with the indicated input size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Dimension $d$ of the input feature vectors. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}!Linear\+Model@{Linear\+Model}}
+\index{Linear\+Model@{Linear\+Model}!happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+\subsubsection[{\texorpdfstring{Linear\+Model(const vec \&weights)}{LinearModel(const vec &weights)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Linear\+Model\+::\+Linear\+Model (
+\begin{DoxyParamCaption}
+\item[{const vec \&}]{weights}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LinearModel_a6954d769ddfab54858045055a808d3dc}{}\label{classhappyml_1_1LinearModel_a6954d769ddfab54858045055a808d3dc}
+
+
+Creates a linear model with the indicated weights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weights} & Weight vector with $d + 1$ dimensions. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}!Linear\+Model@{Linear\+Model}}
+\index{Linear\+Model@{Linear\+Model}!happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+\subsubsection[{\texorpdfstring{Linear\+Model(const Linear\+Model \&lm)}{LinearModel(const LinearModel &lm)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Linear\+Model\+::\+Linear\+Model (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linear\+Model} \&}]{lm}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LinearModel_a4670005cb3a41b6f600e4742cfbfb43c}{}\label{classhappyml_1_1LinearModel_a4670005cb3a41b6f600e4742cfbfb43c}
+
+
+Creates a linear model from the weights of another linear model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lm} & Linear model from which weights are copied. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}!````~Linear\+Model@{$\sim$\+Linear\+Model}}
+\index{````~Linear\+Model@{$\sim$\+Linear\+Model}!happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+\subsubsection[{\texorpdfstring{$\sim$\+Linear\+Model()}{~LinearModel()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Linear\+Model\+::$\sim$\+Linear\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LinearModel_a14d0bf3258e08f2f8974db865181741c}{}\label{classhappyml_1_1LinearModel_a14d0bf3258e08f2f8974db865181741c}
+
+
+Destroys the linear model (sets the weights size to $0$). 
+
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}!get\+Weights@{get\+Weights}}
+\index{get\+Weights@{get\+Weights}!happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+\subsubsection[{\texorpdfstring{get\+Weights() const }{getWeights() const }}]{\setlength{\rightskip}{0pt plus 5cm}vec happyml\+::\+Linear\+Model\+::get\+Weights (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LinearModel_a22958325c41969e10fb72375eb9174a3}{}\label{classhappyml_1_1LinearModel_a22958325c41969e10fb72375eb9174a3}
+
+
+Get a copy of the model weights. 
+
+\begin{DoxyReturn}{Returns}
+Copy of the model weights. 
+\end{DoxyReturn}
+\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}!read@{read}}
+\index{read@{read}!happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+\subsubsection[{\texorpdfstring{read(istream \&stream)}{read(istream &stream)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Linear\+Model\+::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classhappyml_1_1LinearModel_abdc75a19c7234d8bc13b4dd7ad621c9e}{}\label{classhappyml_1_1LinearModel_abdc75a19c7234d8bc13b4dd7ad621c9e}
+
+
+Read the weight vector from the text stream. 
+
+Format of the stream\+: $\\ w_{0}\\ w_{1}\\ \ \ \vdots\\ w_{d} $
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Input stream. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classhappyml_1_1Serializable_aef5c211d8e9c1c425b33c657824c2f0c}{happyml\+::\+Serializable}.
+
+
+
+Reimplemented in \hyperlink{classhappyml_1_1SVMLinear_a4259c29ba1acd320703bf8c1ae8fd780}{happyml\+::\+S\+V\+M\+Linear}.
+
+\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}!write@{write}}
+\index{write@{write}!happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+\subsubsection[{\texorpdfstring{write(ostream \&stream) const }{write(ostream &stream) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Linear\+Model\+::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classhappyml_1_1LinearModel_ad788fb6f13ba64d8164a89a8be96949d}{}\label{classhappyml_1_1LinearModel_ad788fb6f13ba64d8164a89a8be96949d}
+
+
+Write the weight vector to a text stream. 
+
+The format of the stream will be\+: $\\ w_{0}\\ w_{1}\\ \ \ \vdots\\ w_{d} $
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Output stream. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classhappyml_1_1Serializable_a2d503e4c2e39c5be8a33bcc8b691949f}{happyml\+::\+Serializable}.
+
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}!w@{w}}
+\index{w@{w}!happyml\+::\+Linear\+Model@{happyml\+::\+Linear\+Model}}
+\subsubsection[{\texorpdfstring{w}{w}}]{\setlength{\rightskip}{0pt plus 5cm}vec happyml\+::\+Linear\+Model\+::w\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1LinearModel_af47eec5fba48e81065101c630070a0d9}{}\label{classhappyml_1_1LinearModel_af47eec5fba48e81065101c630070a0d9}
+
+
+Vector of weights. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/\hyperlink{linear__model_8h}{linear\+\_\+model.\+h}\end{DoxyCompactItemize}

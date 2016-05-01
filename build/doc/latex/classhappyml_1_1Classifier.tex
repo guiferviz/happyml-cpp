@@ -1,0 +1,62 @@
+\hypertarget{classhappyml_1_1Classifier}{}\section{happyml\+:\+:Classifier Class Reference}
+\label{classhappyml_1_1Classifier}\index{happyml\+::\+Classifier@{happyml\+::\+Classifier}}
+
+
+Abstract class that represent an algorithm that classifies an input in classes.  
+
+
+
+
+{\ttfamily \#include $<$predictor.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Classifier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.085661cm]{classhappyml_1_1Classifier}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \hyperlink{classhappyml_1_1Classifier_ac72f1b0b689aaff5078978ae198318df}{error} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x, double y) const 
+\begin{DoxyCompactList}\small\item\em Compute the error of the classifier in a given input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract class that represent an algorithm that classifies an input in classes. 
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Classifier@{happyml\+::\+Classifier}!error@{error}}
+\index{error@{error}!happyml\+::\+Classifier@{happyml\+::\+Classifier}}
+\subsubsection[{\texorpdfstring{error(const Input \&x, double y) const }{error(const Input &x, double y) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Classifier\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Classifier_ac72f1b0b689aaff5078978ae198318df}{}\label{classhappyml_1_1Classifier_ac72f1b0b689aaff5078978ae198318df}
+
+
+Compute the error of the classifier in a given input. 
+
+By default it computes the binary error.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input vector. \\
+\hline
+{\em y} & Correct output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if x is correctly predicted or 1 if not. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Predictor_aeb20c07843cf4a2b7df76b2f0d0e0b13}{happyml\+::\+Predictor}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/\hyperlink{predictor_8h}{predictor.\+h}\item 
+src/\hyperlink{predictor_8cpp}{predictor.\+cpp}\end{DoxyCompactItemize}

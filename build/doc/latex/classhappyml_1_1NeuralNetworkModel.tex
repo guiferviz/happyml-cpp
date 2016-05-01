@@ -1,0 +1,269 @@
+\hypertarget{classhappyml_1_1NeuralNetworkModel}{}\section{happyml\+:\+:Neural\+Network\+Model Class Reference}
+\label{classhappyml_1_1NeuralNetworkModel}\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+
+
+Hypothesis that uses a network of neurons.  
+
+
+
+
+{\ttfamily \#include $<$neural\+\_\+network\+\_\+model.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Neural\+Network\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhappyml_1_1NeuralNetworkModel}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1NeuralNetworkModel_a2ba8add6f01ebf3824967c43754ba96b}{Neural\+Network\+Model} (unsigned layers=0...)
+\begin{DoxyCompactList}\small\item\em Creates a neural network with the layers and number of neurons indicated in the arguments. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1NeuralNetworkModel_a9db88c5a5fd88ab871f8237aab03b5ad}{Neural\+Network\+Model} (const vector$<$ unsigned $>$ \&layers)
+\begin{DoxyCompactList}\small\item\em Creates a neural network with the layers and number of neurons indicated in the vector. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1NeuralNetworkModel_ad5359ce00a00346dab8433767f77988d}{Neural\+Network\+Model} (const vector$<$ mat $>$ \&w)
+\begin{DoxyCompactList}\small\item\em Creates a neural network using the indicated weights matrices. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1NeuralNetworkModel_adadfa82c7b452789822dcb94ae5055d3}{Neural\+Network\+Model} (const \hyperlink{classhappyml_1_1NeuralNetworkModel}{Neural\+Network\+Model} \&nn)
+\begin{DoxyCompactList}\small\item\em Creates a copy of a neural network. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1NeuralNetworkModel_a8ee4b9eae5590dc86f72e28c29fd1238}{$\sim$\+Neural\+Network\+Model} ()
+\item 
+vector$<$ mat $>$ \hyperlink{classhappyml_1_1NeuralNetworkModel_a9711fe856879e6e9db916ffd5479e136}{get\+Weights} () const 
+\begin{DoxyCompactList}\small\item\em Returns a copy of all the weights of the neural network. \end{DoxyCompactList}\item 
+unsigned \hyperlink{classhappyml_1_1NeuralNetworkModel_a3fd616a220f3e617359b96a31c27b921}{get\+Number\+Layers} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of layers of the neural network counting the input and ouput layer. \end{DoxyCompactList}\item 
+unsigned \hyperlink{classhappyml_1_1NeuralNetworkModel_a7bf0503214bcc6de9d3ad646ff7b1b92}{get\+Number\+Neurons} (unsigned layer) const 
+\begin{DoxyCompactList}\small\item\em Returns the number of neurons on layer \textquotesingle{}layer\textquotesingle{}. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1NeuralNetworkModel_a5591e0392dc1ec3d6d730ae355cc7f09}{read} (istream \&stream)
+\begin{DoxyCompactList}\small\item\em Read the object from an input stream. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1NeuralNetworkModel_acaae169ac128c0c707342960e7c048eb}{write} (ostream \&stream) const 
+\begin{DoxyCompactList}\small\item\em Write the object to an output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1NeuralNetworkModel_a1fbb361d360e321f0b022a9016c0d067}{Neural\+Network\+Model} (unsigned layers, bool unused)
+\begin{DoxyCompactList}\small\item\em Protected constructor that allow to create networks with the given number of layer but without neurons on each layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{classhappyml_1_1NeuralNetworkModel_ac7e46ff5974de133f5863ee02b620096}{L}
+\begin{DoxyCompactList}\small\item\em Number of layers -\/ 1. \end{DoxyCompactList}\item 
+vector$<$ mat $>$ \hyperlink{classhappyml_1_1NeuralNetworkModel_a84c347de105f8a0fcf6907cee7e8200d}{weights}
+\begin{DoxyCompactList}\small\item\em Weights of the neuronal network. \end{DoxyCompactList}\item 
+vector$<$ unsigned $>$ \hyperlink{classhappyml_1_1NeuralNetworkModel_a36ee0888f3c3e0f3197bce8fbc57831d}{d}
+\begin{DoxyCompactList}\small\item\em Number of neurons of each layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hypothesis that uses a network of neurons. 
+
+The weights of each layer are represented using matrices.
+
+This class contains a protected vector of matrices weights, a public getter and load/save methods. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!Neural\+Network\+Model@{Neural\+Network\+Model}}
+\index{Neural\+Network\+Model@{Neural\+Network\+Model}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{Neural\+Network\+Model(unsigned layers, bool unused)}{NeuralNetworkModel(unsigned layers, bool unused)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+Model\+::\+Neural\+Network\+Model (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{layers, }
+\item[{bool}]{unused}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_a1fbb361d360e321f0b022a9016c0d067}{}\label{classhappyml_1_1NeuralNetworkModel_a1fbb361d360e321f0b022a9016c0d067}
+
+
+Protected constructor that allow to create networks with the given number of layer but without neurons on each layer. 
+
+Used on subclases to enable variable args in constructors. The second parameter is unused and allows differentiate this constructor from the others. \index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!Neural\+Network\+Model@{Neural\+Network\+Model}}
+\index{Neural\+Network\+Model@{Neural\+Network\+Model}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{Neural\+Network\+Model(unsigned layers=0...)}{NeuralNetworkModel(unsigned layers=0...)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+Model\+::\+Neural\+Network\+Model (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{layers = {\ttfamily 0...}}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NeuralNetworkModel_a2ba8add6f01ebf3824967c43754ba96b}{}\label{classhappyml_1_1NeuralNetworkModel_a2ba8add6f01ebf3824967c43754ba96b}
+
+
+Creates a neural network with the layers and number of neurons indicated in the arguments. 
+
+Initialize the weights to a random values.
+
+By default (without parameters), creates an empty neural network without layers. Use load method to give values to the network.
+
+With \hyperlink{classhappyml_1_1NeuralNetworkModel}{Neural\+Network\+Model} nn(2, 2, 1) a 2 layer network is created. In the input layer there are 2 neurons and 1 in the output. Using \hyperlink{classhappyml_1_1NeuralNetworkModel}{Neural\+Network\+Model} nn(3, 2, 4, 1) you add a hidden layer with 4 neurons.
+
+
+\begin{DoxyParams}{Parameters}
+{\em layers} & Number of layers, number of neurons on the input layer, number of neurons on the second layer... \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!Neural\+Network\+Model@{Neural\+Network\+Model}}
+\index{Neural\+Network\+Model@{Neural\+Network\+Model}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{Neural\+Network\+Model(const vector$<$ unsigned $>$ \&layers)}{NeuralNetworkModel(const vector< unsigned > &layers)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+Model\+::\+Neural\+Network\+Model (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ unsigned $>$ \&}]{layers}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NeuralNetworkModel_a9db88c5a5fd88ab871f8237aab03b5ad}{}\label{classhappyml_1_1NeuralNetworkModel_a9db88c5a5fd88ab871f8237aab03b5ad}
+
+
+Creates a neural network with the layers and number of neurons indicated in the vector. 
+
+Initialize the weights to a random values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em layers} & Number of neurons on the input layer, number of neurons on the second layer... \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!Neural\+Network\+Model@{Neural\+Network\+Model}}
+\index{Neural\+Network\+Model@{Neural\+Network\+Model}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{Neural\+Network\+Model(const vector$<$ mat $>$ \&w)}{NeuralNetworkModel(const vector< mat > &w)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+Model\+::\+Neural\+Network\+Model (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ mat $>$ \&}]{w}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NeuralNetworkModel_ad5359ce00a00346dab8433767f77988d}{}\label{classhappyml_1_1NeuralNetworkModel_ad5359ce00a00346dab8433767f77988d}
+
+
+Creates a neural network using the indicated weights matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Weights matrices to use. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!Neural\+Network\+Model@{Neural\+Network\+Model}}
+\index{Neural\+Network\+Model@{Neural\+Network\+Model}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{Neural\+Network\+Model(const Neural\+Network\+Model \&nn)}{NeuralNetworkModel(const NeuralNetworkModel &nn)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+Model\+::\+Neural\+Network\+Model (
+\begin{DoxyParamCaption}
+\item[{const {\bf Neural\+Network\+Model} \&}]{nn}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NeuralNetworkModel_adadfa82c7b452789822dcb94ae5055d3}{}\label{classhappyml_1_1NeuralNetworkModel_adadfa82c7b452789822dcb94ae5055d3}
+
+
+Creates a copy of a neural network. 
+
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!````~Neural\+Network\+Model@{$\sim$\+Neural\+Network\+Model}}
+\index{````~Neural\+Network\+Model@{$\sim$\+Neural\+Network\+Model}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{$\sim$\+Neural\+Network\+Model()}{~NeuralNetworkModel()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+Model\+::$\sim$\+Neural\+Network\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NeuralNetworkModel_a8ee4b9eae5590dc86f72e28c29fd1238}{}\label{classhappyml_1_1NeuralNetworkModel_a8ee4b9eae5590dc86f72e28c29fd1238}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!get\+Number\+Layers@{get\+Number\+Layers}}
+\index{get\+Number\+Layers@{get\+Number\+Layers}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{get\+Number\+Layers() const }{getNumberLayers() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned happyml\+::\+Neural\+Network\+Model\+::get\+Number\+Layers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_a3fd616a220f3e617359b96a31c27b921}{}\label{classhappyml_1_1NeuralNetworkModel_a3fd616a220f3e617359b96a31c27b921}
+
+
+Returns the number of layers of the neural network counting the input and ouput layer. 
+
+\begin{DoxyReturn}{Returns}
+Number of layers of the network. 
+\end{DoxyReturn}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!get\+Number\+Neurons@{get\+Number\+Neurons}}
+\index{get\+Number\+Neurons@{get\+Number\+Neurons}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{get\+Number\+Neurons(unsigned layer) const }{getNumberNeurons(unsigned layer) const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned happyml\+::\+Neural\+Network\+Model\+::get\+Number\+Neurons (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{layer}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_a7bf0503214bcc6de9d3ad646ff7b1b92}{}\label{classhappyml_1_1NeuralNetworkModel_a7bf0503214bcc6de9d3ad646ff7b1b92}
+
+
+Returns the number of neurons on layer \textquotesingle{}layer\textquotesingle{}. 
+
+Layer number is not checked. Be sure that layer $<$ \hyperlink{classhappyml_1_1NeuralNetworkModel_a3fd616a220f3e617359b96a31c27b921}{get\+Number\+Layers()}.
+
+\begin{DoxyReturn}{Returns}
+Number of layers of the layer \textquotesingle{}layer\textquotesingle{}. 
+\end{DoxyReturn}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!get\+Weights@{get\+Weights}}
+\index{get\+Weights@{get\+Weights}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{get\+Weights() const }{getWeights() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$mat$>$ happyml\+::\+Neural\+Network\+Model\+::get\+Weights (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_a9711fe856879e6e9db916ffd5479e136}{}\label{classhappyml_1_1NeuralNetworkModel_a9711fe856879e6e9db916ffd5479e136}
+
+
+Returns a copy of all the weights of the neural network. 
+
+\begin{DoxyReturn}{Returns}
+Copy of all the weights of the neural network. 
+\end{DoxyReturn}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!read@{read}}
+\index{read@{read}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{read(istream \&stream)}{read(istream &stream)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Neural\+Network\+Model\+::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_a5591e0392dc1ec3d6d730ae355cc7f09}{}\label{classhappyml_1_1NeuralNetworkModel_a5591e0392dc1ec3d6d730ae355cc7f09}
+
+
+Read the object from an input stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Input stream. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classhappyml_1_1Serializable_aef5c211d8e9c1c425b33c657824c2f0c}{happyml\+::\+Serializable}.
+
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!write@{write}}
+\index{write@{write}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{write(ostream \&stream) const }{write(ostream &stream) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Neural\+Network\+Model\+::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_acaae169ac128c0c707342960e7c048eb}{}\label{classhappyml_1_1NeuralNetworkModel_acaae169ac128c0c707342960e7c048eb}
+
+
+Write the object to an output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Output stream. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classhappyml_1_1Serializable_a2d503e4c2e39c5be8a33bcc8b691949f}{happyml\+::\+Serializable}.
+
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!d@{d}}
+\index{d@{d}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{d}{d}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$unsigned$>$ happyml\+::\+Neural\+Network\+Model\+::d\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_a36ee0888f3c3e0f3197bce8fbc57831d}{}\label{classhappyml_1_1NeuralNetworkModel_a36ee0888f3c3e0f3197bce8fbc57831d}
+
+
+Number of neurons of each layer. 
+
+The size of this vector is $L + 1$.
+
+d\mbox{[}0\mbox{]} -\/$>$ number of units of the input layer. d\mbox{[}L\mbox{]} -\/$>$ number of units of the output layer. \index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!L@{L}}
+\index{L@{L}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{L}{L}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned happyml\+::\+Neural\+Network\+Model\+::L\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_ac7e46ff5974de133f5863ee02b620096}{}\label{classhappyml_1_1NeuralNetworkModel_ac7e46ff5974de133f5863ee02b620096}
+
+
+Number of layers -\/ 1. 
+
+The input layer is the first layer (indexed as 0) and the output layer is the last one (indexed as L). \index{happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}!weights@{weights}}
+\index{weights@{weights}!happyml\+::\+Neural\+Network\+Model@{happyml\+::\+Neural\+Network\+Model}}
+\subsubsection[{\texorpdfstring{weights}{weights}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$mat$>$ happyml\+::\+Neural\+Network\+Model\+::weights\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1NeuralNetworkModel_a84c347de105f8a0fcf6907cee7e8200d}{}\label{classhappyml_1_1NeuralNetworkModel_a84c347de105f8a0fcf6907cee7e8200d}
+
+
+Weights of the neuronal network. 
+
+The size of this vector is always $L$, but the first element is always a 0x0 matrix. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/neural\+\_\+network/\hyperlink{neural__network__model_8h}{neural\+\_\+network\+\_\+model.\+h}\item 
+src/neural\+\_\+network/\hyperlink{neural__network__model_8cpp}{neural\+\_\+network\+\_\+model.\+cpp}\end{DoxyCompactItemize}

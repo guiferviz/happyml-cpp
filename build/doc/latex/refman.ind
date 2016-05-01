@@ -1,0 +1,286 @@
+\begin{theindex}
+
+  \item {$\sim$\+Linear\+Model}
+    \subitem {happyml\+::\+Linear\+Model}, \hyperpage{21}
+  \item {$\sim$\+Neural\+Network}
+    \subitem {happyml\+::\+Neural\+Network}, \hyperpage{27}
+  \item {$\sim$\+Transformer}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{37}
+
+  \indexspace
+
+  \item {add\+Addition}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{37}
+  \item {add\+Power}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{37}
+  \item {add\+Product}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{37}
+  \item {apply}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{38}
+
+  \indexspace
+
+  \item {B\+L\+UE}
+    \subitem {happyml\+::colors}, \hyperpage{12}
+
+  \indexspace
+
+  \item {C\+Y\+AN}
+    \subitem {happyml\+::colors}, \hyperpage{12}
+
+  \indexspace
+
+  \item {d}
+    \subitem {happyml\+::\+Data\+Set}, \hyperpage{19}
+  \item {Data\+Set}
+    \subitem {happyml\+::\+Data\+Set}, \hyperpage{18}
+  \item {dictionary}
+    \subitem {happyml\+::tools}, \hyperpage{12}
+
+  \indexspace
+
+  \item {edge\+Template}
+    \subitem {happyml\+::tools}, \hyperpage{14}
+  \item {error}
+    \subitem {happyml\+::\+Linear\+Regression}, \hyperpage{23}
+    \subitem {happyml\+::\+Logistic\+Regression}, \hyperpage{25}
+    \subitem {happyml\+::\+Perceptron}, \hyperpage{29}
+    \subitem {happyml\+::\+Predictor}, \hyperpage{30, 31}
+    \subitem {happyml\+::\+S\+VM}, \hyperpage{35}
+
+  \indexspace
+
+  \item {G\+R\+E\+EN}
+    \subitem {happyml\+::colors}, \hyperpage{12}
+  \item {get\+Weights}
+    \subitem {happyml\+::\+Linear\+Model}, \hyperpage{21}
+    \subitem {happyml\+::\+Neural\+Network}, \hyperpage{27}
+  \item {greet}
+    \subitem {happyml}, \hyperpage{10}
+
+  \indexspace
+
+  \item {happyml}, \hyperpage{9}
+    \subitem {greet}, \hyperpage{10}
+    \subitem {Input}, \hyperpage{10}
+    \subitem {sgn}, \hyperpage{10}
+    \subitem {sigmoid}, \hyperpage{11}
+    \subitem {version}, \hyperpage{11}
+  \item {happyml\+::\+Classifier}, \hyperpage{17}
+  \item {happyml\+::\+Data\+Set}, \hyperpage{17}
+    \subitem {d}, \hyperpage{19}
+    \subitem {Data\+Set}, \hyperpage{18}
+    \subitem {N}, \hyperpage{19}
+    \subitem {read}, \hyperpage{18}
+    \subitem {write}, \hyperpage{19}
+    \subitem {X}, \hyperpage{19}
+    \subitem {y}, \hyperpage{19}
+  \item {happyml\+::\+Linear\+Model}, \hyperpage{20}
+    \subitem {$\sim$\+Linear\+Model}, \hyperpage{21}
+    \subitem {get\+Weights}, \hyperpage{21}
+    \subitem {Linear\+Model}, \hyperpage{20, 21}
+    \subitem {w}, \hyperpage{21}
+  \item {happyml\+::\+Linear\+Regression}, \hyperpage{22}
+    \subitem {error}, \hyperpage{23}
+    \subitem {Linear\+Regression}, \hyperpage{22, 23}
+    \subitem {predict}, \hyperpage{23}
+    \subitem {train}, \hyperpage{23}
+  \item {happyml\+::\+Logistic\+Regression}, \hyperpage{24}
+    \subitem {error}, \hyperpage{25}
+    \subitem {Logistic\+Regression}, \hyperpage{24, 25}
+    \subitem {predict}, \hyperpage{25}
+    \subitem {train}, \hyperpage{25}
+  \item {happyml\+::\+Neural\+Network}, \hyperpage{26}
+    \subitem {$\sim$\+Neural\+Network}, \hyperpage{27}
+    \subitem {get\+Weights}, \hyperpage{27}
+    \subitem {Neural\+Network}, \hyperpage{26, 27}
+    \subitem {predict}, \hyperpage{27}
+    \subitem {train}, \hyperpage{27}
+  \item {happyml\+::\+Perceptron}, \hyperpage{28}
+    \subitem {error}, \hyperpage{29}
+    \subitem {Perceptron}, \hyperpage{28, 29}
+    \subitem {predict}, \hyperpage{29}
+    \subitem {train}, \hyperpage{29}
+  \item {happyml\+::\+Predictor}, \hyperpage{30}
+    \subitem {error}, \hyperpage{30, 31}
+    \subitem {predict}, \hyperpage{31}
+    \subitem {save\+Sampling}, \hyperpage{31, 32}
+  \item {happyml\+::\+S\+VM}, \hyperpage{34}
+    \subitem {error}, \hyperpage{35}
+    \subitem {predict}, \hyperpage{35}
+    \subitem {S\+VM}, \hyperpage{35}
+    \subitem {train}, \hyperpage{35}
+  \item {happyml\+::\+Serializable}, \hyperpage{33}
+    \subitem {load}, \hyperpage{33}
+    \subitem {read}, \hyperpage{33}
+    \subitem {save}, \hyperpage{34}
+    \subitem {write}, \hyperpage{34}
+  \item {happyml\+::\+Transformer}, \hyperpage{36}
+    \subitem {$\sim$\+Transformer}, \hyperpage{37}
+    \subitem {add\+Addition}, \hyperpage{37}
+    \subitem {add\+Power}, \hyperpage{37}
+    \subitem {add\+Product}, \hyperpage{37}
+    \subitem {apply}, \hyperpage{38}
+    \subitem {normalize}, \hyperpage{38}
+    \subitem {pca}, \hyperpage{38}
+    \subitem {pca\+Min\+Variance}, \hyperpage{38}
+    \subitem {remove}, \hyperpage{38}
+    \subitem {Transformer}, \hyperpage{37}
+  \item {happyml\+::colors}, \hyperpage{11}
+    \subitem {B\+L\+UE}, \hyperpage{12}
+    \subitem {C\+Y\+AN}, \hyperpage{12}
+    \subitem {G\+R\+E\+EN}, \hyperpage{12}
+    \subitem {P\+I\+NK}, \hyperpage{12}
+    \subitem {R\+E\+S\+ET}, \hyperpage{12}
+    \subitem {R\+ED}, \hyperpage{12}
+  \item {happyml\+::tools}, \hyperpage{12}
+    \subitem {dictionary}, \hyperpage{12}
+    \subitem {edge\+Template}, \hyperpage{14}
+    \subitem {linear\+Model\+Template}, \hyperpage{14}
+    \subitem {model\+To\+Dot}, \hyperpage{13, 14}
+    \subitem {substitute}, \hyperpage{14}
+
+  \indexspace
+
+  \item {include/happyml.\+h}, \hyperpage{41}
+  \item {include/happyml/dataset.\+h}, \hyperpage{42}
+  \item {include/happyml/happytools.\+h}, \hyperpage{42}
+  \item {include/happyml/linear\+\_\+model.\+h}, \hyperpage{43}
+  \item {include/happyml/linear\+\_\+regression/linear\+\_\+regression.\+h}, 
+		\hyperpage{43}
+  \item {include/happyml/logistic\+\_\+regression/logistic\+\_\+regression.\+h}, 
+		\hyperpage{43}
+  \item {include/happyml/neural\+\_\+network/neural\+\_\+network.\+h}, 
+		\hyperpage{44}
+  \item {include/happyml/perceptron/perceptron.\+h}, \hyperpage{44}
+  \item {include/happyml/predictor.\+h}, \hyperpage{44}
+  \item {include/happyml/serializable.\+h}, \hyperpage{45}
+  \item {include/happyml/svm/svm.\+h}, \hyperpage{45}
+  \item {include/happyml/transformer.\+h}, \hyperpage{46}
+  \item {include/happyml/types.\+h}, \hyperpage{46}
+  \item {include/happyml/utils.\+h}, \hyperpage{46}
+  \item {Input}
+    \subitem {happyml}, \hyperpage{10}
+
+  \indexspace
+
+  \item {Linear\+Model}
+    \subitem {happyml\+::\+Linear\+Model}, \hyperpage{20, 21}
+  \item {linear\+Model\+Template}
+    \subitem {happyml\+::tools}, \hyperpage{14}
+  \item {Linear\+Regression}
+    \subitem {happyml\+::\+Linear\+Regression}, \hyperpage{22, 23}
+  \item {load}
+    \subitem {happyml\+::\+Serializable}, \hyperpage{33}
+  \item {Logistic\+Regression}
+    \subitem {happyml\+::\+Logistic\+Regression}, \hyperpage{24, 25}
+
+  \indexspace
+
+  \item {model\+To\+Dot}
+    \subitem {happyml\+::tools}, \hyperpage{13, 14}
+
+  \indexspace
+
+  \item {N}
+    \subitem {happyml\+::\+Data\+Set}, \hyperpage{19}
+  \item {Neural\+Network}
+    \subitem {happyml\+::\+Neural\+Network}, \hyperpage{26, 27}
+  \item {normalize}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{38}
+
+  \indexspace
+
+  \item {P\+I\+NK}
+    \subitem {happyml\+::colors}, \hyperpage{12}
+  \item {pca}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{38}
+  \item {pca\+Min\+Variance}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{38}
+  \item {Perceptron}
+    \subitem {happyml\+::\+Perceptron}, \hyperpage{28, 29}
+  \item {predict}
+    \subitem {happyml\+::\+Linear\+Regression}, \hyperpage{23}
+    \subitem {happyml\+::\+Logistic\+Regression}, \hyperpage{25}
+    \subitem {happyml\+::\+Neural\+Network}, \hyperpage{27}
+    \subitem {happyml\+::\+Perceptron}, \hyperpage{29}
+    \subitem {happyml\+::\+Predictor}, \hyperpage{31}
+    \subitem {happyml\+::\+S\+VM}, \hyperpage{35}
+
+  \indexspace
+
+  \item {R\+E\+S\+ET}
+    \subitem {happyml\+::colors}, \hyperpage{12}
+  \item {R\+ED}
+    \subitem {happyml\+::colors}, \hyperpage{12}
+  \item {read}
+    \subitem {happyml\+::\+Data\+Set}, \hyperpage{18}
+    \subitem {happyml\+::\+Serializable}, \hyperpage{33}
+  \item {remove}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{38}
+
+  \indexspace
+
+  \item {S\+VM}
+    \subitem {happyml\+::\+S\+VM}, \hyperpage{35}
+  \item {save}
+    \subitem {happyml\+::\+Serializable}, \hyperpage{34}
+  \item {save\+Sampling}
+    \subitem {happyml\+::\+Predictor}, \hyperpage{31, 32}
+  \item {sgn}
+    \subitem {happyml}, \hyperpage{10}
+  \item {sigmoid}
+    \subitem {happyml}, \hyperpage{11}
+  \item {src/dataset.\+cpp}, \hyperpage{47}
+  \item {src/happyml.\+cpp}, \hyperpage{47}
+  \item {src/happytools.\+cpp}, \hyperpage{48}
+  \item {src/linear\+\_\+regression/linear\+\_\+regression.\+cpp}, 
+		\hyperpage{48}
+  \item {src/logistic\+\_\+regression/logistic\+\_\+regression.\+cpp}, 
+		\hyperpage{48}
+  \item {src/neural\+\_\+network/neural\+\_\+network.\+cpp}, 
+		\hyperpage{49}
+  \item {src/perceptron/perceptron.\+cpp}, \hyperpage{49}
+  \item {src/predictor.\+cpp}, \hyperpage{49}
+  \item {src/serializable.\+cpp}, \hyperpage{50}
+  \item {src/svm/svm.\+cpp}, \hyperpage{50}
+  \item {src/transformer.\+cpp}, \hyperpage{50}
+  \item {src/utils.\+cpp}, \hyperpage{50}
+  \item {substitute}
+    \subitem {happyml\+::tools}, \hyperpage{14}
+
+  \indexspace
+
+  \item {train}
+    \subitem {happyml\+::\+Linear\+Regression}, \hyperpage{23}
+    \subitem {happyml\+::\+Logistic\+Regression}, \hyperpage{25}
+    \subitem {happyml\+::\+Neural\+Network}, \hyperpage{27}
+    \subitem {happyml\+::\+Perceptron}, \hyperpage{29}
+    \subitem {happyml\+::\+S\+VM}, \hyperpage{35}
+  \item {Transformer}
+    \subitem {happyml\+::\+Transformer}, \hyperpage{37}
+
+  \indexspace
+
+  \item {version}
+    \subitem {happyml}, \hyperpage{11}
+
+  \indexspace
+
+  \item {w}
+    \subitem {happyml\+::\+Linear\+Model}, \hyperpage{21}
+  \item {write}
+    \subitem {happyml\+::\+Data\+Set}, \hyperpage{19}
+    \subitem {happyml\+::\+Serializable}, \hyperpage{34}
+
+  \indexspace
+
+  \item {X}
+    \subitem {happyml\+::\+Data\+Set}, \hyperpage{19}
+
+  \indexspace
+
+  \item {y}
+    \subitem {happyml\+::\+Data\+Set}, \hyperpage{19}
+
+\end{theindex}

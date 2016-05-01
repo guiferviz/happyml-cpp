@@ -1,0 +1,163 @@
+\hypertarget{classhappyml_1_1LinearRegression}{}\section{happyml\+:\+:Linear\+Regression Class Reference}
+\label{classhappyml_1_1LinearRegression}\index{happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}}
+
+
+{\ttfamily \#include $<$linear\+\_\+regression.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Linear\+Regression\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhappyml_1_1LinearRegression}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1LinearRegression_aec943f0f85a5a99f41439b54ea2ac473}{Linear\+Regression} (unsigned d=0)
+\begin{DoxyCompactList}\small\item\em Creates a linear regression algorithm with the indicated input size. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1LinearRegression_a1679264b5b2c992256cd3a8c1f98b02c}{Linear\+Regression} (const vec \&weights)
+\begin{DoxyCompactList}\small\item\em Creates a linear regression algorithm with the indicated weights. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1LinearRegression_ac23946a5699a2f9ce5853e5e2ad10a4b}{Linear\+Regression} (const \hyperlink{classhappyml_1_1LinearModel}{Linear\+Model} \&lm)
+\item 
+double \hyperlink{classhappyml_1_1LinearRegression_a49a96b35d3f85a7ebd78fcc61c21f83e}{train} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&data)
+\begin{DoxyCompactList}\small\item\em Train the linear regression. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1LinearRegression_ae707c7931a3be6d33108a34cdbb05422}{train} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&data, double lambda)
+\begin{DoxyCompactList}\small\item\em Train the linear regression. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1LinearRegression_af7b493c394ab2664c5e743711a64d26e}{predict} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\begin{DoxyCompactList}\small\item\em Predict the output of an input vector. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1LinearRegression_aebb84fbdbfed7487c05baa8d8c1499e9}{error} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&data) const 
+\begin{DoxyCompactList}\small\item\em Compute the mean squared error of the linear regression algorithm on the given dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}!Linear\+Regression@{Linear\+Regression}}
+\index{Linear\+Regression@{Linear\+Regression}!happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}}
+\subsubsection[{\texorpdfstring{Linear\+Regression(unsigned d=0)}{LinearRegression(unsigned d=0)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Linear\+Regression\+::\+Linear\+Regression (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{d = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LinearRegression_aec943f0f85a5a99f41439b54ea2ac473}{}\label{classhappyml_1_1LinearRegression_aec943f0f85a5a99f41439b54ea2ac473}
+
+
+Creates a linear regression algorithm with the indicated input size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Dimension $d$, number of features of the input vectors. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}!Linear\+Regression@{Linear\+Regression}}
+\index{Linear\+Regression@{Linear\+Regression}!happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}}
+\subsubsection[{\texorpdfstring{Linear\+Regression(const vec \&weights)}{LinearRegression(const vec &weights)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Linear\+Regression\+::\+Linear\+Regression (
+\begin{DoxyParamCaption}
+\item[{const vec \&}]{weights}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LinearRegression_a1679264b5b2c992256cd3a8c1f98b02c}{}\label{classhappyml_1_1LinearRegression_a1679264b5b2c992256cd3a8c1f98b02c}
+
+
+Creates a linear regression algorithm with the indicated weights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weights} & Weight vector with $d + 1$ size. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}!Linear\+Regression@{Linear\+Regression}}
+\index{Linear\+Regression@{Linear\+Regression}!happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}}
+\subsubsection[{\texorpdfstring{Linear\+Regression(const Linear\+Model \&lm)}{LinearRegression(const LinearModel &lm)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Linear\+Regression\+::\+Linear\+Regression (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linear\+Model} \&}]{lm}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LinearRegression_ac23946a5699a2f9ce5853e5e2ad10a4b}{}\label{classhappyml_1_1LinearRegression_ac23946a5699a2f9ce5853e5e2ad10a4b}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}!error@{error}}
+\index{error@{error}!happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}}
+\subsubsection[{\texorpdfstring{error(const Data\+Set \&data) const }{error(const DataSet &data) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Linear\+Regression\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{data}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1LinearRegression_aebb84fbdbfed7487c05baa8d8c1499e9}{}\label{classhappyml_1_1LinearRegression_aebb84fbdbfed7487c05baa8d8c1499e9}
+
+
+Compute the mean squared error of the linear regression algorithm on the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Dataset with the correct output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error of classify the given dataset. It\textquotesingle{}s value is grater than $0$. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Predictor_a59b022fac2ffa3a0254b75cb02b70dfe}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}!predict@{predict}}
+\index{predict@{predict}!happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}}
+\subsubsection[{\texorpdfstring{predict(const Input \&x) const }{predict(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Linear\+Regression\+::predict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1LinearRegression_af7b493c394ab2664c5e743711a64d26e}{}\label{classhappyml_1_1LinearRegression_af7b493c394ab2664c5e743711a64d26e}
+
+
+Predict the output of an input vector. 
+
+\begin{DoxyReturn}{Returns}
+Estimated real output. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}!train@{train}}
+\index{train@{train}!happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}}
+\subsubsection[{\texorpdfstring{train(const Data\+Set \&data)}{train(const DataSet &data)}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Linear\+Regression\+::train (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1LinearRegression_a49a96b35d3f85a7ebd78fcc61c21f83e}{}\label{classhappyml_1_1LinearRegression_a49a96b35d3f85a7ebd78fcc61c21f83e}
+
+
+Train the linear regression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Training set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the final error. 
+\end{DoxyReturn}
+\index{happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}!train@{train}}
+\index{train@{train}!happyml\+::\+Linear\+Regression@{happyml\+::\+Linear\+Regression}}
+\subsubsection[{\texorpdfstring{train(const Data\+Set \&data, double lambda)}{train(const DataSet &data, double lambda)}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Linear\+Regression\+::train (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{data, }
+\item[{double}]{lambda}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1LinearRegression_ae707c7931a3be6d33108a34cdbb05422}{}\label{classhappyml_1_1LinearRegression_ae707c7931a3be6d33108a34cdbb05422}
+
+
+Train the linear regression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Training set. \\
+\hline
+{\em lambda} & Regularization paramiter $\lambda$.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the final error. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/linear\+\_\+regression/\hyperlink{linear__regression_8h}{linear\+\_\+regression.\+h}\item 
+src/linear\+\_\+regression/\hyperlink{linear__regression_8cpp}{linear\+\_\+regression.\+cpp}\end{DoxyCompactItemize}

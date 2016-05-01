@@ -1,0 +1,125 @@
+\hypertarget{classhappyml_1_1Destandarizer}{}\section{happyml\+:\+:Destandarizer Class Reference}
+\label{classhappyml_1_1Destandarizer}\index{happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}}
+
+
+{\ttfamily \#include $<$standarizer.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Destandarizer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classhappyml_1_1Destandarizer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1Destandarizer_abc64ade944fc341a889ef3b703e294dc}{Destandarizer} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset)
+\begin{DoxyCompactList}\small\item\em Creates a denormalizer that will use min and max data obtained from the dataset. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Destandarizer_ae8ede809ec02a8a8553fbf0b13d0dc67}{Destandarizer} (const mat \&x)
+\begin{DoxyCompactList}\small\item\em Creates a denormalizer that will use min and max data obtained from the matrix x. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Destandarizer_a248bde27fb7e9befc813a1db7daba7bb}{Destandarizer} (const vec \&minvec, const vec \&maxvec)
+\begin{DoxyCompactList}\small\item\em Creates a denormalizer that will use min and max data obtained from the dataset. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Destandarizer_ad892a74ae3ca529548305cda54969c6e}{Destandarizer} (const \hyperlink{classhappyml_1_1Standarizer}{Standarizer} \&n)
+\begin{DoxyCompactList}\small\item\em Creates a denormalizer using the given normalizer. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Destandarizer_a8e20a4a4d1245217ea0b8eba7b740a6e}{$\sim$\+Destandarizer} ()
+\item 
+virtual void \hyperlink{classhappyml_1_1Destandarizer_a2d1542f1857bfe0cb23fa69b139d2368}{apply} (mat \&x) const 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}!Destandarizer@{Destandarizer}}
+\index{Destandarizer@{Destandarizer}!happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}}
+\subsubsection[{\texorpdfstring{Destandarizer(const Data\+Set \&dataset)}{Destandarizer(const DataSet &dataset)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Destandarizer\+::\+Destandarizer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Destandarizer_abc64ade944fc341a889ef3b703e294dc}{}\label{classhappyml_1_1Destandarizer_abc64ade944fc341a889ef3b703e294dc}
+
+
+Creates a denormalizer that will use min and max data obtained from the dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset from which it will be extracted the min and max that will be use when apply denormalization. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}!Destandarizer@{Destandarizer}}
+\index{Destandarizer@{Destandarizer}!happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}}
+\subsubsection[{\texorpdfstring{Destandarizer(const mat \&x)}{Destandarizer(const mat &x)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Destandarizer\+::\+Destandarizer (
+\begin{DoxyParamCaption}
+\item[{const mat \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Destandarizer_ae8ede809ec02a8a8553fbf0b13d0dc67}{}\label{classhappyml_1_1Destandarizer_ae8ede809ec02a8a8553fbf0b13d0dc67}
+
+
+Creates a denormalizer that will use min and max data obtained from the matrix x. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Matrix from which it will be extracted the min and max that will be use when apply denormalization. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}!Destandarizer@{Destandarizer}}
+\index{Destandarizer@{Destandarizer}!happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}}
+\subsubsection[{\texorpdfstring{Destandarizer(const vec \&minvec, const vec \&maxvec)}{Destandarizer(const vec &minvec, const vec &maxvec)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Destandarizer\+::\+Destandarizer (
+\begin{DoxyParamCaption}
+\item[{const vec \&}]{minvec, }
+\item[{const vec \&}]{maxvec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Destandarizer_a248bde27fb7e9befc813a1db7daba7bb}{}\label{classhappyml_1_1Destandarizer_a248bde27fb7e9befc813a1db7daba7bb}
+
+
+Creates a denormalizer that will use min and max data obtained from the dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em minvec} & Vector with the min numbers. \\
+\hline
+{\em maxvec} & Vector with the max numbers. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}!Destandarizer@{Destandarizer}}
+\index{Destandarizer@{Destandarizer}!happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}}
+\subsubsection[{\texorpdfstring{Destandarizer(const Standarizer \&n)}{Destandarizer(const Standarizer &n)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Destandarizer\+::\+Destandarizer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Standarizer} \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Destandarizer_ad892a74ae3ca529548305cda54969c6e}{}\label{classhappyml_1_1Destandarizer_ad892a74ae3ca529548305cda54969c6e}
+
+
+Creates a denormalizer using the given normalizer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \hyperlink{classhappyml_1_1Normalizer}{Normalizer} to reverse. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}!````~Destandarizer@{$\sim$\+Destandarizer}}
+\index{````~Destandarizer@{$\sim$\+Destandarizer}!happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}}
+\subsubsection[{\texorpdfstring{$\sim$\+Destandarizer()}{~Destandarizer()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Destandarizer\+::$\sim$\+Destandarizer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Destandarizer_a8e20a4a4d1245217ea0b8eba7b740a6e}{}\label{classhappyml_1_1Destandarizer_a8e20a4a4d1245217ea0b8eba7b740a6e}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+Destandarizer@{happyml\+::\+Destandarizer}}
+\subsubsection[{\texorpdfstring{apply(mat \&x) const }{apply(mat &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Destandarizer\+::apply (
+\begin{DoxyParamCaption}
+\item[{mat \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Destandarizer_a2d1542f1857bfe0cb23fa69b139d2368}{}\label{classhappyml_1_1Destandarizer_a2d1542f1857bfe0cb23fa69b139d2368}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Standarizer_a5c9b416b657cb61972c27b27fd379b2d}{happyml\+::\+Standarizer}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{standarizer_8h}{standarizer.\+h}\item 
+src/transformers/\hyperlink{standarizer_8cpp}{standarizer.\+cpp}\end{DoxyCompactItemize}

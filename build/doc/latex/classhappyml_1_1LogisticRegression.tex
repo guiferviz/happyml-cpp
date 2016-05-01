@@ -1,0 +1,147 @@
+\hypertarget{classhappyml_1_1LogisticRegression}{}\section{happyml\+:\+:Logistic\+Regression Class Reference}
+\label{classhappyml_1_1LogisticRegression}\index{happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}}
+
+
+{\ttfamily \#include $<$logistic\+\_\+regression.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Logistic\+Regression\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhappyml_1_1LogisticRegression}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1LogisticRegression_ab3f409e0e3d6c0e95bba0bd86db953ae}{Logistic\+Regression} (unsigned d=0)
+\begin{DoxyCompactList}\small\item\em Creates a logistic regression algorithm with the indicated input size. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1LogisticRegression_a42c6f431670db4fea1aff55b3b0cb034}{Logistic\+Regression} (const vec \&weights)
+\begin{DoxyCompactList}\small\item\em Creates a logistic regression algorithm with the indicated weights. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1LogisticRegression_afe828c9c1370632d47df5eb0fbc2fe1a}{Logistic\+Regression} (const \hyperlink{classhappyml_1_1LinearModel}{Linear\+Model} \&lm)
+\item 
+double \hyperlink{classhappyml_1_1LogisticRegression_ae997703343acb56b827ea257775cc971}{train} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&data, unsigned iter=1000, double learning\+\_\+rate=0.\+1)
+\begin{DoxyCompactList}\small\item\em Train the logistic regression until the training loops over the data n\+Times, or classifies all correctly. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1LogisticRegression_abd9bb137ef99e360fcffcca3187b6703}{predict} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\begin{DoxyCompactList}\small\item\em Classifies an input vector. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1LogisticRegression_a40140d6f83cae49ad1472bcf8678da15}{error} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&data) const 
+\begin{DoxyCompactList}\small\item\em Compute the error of the logistic regression on the given dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}!Logistic\+Regression@{Logistic\+Regression}}
+\index{Logistic\+Regression@{Logistic\+Regression}!happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}}
+\subsubsection[{\texorpdfstring{Logistic\+Regression(unsigned d=0)}{LogisticRegression(unsigned d=0)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Logistic\+Regression\+::\+Logistic\+Regression (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{d = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LogisticRegression_ab3f409e0e3d6c0e95bba0bd86db953ae}{}\label{classhappyml_1_1LogisticRegression_ab3f409e0e3d6c0e95bba0bd86db953ae}
+
+
+Creates a logistic regression algorithm with the indicated input size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Dimension $d$ of the input feature vectors. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}!Logistic\+Regression@{Logistic\+Regression}}
+\index{Logistic\+Regression@{Logistic\+Regression}!happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}}
+\subsubsection[{\texorpdfstring{Logistic\+Regression(const vec \&weights)}{LogisticRegression(const vec &weights)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Logistic\+Regression\+::\+Logistic\+Regression (
+\begin{DoxyParamCaption}
+\item[{const vec \&}]{weights}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LogisticRegression_a42c6f431670db4fea1aff55b3b0cb034}{}\label{classhappyml_1_1LogisticRegression_a42c6f431670db4fea1aff55b3b0cb034}
+
+
+Creates a logistic regression algorithm with the indicated weights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weights} & Weight vector with $d + 1$ size. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}!Logistic\+Regression@{Logistic\+Regression}}
+\index{Logistic\+Regression@{Logistic\+Regression}!happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}}
+\subsubsection[{\texorpdfstring{Logistic\+Regression(const Linear\+Model \&lm)}{LogisticRegression(const LinearModel &lm)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Logistic\+Regression\+::\+Logistic\+Regression (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linear\+Model} \&}]{lm}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LogisticRegression_afe828c9c1370632d47df5eb0fbc2fe1a}{}\label{classhappyml_1_1LogisticRegression_afe828c9c1370632d47df5eb0fbc2fe1a}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}!error@{error}}
+\index{error@{error}!happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}}
+\subsubsection[{\texorpdfstring{error(const Data\+Set \&data) const }{error(const DataSet &data) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Logistic\+Regression\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{data}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1LogisticRegression_a40140d6f83cae49ad1472bcf8678da15}{}\label{classhappyml_1_1LogisticRegression_a40140d6f83cae49ad1472bcf8678da15}
+
+
+Compute the error of the logistic regression on the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Dataset with the correct output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error of classify the given dataset. It\textquotesingle{}s value is grater than $0$. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Predictor_a59b022fac2ffa3a0254b75cb02b70dfe}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}!predict@{predict}}
+\index{predict@{predict}!happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}}
+\subsubsection[{\texorpdfstring{predict(const Input \&x) const }{predict(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Logistic\+Regression\+::predict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1LogisticRegression_abd9bb137ef99e360fcffcca3187b6703}{}\label{classhappyml_1_1LogisticRegression_abd9bb137ef99e360fcffcca3187b6703}
+
+
+Classifies an input vector. 
+
+\begin{DoxyReturn}{Returns}
+Probability of the input to belong to +1 class. Output in the interval $[0, 1]$. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}!train@{train}}
+\index{train@{train}!happyml\+::\+Logistic\+Regression@{happyml\+::\+Logistic\+Regression}}
+\subsubsection[{\texorpdfstring{train(const Data\+Set \&data, unsigned iter=1000, double learning\+\_\+rate=0.\+1)}{train(const DataSet &data, unsigned iter=1000, double learning_rate=0.1)}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Logistic\+Regression\+::train (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{data, }
+\item[{unsigned}]{iter = {\ttfamily 1000}, }
+\item[{double}]{learning\+\_\+rate = {\ttfamily 0.1}}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1LogisticRegression_ae997703343acb56b827ea257775cc971}{}\label{classhappyml_1_1LogisticRegression_ae997703343acb56b827ea257775cc971}
+
+
+Train the logistic regression until the training loops over the data n\+Times, or classifies all correctly. 
+
+Data must contain the $x_0 = 1$ property.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Training set. \\
+\hline
+{\em iter} & Maximun number of iterations ( $1000$ by default). \\
+\hline
+{\em learning\+\_\+rate} & Learning rate ( $0.1$ by default.).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the error of the best weights found. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/logistic\+\_\+regression/\hyperlink{logistic__regression_8h}{logistic\+\_\+regression.\+h}\item 
+src/logistic\+\_\+regression/\hyperlink{logistic__regression_8cpp}{logistic\+\_\+regression.\+cpp}\end{DoxyCompactItemize}

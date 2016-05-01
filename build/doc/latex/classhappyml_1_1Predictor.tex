@@ -1,0 +1,193 @@
+\hypertarget{classhappyml_1_1Predictor}{}\section{happyml\+:\+:Predictor Class Reference}
+\label{classhappyml_1_1Predictor}\index{happyml\+::\+Predictor@{happyml\+::\+Predictor}}
+
+
+Abstract class that represent an algorithm that predict an output or classifies an input vector.  
+
+
+
+
+{\ttfamily \#include $<$predictor.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Predictor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.085661cm]{classhappyml_1_1Predictor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \hyperlink{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{predict} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const  =0
+\begin{DoxyCompactList}\small\item\em Predict an output from an input vector. \end{DoxyCompactList}\item 
+virtual double \hyperlink{classhappyml_1_1Predictor_aeb20c07843cf4a2b7df76b2f0d0e0b13}{error} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x, double y) const 
+\begin{DoxyCompactList}\small\item\em Compute the error of the predictor in a given input. \end{DoxyCompactList}\item 
+virtual double \hyperlink{classhappyml_1_1Predictor_a59b022fac2ffa3a0254b75cb02b70dfe}{error} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset) const 
+\begin{DoxyCompactList}\small\item\em Compute the error of the predictor on the given dataset. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhappyml_1_1Predictor_a57e1704162af45ff6501a49c2cd3dada}{save\+Sampling} (const string \&filename, double minx\+\_\+1, double maxx\+\_\+1, unsigned samples\+\_\+1, double minx\+\_\+2, double maxx\+\_\+2, unsigned samples\+\_\+2, const \hyperlink{classhappyml_1_1Transformer}{Transformer} \&t=\hyperlink{classhappyml_1_1Transformer}{Transformer}()) const 
+\begin{DoxyCompactList}\small\item\em Saves the value of predicting the output of the predicter on the rectangular area defined between $(minx_1, minx_2)$ and $(maxx_1, maxx_2)$ points. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhappyml_1_1Predictor_a7be2a09809a15f9eef51ca37c4632cb7}{save\+Sampling} (const string \&filename, double minx, double maxx, unsigned samples, const \hyperlink{classhappyml_1_1Transformer}{Transformer} \&t=\hyperlink{classhappyml_1_1Transformer}{Transformer}()) const 
+\begin{DoxyCompactList}\small\item\em Saves the value of predicting the output of the predicter in the segment $[minx, maxx]$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract class that represent an algorithm that predict an output or classifies an input vector. 
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Predictor@{happyml\+::\+Predictor}!error@{error}}
+\index{error@{error}!happyml\+::\+Predictor@{happyml\+::\+Predictor}}
+\subsubsection[{\texorpdfstring{error(const Input \&x, double y) const }{error(const Input &x, double y) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Predictor\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Predictor_aeb20c07843cf4a2b7df76b2f0d0e0b13}{}\label{classhappyml_1_1Predictor_aeb20c07843cf4a2b7df76b2f0d0e0b13}
+
+
+Compute the error of the predictor in a given input. 
+
+By default it computes the square diff.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The input vector. \\
+\hline
+{\em y} & Correct output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error of the predicted value comparate to y. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classhappyml_1_1Classifier_ac72f1b0b689aaff5078978ae198318df}{happyml\+::\+Classifier}.
+
+\index{happyml\+::\+Predictor@{happyml\+::\+Predictor}!error@{error}}
+\index{error@{error}!happyml\+::\+Predictor@{happyml\+::\+Predictor}}
+\subsubsection[{\texorpdfstring{error(const Data\+Set \&dataset) const }{error(const DataSet &dataset) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Predictor\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Predictor_a59b022fac2ffa3a0254b75cb02b70dfe}{}\label{classhappyml_1_1Predictor_a59b022fac2ffa3a0254b75cb02b70dfe}
+
+
+Compute the error of the predictor on the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Dataset with the correct output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error of predicting the output of the given dataset. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classhappyml_1_1LinearRegression_aebb84fbdbfed7487c05baa8d8c1499e9}{happyml\+::\+Linear\+Regression}, \hyperlink{classhappyml_1_1LogisticRegression_a40140d6f83cae49ad1472bcf8678da15}{happyml\+::\+Logistic\+Regression}, \hyperlink{classhappyml_1_1Perceptron_aff79f084e1f9261e4e10feda0a5e74dd}{happyml\+::\+Perceptron}, and \hyperlink{classhappyml_1_1NNRegression_a6f649a08fc94523a49e893ffad766896}{happyml\+::\+N\+N\+Regression}.
+
+\index{happyml\+::\+Predictor@{happyml\+::\+Predictor}!predict@{predict}}
+\index{predict@{predict}!happyml\+::\+Predictor@{happyml\+::\+Predictor}}
+\subsubsection[{\texorpdfstring{predict(const Input \&x) const  =0}{predict(const Input &x) const  =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double happyml\+::\+Predictor\+::predict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{}\label{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}
+
+
+Predict an output from an input vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & An input vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a real value corresponding with the prediction done by the current predictor. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classhappyml_1_1SVM_af29c307be8f6457806851f7274fc7c50}{happyml\+::\+S\+VM}, \hyperlink{classhappyml_1_1LinearRegression_af7b493c394ab2664c5e743711a64d26e}{happyml\+::\+Linear\+Regression}, \hyperlink{classhappyml_1_1NeuralNetwork_ae2e05acd3a864d20ca1a1645c1e369e4}{happyml\+::\+Neural\+Network}, \hyperlink{classhappyml_1_1LogisticRegression_abd9bb137ef99e360fcffcca3187b6703}{happyml\+::\+Logistic\+Regression}, \hyperlink{classhappyml_1_1Perceptron_aaa3c4d2a5235d6b5498de77f926c15f3}{happyml\+::\+Perceptron}, \hyperlink{classhappyml_1_1NNRegression_aea4c134130125d22c3587b8a9d9c8e1b}{happyml\+::\+N\+N\+Regression}, \hyperlink{classhappyml_1_1KNN_aac58df51b7b343dfd1fb359117341867}{happyml\+::\+K\+NN}, and \hyperlink{classhappyml_1_1SVMLinear_a7bf1f8e60104e34e0589b0b6cab1f447}{happyml\+::\+S\+V\+M\+Linear}.
+
+\index{happyml\+::\+Predictor@{happyml\+::\+Predictor}!save\+Sampling@{save\+Sampling}}
+\index{save\+Sampling@{save\+Sampling}!happyml\+::\+Predictor@{happyml\+::\+Predictor}}
+\subsubsection[{\texorpdfstring{save\+Sampling(const string \&filename, double minx\+\_\+1, double maxx\+\_\+1, unsigned samples\+\_\+1, double minx\+\_\+2, double maxx\+\_\+2, unsigned samples\+\_\+2, const Transformer \&t=\+Transformer()) const }{saveSampling(const string &filename, double minx_1, double maxx_1, unsigned samples_1, double minx_2, double maxx_2, unsigned samples_2, const Transformer &t=Transformer()) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Predictor\+::save\+Sampling (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{filename, }
+\item[{double}]{minx\+\_\+1, }
+\item[{double}]{maxx\+\_\+1, }
+\item[{unsigned}]{samples\+\_\+1, }
+\item[{double}]{minx\+\_\+2, }
+\item[{double}]{maxx\+\_\+2, }
+\item[{unsigned}]{samples\+\_\+2, }
+\item[{const {\bf Transformer} \&}]{t = {\ttfamily {\bf Transformer}()}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Predictor_a57e1704162af45ff6501a49c2cd3dada}{}\label{classhappyml_1_1Predictor_a57e1704162af45ff6501a49c2cd3dada}
+
+
+Saves the value of predicting the output of the predicter on the rectangular area defined between $(minx_1, minx_2)$ and $(maxx_1, maxx_2)$ points. 
+
+The C\+SV output file has the following structure\+:
+
+$\\ minx_1,maxx_1,samples_1\\ minx_2,maxx_2,samples_2\\ h_{1\ 1},h_{1\ 2},\cdots,h_{1\ samples_1}\\ \ \vdots\ ,\ \vdots\ ,\cdots,\ \vdots\ \\ h_{samples\ 1},h_{samples\ 2},\cdots,h_{samples_2\ samples_1} $
+
+Use \textquotesingle{}happyplot\textquotesingle{} command line tool to visualize the output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Output filename. \\
+\hline
+{\em minx\+\_\+1} & Start value of the first feature. \\
+\hline
+{\em maxx\+\_\+1} & End value of the first feature. \\
+\hline
+{\em samples\+\_\+1} & Number of samples of the first feature. \\
+\hline
+{\em minx\+\_\+2} & Start value of the second feature. \\
+\hline
+{\em maxx\+\_\+2} & End value of the second feature. \\
+\hline
+{\em samples\+\_\+2} & Number of samples of the second feature. \\
+\hline
+{\em t} & \hyperlink{classhappyml_1_1Transformer}{Transformer} that transform the inputs to predict. By default a void transformed is used. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Predictor@{happyml\+::\+Predictor}!save\+Sampling@{save\+Sampling}}
+\index{save\+Sampling@{save\+Sampling}!happyml\+::\+Predictor@{happyml\+::\+Predictor}}
+\subsubsection[{\texorpdfstring{save\+Sampling(const string \&filename, double minx, double maxx, unsigned samples, const Transformer \&t=\+Transformer()) const }{saveSampling(const string &filename, double minx, double maxx, unsigned samples, const Transformer &t=Transformer()) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Predictor\+::save\+Sampling (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{filename, }
+\item[{double}]{minx, }
+\item[{double}]{maxx, }
+\item[{unsigned}]{samples, }
+\item[{const {\bf Transformer} \&}]{t = {\ttfamily {\bf Transformer}()}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Predictor_a7be2a09809a15f9eef51ca37c4632cb7}{}\label{classhappyml_1_1Predictor_a7be2a09809a15f9eef51ca37c4632cb7}
+
+
+Saves the value of predicting the output of the predicter in the segment $[minx, maxx]$. 
+
+The C\+SV output file has the following structure\+:
+
+$\\ minx,maxx,samples\\ h_{1},h_{2},\cdots,h_{samples}\\ $
+
+Use \textquotesingle{}happyplot\textquotesingle{} command line tool to visualize the output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Output filename. \\
+\hline
+{\em minx} & Start value of the first feature. \\
+\hline
+{\em maxx} & End value of the first feature. \\
+\hline
+{\em samples} & Number of samples of the first feature. \\
+\hline
+{\em t} & \hyperlink{classhappyml_1_1Transformer}{Transformer} that transform the inputs to predict. By default a void transformed is used. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/\hyperlink{predictor_8h}{predictor.\+h}\item 
+src/\hyperlink{predictor_8cpp}{predictor.\+cpp}\end{DoxyCompactItemize}

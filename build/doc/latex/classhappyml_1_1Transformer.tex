@@ -1,0 +1,99 @@
+\hypertarget{classhappyml_1_1Transformer}{}\section{happyml\+:\+:Transformer Class Reference}
+\label{classhappyml_1_1Transformer}\index{happyml\+::\+Transformer@{happyml\+::\+Transformer}}
+
+
+Class that applies linear and non-\/linear transformations to an input or to a whole dataset.  
+
+
+
+
+{\ttfamily \#include $<$transformer.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Transformer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=11.000000cm]{classhappyml_1_1Transformer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1Transformer_a10074d87318ab9db84cc477b5ec66967}{Transformer} ()
+\item 
+\hyperlink{classhappyml_1_1Transformer_a3c6fb3c19e318ee24c8d233c94e5eb13}{$\sim$\+Transformer} ()
+\item 
+virtual void \hyperlink{classhappyml_1_1Transformer_a169a2a8434124c1dd8e671bca2cfa71d}{apply} (\hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given dataset. \end{DoxyCompactList}\item 
+virtual \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \hyperlink{classhappyml_1_1Transformer_a3e0eb67990c90c461466307fdefab45c}{apply} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&input) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that applies linear and non-\/linear transformations to an input or to a whole dataset. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Transformer@{happyml\+::\+Transformer}!Transformer@{Transformer}}
+\index{Transformer@{Transformer}!happyml\+::\+Transformer@{happyml\+::\+Transformer}}
+\subsubsection[{\texorpdfstring{Transformer()}{Transformer()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Transformer\+::\+Transformer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Transformer_a10074d87318ab9db84cc477b5ec66967}{}\label{classhappyml_1_1Transformer_a10074d87318ab9db84cc477b5ec66967}
+\index{happyml\+::\+Transformer@{happyml\+::\+Transformer}!````~Transformer@{$\sim$\+Transformer}}
+\index{````~Transformer@{$\sim$\+Transformer}!happyml\+::\+Transformer@{happyml\+::\+Transformer}}
+\subsubsection[{\texorpdfstring{$\sim$\+Transformer()}{~Transformer()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Transformer\+::$\sim$\+Transformer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Transformer_a3c6fb3c19e318ee24c8d233c94e5eb13}{}\label{classhappyml_1_1Transformer_a3c6fb3c19e318ee24c8d233c94e5eb13}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Transformer@{happyml\+::\+Transformer}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+Transformer@{happyml\+::\+Transformer}}
+\subsubsection[{\texorpdfstring{apply(\+Data\+Set \&dataset) const }{apply(DataSet &dataset) const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual void happyml\+::\+Transformer\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Transformer_a169a2a8434124c1dd8e671bca2cfa71d}{}\label{classhappyml_1_1Transformer_a169a2a8434124c1dd8e671bca2cfa71d}
+
+
+Applies all the transformations at the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset to transform. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classhappyml_1_1transforms_1_1SimpleTransformer_a7bb7863c5f6b2e0a36eac155b1f25cdf}{happyml\+::transforms\+::\+Simple\+Transformer}, \hyperlink{classhappyml_1_1DenormalizerXY_a724e14e520004b2d66611c0e152a9d3b}{happyml\+::\+Denormalizer\+XY}, \hyperlink{classhappyml_1_1DestandarizerXY_a84c63216d9a78bc61647550381fed0a6}{happyml\+::\+Destandarizer\+XY}, \hyperlink{classhappyml_1_1transforms_1_1Remove_a901c9a5c55f4b360233b8ba7e46fc198}{happyml\+::transforms\+::\+Remove}, \hyperlink{classhappyml_1_1transforms_1_1Arithmetic_aafe6e2ef231e5515f2068b8340aac93a}{happyml\+::transforms\+::\+Arithmetic}, \hyperlink{classhappyml_1_1NormalizerXY_ac843088ef9e2189ed719f4556ba111e2}{happyml\+::\+Normalizer\+XY}, \hyperlink{classhappyml_1_1StandarizerXY_af2979980c88b3c5c4d670d2148c148e8}{happyml\+::\+Standarizer\+XY}, \hyperlink{classhappyml_1_1PCA_a298495b3f3cf0ed3b623392a6f89b719}{happyml\+::\+P\+CA}, \hyperlink{classhappyml_1_1TransformerCollection_a20fd27b57eb8fa4546e3664ea33283f1}{happyml\+::\+Transformer\+Collection}, and \hyperlink{classhappyml_1_1LDA_a642ebe3b7cfcddaa5b21cd93ed1cf082}{happyml\+::\+L\+DA}.
+
+\index{happyml\+::\+Transformer@{happyml\+::\+Transformer}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+Transformer@{happyml\+::\+Transformer}}
+\subsubsection[{\texorpdfstring{apply(const Input \&input) const }{apply(const Input &input) const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Input} happyml\+::\+Transformer\+::apply (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Transformer_a3e0eb67990c90c461466307fdefab45c}{}\label{classhappyml_1_1Transformer_a3e0eb67990c90c461466307fdefab45c}
+
+
+Applies all the transformations at the given input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input to transform.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A transformated version of the input. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classhappyml_1_1DenormalizerXY_a22e45e0e3595ede802dca4c4cf772a73}{happyml\+::\+Denormalizer\+XY}, \hyperlink{classhappyml_1_1DestandarizerXY_a21481d414441642b50b04d43f6c55ac0}{happyml\+::\+Destandarizer\+XY}, \hyperlink{classhappyml_1_1transforms_1_1Remove_a249eec291d4c15b4e8e044c38a994770}{happyml\+::transforms\+::\+Remove}, \hyperlink{classhappyml_1_1transforms_1_1Arithmetic_ac32e38e089435dc407bc9b7a338bc845}{happyml\+::transforms\+::\+Arithmetic}, \hyperlink{classhappyml_1_1NormalizerXY_a0f10be1b98dfc3125990310ee649ee8e}{happyml\+::\+Normalizer\+XY}, \hyperlink{classhappyml_1_1StandarizerXY_a800a8953dbf96c26edca660680ce791f}{happyml\+::\+Standarizer\+XY}, \hyperlink{classhappyml_1_1TransformerCollection_a36511b731522cda1cadbe3fa4299f6bf}{happyml\+::\+Transformer\+Collection}, \hyperlink{classhappyml_1_1PCA_a2a630892c653832287bb3df4ab002d51}{happyml\+::\+P\+CA}, and \hyperlink{classhappyml_1_1LDA_a2b98a4675abdb0985347491224136b5c}{happyml\+::\+L\+DA}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{transformer_8h}{transformer.\+h}\end{DoxyCompactItemize}

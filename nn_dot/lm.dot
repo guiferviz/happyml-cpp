@@ -1,0 +1,51 @@
+digraph LinearModel {
+
+	d2toptions="-tmath";
+
+	label="Linear Model";
+
+	rankdir=LR;
+	splines=line;
+	nodesep=0.1;
+	ranksep=1.0;
+	center=true;
+    
+	node [
+		shape=circle,
+		fixedsize=true,
+		style=solid,
+		color=black
+	];
+	edge [
+		color=black,
+	];
+
+
+	subgraph {
+		rank=same;
+		x0 [label="x_0"];
+		node [color=green];
+		x1 [label="x_1"];
+		x2 [color=white,label="\\vdots"];
+		xd [label="x_d"];
+	}
+
+	subgraph {
+		node [color=red];
+		s [label="s"];
+	}
+
+	subgraph {
+		node [color=white];
+		output [label="h(\\mathbf{x})"];
+	}
+
+	x0 -> s [label="w_0"];
+	x1 -> s [label="w_1"];
+	x2 -> s [color=white];
+	xd -> s [label="w_d"];
+
+	s -> output []
+
+}
+

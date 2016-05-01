@@ -1,0 +1,120 @@
+\hypertarget{classhappyml_1_1Serializable}{}\section{happyml\+:\+:Serializable Class Reference}
+\label{classhappyml_1_1Serializable}\index{happyml\+::\+Serializable@{happyml\+::\+Serializable}}
+
+
+Abstract class that represent an object that can be loaded from a file and saved to a file.  
+
+
+
+
+{\ttfamily \#include $<$serializable.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Serializable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.500000cm]{classhappyml_1_1Serializable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classhappyml_1_1Serializable_a839f14e831098c5c9ffd1ce149df71b3}{load} (const string \&filename)
+\begin{DoxyCompactList}\small\item\em Fills an object using the data in the given file. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhappyml_1_1Serializable_a06a0a44a24b1c800115875b44d07cff9}{save} (const string \&filename) const 
+\begin{DoxyCompactList}\small\item\em Saves the object to a specific file. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhappyml_1_1Serializable_aef5c211d8e9c1c425b33c657824c2f0c}{read} (istream \&stream)=0
+\begin{DoxyCompactList}\small\item\em Read the object from an input stream. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhappyml_1_1Serializable_a2d503e4c2e39c5be8a33bcc8b691949f}{write} (ostream \&stream) const  =0
+\begin{DoxyCompactList}\small\item\em Write the object to an output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract class that represent an object that can be loaded from a file and saved to a file. 
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Serializable@{happyml\+::\+Serializable}!load@{load}}
+\index{load@{load}!happyml\+::\+Serializable@{happyml\+::\+Serializable}}
+\subsubsection[{\texorpdfstring{load(const string \&filename)}{load(const string &filename)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Serializable\+::load (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Serializable_a839f14e831098c5c9ffd1ce149df71b3}{}\label{classhappyml_1_1Serializable_a839f14e831098c5c9ffd1ce149df71b3}
+
+
+Fills an object using the data in the given file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file to load.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+save(const string\&) 
+\end{DoxySeeAlso}
+\index{happyml\+::\+Serializable@{happyml\+::\+Serializable}!read@{read}}
+\index{read@{read}!happyml\+::\+Serializable@{happyml\+::\+Serializable}}
+\subsubsection[{\texorpdfstring{read(istream \&stream)=0}{read(istream &stream)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void happyml\+::\+Serializable\+::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhappyml_1_1Serializable_aef5c211d8e9c1c425b33c657824c2f0c}{}\label{classhappyml_1_1Serializable_aef5c211d8e9c1c425b33c657824c2f0c}
+
+
+Read the object from an input stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Input stream. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classhappyml_1_1NeuralNetworkModel_a5591e0392dc1ec3d6d730ae355cc7f09}{happyml\+::\+Neural\+Network\+Model}, \hyperlink{classhappyml_1_1DataSet_aa2e2f9c87aefbf9c7a2b8793f197b828}{happyml\+::\+Data\+Set}, \hyperlink{classhappyml_1_1SVM_a180e169777af513b76cada99044ad3c3}{happyml\+::\+S\+VM}, \hyperlink{classhappyml_1_1LinearModel_abdc75a19c7234d8bc13b4dd7ad621c9e}{happyml\+::\+Linear\+Model}, and \hyperlink{classhappyml_1_1SVMLinear_a4259c29ba1acd320703bf8c1ae8fd780}{happyml\+::\+S\+V\+M\+Linear}.
+
+\index{happyml\+::\+Serializable@{happyml\+::\+Serializable}!save@{save}}
+\index{save@{save}!happyml\+::\+Serializable@{happyml\+::\+Serializable}}
+\subsubsection[{\texorpdfstring{save(const string \&filename) const }{save(const string &filename) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Serializable\+::save (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{filename}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Serializable_a06a0a44a24b1c800115875b44d07cff9}{}\label{classhappyml_1_1Serializable_a06a0a44a24b1c800115875b44d07cff9}
+
+
+Saves the object to a specific file. 
+
+After this call you can load new objects using the load method and that filename.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Output filename.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classhappyml_1_1Serializable_a839f14e831098c5c9ffd1ce149df71b3}{load(const string\&)} 
+\end{DoxySeeAlso}
+\index{happyml\+::\+Serializable@{happyml\+::\+Serializable}!write@{write}}
+\index{write@{write}!happyml\+::\+Serializable@{happyml\+::\+Serializable}}
+\subsubsection[{\texorpdfstring{write(ostream \&stream) const  =0}{write(ostream &stream) const  =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void happyml\+::\+Serializable\+::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhappyml_1_1Serializable_a2d503e4c2e39c5be8a33bcc8b691949f}{}\label{classhappyml_1_1Serializable_a2d503e4c2e39c5be8a33bcc8b691949f}
+
+
+Write the object to an output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Output stream. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classhappyml_1_1NeuralNetworkModel_acaae169ac128c0c707342960e7c048eb}{happyml\+::\+Neural\+Network\+Model}, \hyperlink{classhappyml_1_1DataSet_a1bed7d89826c5b9fb23c3e2d0f690b22}{happyml\+::\+Data\+Set}, \hyperlink{classhappyml_1_1LinearModel_ad788fb6f13ba64d8164a89a8be96949d}{happyml\+::\+Linear\+Model}, and \hyperlink{classhappyml_1_1SVM_a71cdc4e06322b9555dbcc118b45c4f73}{happyml\+::\+S\+VM}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/\hyperlink{serializable_8h}{serializable.\+h}\item 
+src/\hyperlink{serializable_8cpp}{serializable.\+cpp}\end{DoxyCompactItemize}

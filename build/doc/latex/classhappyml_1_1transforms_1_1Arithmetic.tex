@@ -1,0 +1,120 @@
+\hypertarget{classhappyml_1_1transforms_1_1Arithmetic}{}\section{happyml\+:\+:transforms\+:\+:Arithmetic Class Reference}
+\label{classhappyml_1_1transforms_1_1Arithmetic}\index{happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}}
+
+
+{\ttfamily \#include $<$transformer.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:transforms\+:\+:Arithmetic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.886598cm]{classhappyml_1_1transforms_1_1Arithmetic}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1transforms_1_1Arithmetic_a0a57820a202d232af4527a2bb4ecf67a}{Arithmetic} (int f, double p, bool nf)
+\item 
+void \hyperlink{classhappyml_1_1transforms_1_1Arithmetic_aafe6e2ef231e5515f2068b8340aac93a}{apply} (\hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given dataset. \end{DoxyCompactList}\item 
+\hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \hyperlink{classhappyml_1_1transforms_1_1Arithmetic_ac32e38e089435dc407bc9b7a338bc845}{apply} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&input) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given input. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classhappyml_1_1transforms_1_1Arithmetic_a85191dcd8734e18424b92b870d7b9d73}{apply} (mat \&x, int col) const  =0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classhappyml_1_1transforms_1_1Arithmetic_a64c5ee9c6775b2f19799eeae75c37ea1}{param}
+\item 
+int \hyperlink{classhappyml_1_1transforms_1_1Arithmetic_a9f9d1fe8c2fbae1fccce0d5d230406b1}{feature}
+\item 
+bool \hyperlink{classhappyml_1_1transforms_1_1Arithmetic_a05e8518ae4bf508f3a572de827f42316}{new\+Feature}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}!Arithmetic@{Arithmetic}}
+\index{Arithmetic@{Arithmetic}!happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}}
+\subsubsection[{\texorpdfstring{Arithmetic(int f, double p, bool nf)}{Arithmetic(int f, double p, bool nf)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::transforms\+::\+Arithmetic\+::\+Arithmetic (
+\begin{DoxyParamCaption}
+\item[{int}]{f, }
+\item[{double}]{p, }
+\item[{bool}]{nf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1transforms_1_1Arithmetic_a0a57820a202d232af4527a2bb4ecf67a}{}\label{classhappyml_1_1transforms_1_1Arithmetic_a0a57820a202d232af4527a2bb4ecf67a}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}!apply@{apply}}
+\index{apply@{apply}!happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}}
+\subsubsection[{\texorpdfstring{apply(\+Data\+Set \&dataset) const }{apply(DataSet &dataset) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::transforms\+::\+Arithmetic\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1transforms_1_1Arithmetic_aafe6e2ef231e5515f2068b8340aac93a}{}\label{classhappyml_1_1transforms_1_1Arithmetic_aafe6e2ef231e5515f2068b8340aac93a}
+
+
+Applies all the transformations at the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset to transform. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a169a2a8434124c1dd8e671bca2cfa71d}{happyml\+::\+Transformer}.
+
+\index{happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}!apply@{apply}}
+\index{apply@{apply}!happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}}
+\subsubsection[{\texorpdfstring{apply(const Input \&input) const }{apply(const Input &input) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input} happyml\+::transforms\+::\+Arithmetic\+::apply (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1transforms_1_1Arithmetic_ac32e38e089435dc407bc9b7a338bc845}{}\label{classhappyml_1_1transforms_1_1Arithmetic_ac32e38e089435dc407bc9b7a338bc845}
+
+
+Applies all the transformations at the given input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input to transform.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A transformated version of the input. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a3e0eb67990c90c461466307fdefab45c}{happyml\+::\+Transformer}.
+
+\index{happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}!apply@{apply}}
+\index{apply@{apply}!happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}}
+\subsubsection[{\texorpdfstring{apply(mat \&x, int col) const  =0}{apply(mat &x, int col) const  =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void happyml\+::transforms\+::\+Arithmetic\+::apply (
+\begin{DoxyParamCaption}
+\item[{mat \&}]{x, }
+\item[{int}]{col}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classhappyml_1_1transforms_1_1Arithmetic_a85191dcd8734e18424b92b870d7b9d73}{}\label{classhappyml_1_1transforms_1_1Arithmetic_a85191dcd8734e18424b92b870d7b9d73}
+
+
+Implemented in \hyperlink{classhappyml_1_1transforms_1_1Mul_afc91c3f53e31af40b314cc0d9d5552fa}{happyml\+::transforms\+::\+Mul}, \hyperlink{classhappyml_1_1transforms_1_1Add_a42a12de9fefcdb7b4c3c669f8d023a2f}{happyml\+::transforms\+::\+Add}, and \hyperlink{classhappyml_1_1transforms_1_1Pow_af6d691fc3afbff2ee8f85db1725c2ea8}{happyml\+::transforms\+::\+Pow}.
+
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}!feature@{feature}}
+\index{feature@{feature}!happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}}
+\subsubsection[{\texorpdfstring{feature}{feature}}]{\setlength{\rightskip}{0pt plus 5cm}int happyml\+::transforms\+::\+Arithmetic\+::feature\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1transforms_1_1Arithmetic_a9f9d1fe8c2fbae1fccce0d5d230406b1}{}\label{classhappyml_1_1transforms_1_1Arithmetic_a9f9d1fe8c2fbae1fccce0d5d230406b1}
+\index{happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}!new\+Feature@{new\+Feature}}
+\index{new\+Feature@{new\+Feature}!happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}}
+\subsubsection[{\texorpdfstring{new\+Feature}{newFeature}}]{\setlength{\rightskip}{0pt plus 5cm}bool happyml\+::transforms\+::\+Arithmetic\+::new\+Feature\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1transforms_1_1Arithmetic_a05e8518ae4bf508f3a572de827f42316}{}\label{classhappyml_1_1transforms_1_1Arithmetic_a05e8518ae4bf508f3a572de827f42316}
+\index{happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}!param@{param}}
+\index{param@{param}!happyml\+::transforms\+::\+Arithmetic@{happyml\+::transforms\+::\+Arithmetic}}
+\subsubsection[{\texorpdfstring{param}{param}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::transforms\+::\+Arithmetic\+::param\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1transforms_1_1Arithmetic_a64c5ee9c6775b2f19799eeae75c37ea1}{}\label{classhappyml_1_1transforms_1_1Arithmetic_a64c5ee9c6775b2f19799eeae75c37ea1}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{transformer_8h}{transformer.\+h}\item 
+src/transformers/\hyperlink{transformer_8cpp}{transformer.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,161 @@
+\hypertarget{classhappyml_1_1Normalizer}{}\section{happyml\+:\+:Normalizer Class Reference}
+\label{classhappyml_1_1Normalizer}\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+
+
+Normalizes a dataset using feature scaling\+: x\textquotesingle{} = x -\/ min(x) / (max(x) -\/ min(x))  
+
+
+
+
+{\ttfamily \#include $<$normalizer.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Normalizer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classhappyml_1_1Normalizer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1Normalizer_af077d001899fed09a9abf17bf25e8024}{Normalizer} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset)
+\begin{DoxyCompactList}\small\item\em Creates a normalizer that will use min and max data obtained from the dataset. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Normalizer_a89b2ff31096640780e5232b73600b267}{Normalizer} (const mat \&x)
+\begin{DoxyCompactList}\small\item\em Creates a normalizer that will use min and max data obtained from the matrix x. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Normalizer_aa8a09a8e4f7ebe0cedc09fb5c2114841}{Normalizer} (const vec \&minvec, const vec \&maxvec)
+\begin{DoxyCompactList}\small\item\em Creates a normalizer that will use the given min and max vectors. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Normalizer_ac478c1302d6e3b66237af985e44265d2}{$\sim$\+Normalizer} ()
+\item 
+virtual void \hyperlink{classhappyml_1_1Normalizer_aeff0b4e117d69311cc5845c9915fa691}{apply} (mat \&x) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classhappyml_1_1Normalizer_a7a11184002ab74861f61a6bad74482b5}{init} (const mat \&)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+rowvec \hyperlink{classhappyml_1_1Normalizer_a0e7aece7fcdc71c49f6f4ecde5421a35}{minx}
+\item 
+rowvec \hyperlink{classhappyml_1_1Normalizer_abaafd2ccd9502013c4acc1254f1af75a}{maxx}
+\item 
+rowvec \hyperlink{classhappyml_1_1Normalizer_a3d6e869c3bbab4e960a219ff69c8a597}{rangex}
+\item 
+rowvec \hyperlink{classhappyml_1_1Normalizer_a793ede833b7279317f1ddca6ad8cbf66}{miny}
+\item 
+rowvec \hyperlink{classhappyml_1_1Normalizer_a3fdcdd3102e162de11b4ff833da8dc02}{maxy}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Normalizes a dataset using feature scaling\+: x\textquotesingle{} = x -\/ min(x) / (max(x) -\/ min(x)) 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!Normalizer@{Normalizer}}
+\index{Normalizer@{Normalizer}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{Normalizer(const Data\+Set \&dataset)}{Normalizer(const DataSet &dataset)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Normalizer\+::\+Normalizer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Normalizer_af077d001899fed09a9abf17bf25e8024}{}\label{classhappyml_1_1Normalizer_af077d001899fed09a9abf17bf25e8024}
+
+
+Creates a normalizer that will use min and max data obtained from the dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset from which it will be extracted the min and max that will be use when apply normalization. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!Normalizer@{Normalizer}}
+\index{Normalizer@{Normalizer}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{Normalizer(const mat \&x)}{Normalizer(const mat &x)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Normalizer\+::\+Normalizer (
+\begin{DoxyParamCaption}
+\item[{const mat \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Normalizer_a89b2ff31096640780e5232b73600b267}{}\label{classhappyml_1_1Normalizer_a89b2ff31096640780e5232b73600b267}
+
+
+Creates a normalizer that will use min and max data obtained from the matrix x. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Matrix from which it will be extracted the min and max that will be use when apply normalization. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!Normalizer@{Normalizer}}
+\index{Normalizer@{Normalizer}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{Normalizer(const vec \&minvec, const vec \&maxvec)}{Normalizer(const vec &minvec, const vec &maxvec)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Normalizer\+::\+Normalizer (
+\begin{DoxyParamCaption}
+\item[{const vec \&}]{minvec, }
+\item[{const vec \&}]{maxvec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Normalizer_aa8a09a8e4f7ebe0cedc09fb5c2114841}{}\label{classhappyml_1_1Normalizer_aa8a09a8e4f7ebe0cedc09fb5c2114841}
+
+
+Creates a normalizer that will use the given min and max vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em minvec} & Vector with the min numbers. \\
+\hline
+{\em maxvec} & Vector with the max numbers. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!````~Normalizer@{$\sim$\+Normalizer}}
+\index{````~Normalizer@{$\sim$\+Normalizer}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{$\sim$\+Normalizer()}{~Normalizer()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Normalizer\+::$\sim$\+Normalizer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Normalizer_ac478c1302d6e3b66237af985e44265d2}{}\label{classhappyml_1_1Normalizer_ac478c1302d6e3b66237af985e44265d2}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{apply(mat \&x) const }{apply(mat &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Normalizer\+::apply (
+\begin{DoxyParamCaption}
+\item[{mat \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Normalizer_aeff0b4e117d69311cc5845c9915fa691}{}\label{classhappyml_1_1Normalizer_aeff0b4e117d69311cc5845c9915fa691}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1transforms_1_1SimpleTransformer_a2f38b1b4eb85dca83cb9f6ed9796da32}{happyml\+::transforms\+::\+Simple\+Transformer}.
+
+
+
+Reimplemented in \hyperlink{classhappyml_1_1Denormalizer_a2f1aa35006d0573f07fc33e8f154c170}{happyml\+::\+Denormalizer}.
+
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!init@{init}}
+\index{init@{init}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{init(const mat \&)}{init(const mat &)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Normalizer\+::init (
+\begin{DoxyParamCaption}
+\item[{const mat \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Normalizer_a7a11184002ab74861f61a6bad74482b5}{}\label{classhappyml_1_1Normalizer_a7a11184002ab74861f61a6bad74482b5}
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!maxx@{maxx}}
+\index{maxx@{maxx}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{maxx}{maxx}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+Normalizer\+::maxx\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Normalizer_abaafd2ccd9502013c4acc1254f1af75a}{}\label{classhappyml_1_1Normalizer_abaafd2ccd9502013c4acc1254f1af75a}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!maxy@{maxy}}
+\index{maxy@{maxy}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{maxy}{maxy}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+Normalizer\+::maxy\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Normalizer_a3fdcdd3102e162de11b4ff833da8dc02}{}\label{classhappyml_1_1Normalizer_a3fdcdd3102e162de11b4ff833da8dc02}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!minx@{minx}}
+\index{minx@{minx}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{minx}{minx}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+Normalizer\+::minx\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Normalizer_a0e7aece7fcdc71c49f6f4ecde5421a35}{}\label{classhappyml_1_1Normalizer_a0e7aece7fcdc71c49f6f4ecde5421a35}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!miny@{miny}}
+\index{miny@{miny}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{miny}{miny}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+Normalizer\+::miny\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Normalizer_a793ede833b7279317f1ddca6ad8cbf66}{}\label{classhappyml_1_1Normalizer_a793ede833b7279317f1ddca6ad8cbf66}
+\index{happyml\+::\+Normalizer@{happyml\+::\+Normalizer}!rangex@{rangex}}
+\index{rangex@{rangex}!happyml\+::\+Normalizer@{happyml\+::\+Normalizer}}
+\subsubsection[{\texorpdfstring{rangex}{rangex}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+Normalizer\+::rangex\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Normalizer_a3d6e869c3bbab4e960a219ff69c8a597}{}\label{classhappyml_1_1Normalizer_a3d6e869c3bbab4e960a219ff69c8a597}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{normalizer_8h}{normalizer.\+h}\item 
+src/transformers/\hyperlink{normalizer_8cpp}{normalizer.\+cpp}\end{DoxyCompactItemize}

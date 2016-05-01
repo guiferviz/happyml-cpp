@@ -1,0 +1,148 @@
+\hypertarget{classhappyml_1_1Standarizer}{}\section{happyml\+:\+:Standarizer Class Reference}
+\label{classhappyml_1_1Standarizer}\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+
+
+Applies Z-\/\+Score transformation\+: x\textquotesingle{} = x -\/ mean(x) / stddev(x)  
+
+
+
+
+{\ttfamily \#include $<$standarizer.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Standarizer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classhappyml_1_1Standarizer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1Standarizer_a017f97c038070ab78c0c7d0e4fd3dc96}{Standarizer} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset)
+\begin{DoxyCompactList}\small\item\em Creates a standarizer that will use mean and stddev data obtained from the dataset. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Standarizer_ac0c6d451821afef5832cae79e28edf35}{Standarizer} (const mat \&x)
+\begin{DoxyCompactList}\small\item\em Creates a standarizer that will use mean and stddev data obtained from the given matrix. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Standarizer_a5b69e125c31e779feaf00d30109dd576}{Standarizer} (vec mean, vec stddev)
+\begin{DoxyCompactList}\small\item\em Creates a standarizer that will use mean and stddev vectors. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Standarizer_aa603e5cce8b82997914cf9d1fe67cd88}{$\sim$\+Standarizer} ()
+\item 
+void \hyperlink{classhappyml_1_1Standarizer_a5c9b416b657cb61972c27b27fd379b2d}{apply} (mat \&x) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classhappyml_1_1Standarizer_abe4eda61396072e6fb43f92708b6b9ea}{init} (const mat \&)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+rowvec \hyperlink{classhappyml_1_1Standarizer_a944bac3d123e8e849b29a684b8231711}{mean\+Vec}
+\item 
+rowvec \hyperlink{classhappyml_1_1Standarizer_a06db5ac6fc3d3c75a26be5c266f7af94}{std\+Vec}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Applies Z-\/\+Score transformation\+: x\textquotesingle{} = x -\/ mean(x) / stddev(x) 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}!Standarizer@{Standarizer}}
+\index{Standarizer@{Standarizer}!happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+\subsubsection[{\texorpdfstring{Standarizer(const Data\+Set \&dataset)}{Standarizer(const DataSet &dataset)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Standarizer\+::\+Standarizer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Standarizer_a017f97c038070ab78c0c7d0e4fd3dc96}{}\label{classhappyml_1_1Standarizer_a017f97c038070ab78c0c7d0e4fd3dc96}
+
+
+Creates a standarizer that will use mean and stddev data obtained from the dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset from which it will be extracted the mean and stddev that will be used when apply Z-\/\+Score. //\\
+\hline
+{\em normY} & If true, it standarizes also the outputs. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}!Standarizer@{Standarizer}}
+\index{Standarizer@{Standarizer}!happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+\subsubsection[{\texorpdfstring{Standarizer(const mat \&x)}{Standarizer(const mat &x)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Standarizer\+::\+Standarizer (
+\begin{DoxyParamCaption}
+\item[{const mat \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Standarizer_ac0c6d451821afef5832cae79e28edf35}{}\label{classhappyml_1_1Standarizer_ac0c6d451821afef5832cae79e28edf35}
+
+
+Creates a standarizer that will use mean and stddev data obtained from the given matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Matrix from which it will be extracted the mean and stddev vectors that will be used when apply Z-\/\+Score. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}!Standarizer@{Standarizer}}
+\index{Standarizer@{Standarizer}!happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+\subsubsection[{\texorpdfstring{Standarizer(vec mean, vec stddev)}{Standarizer(vec mean, vec stddev)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Standarizer\+::\+Standarizer (
+\begin{DoxyParamCaption}
+\item[{vec}]{mean, }
+\item[{vec}]{stddev}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Standarizer_a5b69e125c31e779feaf00d30109dd576}{}\label{classhappyml_1_1Standarizer_a5b69e125c31e779feaf00d30109dd576}
+
+
+Creates a standarizer that will use mean and stddev vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mean} & Vector with the mean of each column. \\
+\hline
+{\em stddev} & Vector with the stddev of each column. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}!````~Standarizer@{$\sim$\+Standarizer}}
+\index{````~Standarizer@{$\sim$\+Standarizer}!happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+\subsubsection[{\texorpdfstring{$\sim$\+Standarizer()}{~Standarizer()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Standarizer\+::$\sim$\+Standarizer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Standarizer_aa603e5cce8b82997914cf9d1fe67cd88}{}\label{classhappyml_1_1Standarizer_aa603e5cce8b82997914cf9d1fe67cd88}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+\subsubsection[{\texorpdfstring{apply(mat \&x) const }{apply(mat &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Standarizer\+::apply (
+\begin{DoxyParamCaption}
+\item[{mat \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Standarizer_a5c9b416b657cb61972c27b27fd379b2d}{}\label{classhappyml_1_1Standarizer_a5c9b416b657cb61972c27b27fd379b2d}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1transforms_1_1SimpleTransformer_a2f38b1b4eb85dca83cb9f6ed9796da32}{happyml\+::transforms\+::\+Simple\+Transformer}.
+
+
+
+Reimplemented in \hyperlink{classhappyml_1_1Destandarizer_a2d1542f1857bfe0cb23fa69b139d2368}{happyml\+::\+Destandarizer}.
+
+\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}!init@{init}}
+\index{init@{init}!happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+\subsubsection[{\texorpdfstring{init(const mat \&)}{init(const mat &)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Standarizer\+::init (
+\begin{DoxyParamCaption}
+\item[{const mat \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Standarizer_abe4eda61396072e6fb43f92708b6b9ea}{}\label{classhappyml_1_1Standarizer_abe4eda61396072e6fb43f92708b6b9ea}
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}!mean\+Vec@{mean\+Vec}}
+\index{mean\+Vec@{mean\+Vec}!happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+\subsubsection[{\texorpdfstring{mean\+Vec}{meanVec}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+Standarizer\+::mean\+Vec\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Standarizer_a944bac3d123e8e849b29a684b8231711}{}\label{classhappyml_1_1Standarizer_a944bac3d123e8e849b29a684b8231711}
+\index{happyml\+::\+Standarizer@{happyml\+::\+Standarizer}!std\+Vec@{std\+Vec}}
+\index{std\+Vec@{std\+Vec}!happyml\+::\+Standarizer@{happyml\+::\+Standarizer}}
+\subsubsection[{\texorpdfstring{std\+Vec}{stdVec}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+Standarizer\+::std\+Vec\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1Standarizer_a06db5ac6fc3d3c75a26be5c266f7af94}{}\label{classhappyml_1_1Standarizer_a06db5ac6fc3d3c75a26be5c266f7af94}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{standarizer_8h}{standarizer.\+h}\item 
+src/transformers/\hyperlink{standarizer_8cpp}{standarizer.\+cpp}\end{DoxyCompactItemize}

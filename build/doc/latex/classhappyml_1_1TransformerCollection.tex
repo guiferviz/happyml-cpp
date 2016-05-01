@@ -1,0 +1,129 @@
+\hypertarget{classhappyml_1_1TransformerCollection}{}\section{happyml\+:\+:Transformer\+Collection Class Reference}
+\label{classhappyml_1_1TransformerCollection}\index{happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}}
+
+
+\hyperlink{classhappyml_1_1Transformer}{Transformer} that applies a collection of transformers to a given input or dataset.  
+
+
+
+
+{\ttfamily \#include $<$transformer.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Transformer\+Collection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhappyml_1_1TransformerCollection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1TransformerCollection_ab994ad8673d0d966d5eb40057312d5d4}{Transformer\+Collection} ()
+\item 
+\hyperlink{classhappyml_1_1TransformerCollection_abde2c02d4e68015d0dd86c15fc3f8dd3}{$\sim$\+Transformer\+Collection} ()
+\item 
+void \hyperlink{classhappyml_1_1TransformerCollection_a20fd27b57eb8fa4546e3664ea33283f1}{apply} (\hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformers in the order that were added to the collection. \end{DoxyCompactList}\item 
+\hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \hyperlink{classhappyml_1_1TransformerCollection_a36511b731522cda1cadbe3fa4299f6bf}{apply} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&input) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformers in the order that were added to the collection. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1TransformerCollection_a443ff8b53921d921765b0396d17037e4}{add} (const \hyperlink{classhappyml_1_1Transformer}{Transformer} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Adds a new \hyperlink{classhappyml_1_1Transformer}{Transformer} to the collection that will be executed when the apply\textquotesingle{}s methods it will be called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ const \hyperlink{classhappyml_1_1Transformer}{Transformer} $\ast$ $>$ \hyperlink{classhappyml_1_1TransformerCollection_a90c2b12199efa361dedf28f01a72d9ff}{transformers}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classhappyml_1_1Transformer}{Transformer} that applies a collection of transformers to a given input or dataset. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}!Transformer\+Collection@{Transformer\+Collection}}
+\index{Transformer\+Collection@{Transformer\+Collection}!happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}}
+\subsubsection[{\texorpdfstring{Transformer\+Collection()}{TransformerCollection()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Transformer\+Collection\+::\+Transformer\+Collection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1TransformerCollection_ab994ad8673d0d966d5eb40057312d5d4}{}\label{classhappyml_1_1TransformerCollection_ab994ad8673d0d966d5eb40057312d5d4}
+\index{happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}!````~Transformer\+Collection@{$\sim$\+Transformer\+Collection}}
+\index{````~Transformer\+Collection@{$\sim$\+Transformer\+Collection}!happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}}
+\subsubsection[{\texorpdfstring{$\sim$\+Transformer\+Collection()}{~TransformerCollection()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Transformer\+Collection\+::$\sim$\+Transformer\+Collection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1TransformerCollection_abde2c02d4e68015d0dd86c15fc3f8dd3}{}\label{classhappyml_1_1TransformerCollection_abde2c02d4e68015d0dd86c15fc3f8dd3}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}!add@{add}}
+\index{add@{add}!happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}}
+\subsubsection[{\texorpdfstring{add(const Transformer $\ast$t)}{add(const Transformer *t)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Transformer\+Collection\+::add (
+\begin{DoxyParamCaption}
+\item[{const {\bf Transformer} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1TransformerCollection_a443ff8b53921d921765b0396d17037e4}{}\label{classhappyml_1_1TransformerCollection_a443ff8b53921d921765b0396d17037e4}
+
+
+Adds a new \hyperlink{classhappyml_1_1Transformer}{Transformer} to the collection that will be executed when the apply\textquotesingle{}s methods it will be called. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \hyperlink{classhappyml_1_1Transformer}{Transformer} to add to the collection. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}}
+\subsubsection[{\texorpdfstring{apply(\+Data\+Set \&dataset) const }{apply(DataSet &dataset) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Transformer\+Collection\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1TransformerCollection_a20fd27b57eb8fa4546e3664ea33283f1}{}\label{classhappyml_1_1TransformerCollection_a20fd27b57eb8fa4546e3664ea33283f1}
+
+
+Applies all the transformers in the order that were added to the collection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset to transform. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a169a2a8434124c1dd8e671bca2cfa71d}{happyml\+::\+Transformer}.
+
+\index{happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}}
+\subsubsection[{\texorpdfstring{apply(const Input \&input) const }{apply(const Input &input) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input} happyml\+::\+Transformer\+Collection\+::apply (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1TransformerCollection_a36511b731522cda1cadbe3fa4299f6bf}{}\label{classhappyml_1_1TransformerCollection_a36511b731522cda1cadbe3fa4299f6bf}
+
+
+Applies all the transformers in the order that were added to the collection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input to transform.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A transformated version of the input. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a3e0eb67990c90c461466307fdefab45c}{happyml\+::\+Transformer}.
+
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}!transformers@{transformers}}
+\index{transformers@{transformers}!happyml\+::\+Transformer\+Collection@{happyml\+::\+Transformer\+Collection}}
+\subsubsection[{\texorpdfstring{transformers}{transformers}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$const {\bf Transformer}$\ast$$>$ happyml\+::\+Transformer\+Collection\+::transformers\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1TransformerCollection_a90c2b12199efa361dedf28f01a72d9ff}{}\label{classhappyml_1_1TransformerCollection_a90c2b12199efa361dedf28f01a72d9ff}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{transformer_8h}{transformer.\+h}\item 
+src/transformers/\hyperlink{transformer_8cpp}{transformer.\+cpp}\end{DoxyCompactItemize}

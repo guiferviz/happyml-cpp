@@ -1,0 +1,175 @@
+\hypertarget{classhappyml_1_1LDA}{}\section{happyml\+:\+:L\+DA Class Reference}
+\label{classhappyml_1_1LDA}\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+
+
+Dimensionality reduction using \hyperlink{classhappyml_1_1LDA}{L\+DA}.  
+
+
+
+
+{\ttfamily \#include $<$lda.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:L\+DA\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhappyml_1_1LDA}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1LDA_a999cf366ac462e1c22452b0a2b0c9298}{L\+DA} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset, double n)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classhappyml_1_1LDA}{L\+DA} extractor using the dataset data. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1LDA_a48b3e54c10cece4086005ee65ed405e8}{$\sim$\+L\+DA} ()
+\item 
+double \hyperlink{classhappyml_1_1LDA_a51210380f50380f77644fabbe1a89614}{get\+Retained\+Variance} () const 
+\begin{DoxyCompactList}\small\item\em Returns the retained data variance of the \hyperlink{classhappyml_1_1LDA}{L\+DA} transformation. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1LDA_a642ebe3b7cfcddaa5b21cd93ed1cf082}{apply} (\hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given dataset. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1LDA_aca3f8a0da485bc1d6804fb0dc76dd4fc}{apply} (mat \&x) const 
+\item 
+\hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \hyperlink{classhappyml_1_1LDA_a2b98a4675abdb0985347491224136b5c}{apply} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&input) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+rowvec \hyperlink{classhappyml_1_1LDA_a48e66fff3b5c1609ae8c8de7fae607dd}{mean\+Vec}
+\item 
+vec \hyperlink{classhappyml_1_1LDA_a72cc9a99337b9262197b0954a78807aa}{eig\+Val}
+\item 
+mat \hyperlink{classhappyml_1_1LDA_aaf2e27b8502467166802e288e3d1a404}{eig\+Vec}
+\item 
+mat \hyperlink{classhappyml_1_1LDA_a41be2a7abe7e7c7b4dd389ae163d8028}{cov\+Mat}
+\item 
+int \hyperlink{classhappyml_1_1LDA_ae9ac22c7ace3bcc924d9d104fafe7e6d}{k}
+\item 
+double \hyperlink{classhappyml_1_1LDA_a0af7e26335458930d1a5a2006057c9fe}{min\+Var}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dimensionality reduction using \hyperlink{classhappyml_1_1LDA}{L\+DA}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!L\+DA@{L\+DA}}
+\index{L\+DA@{L\+DA}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{L\+D\+A(const Data\+Set \&dataset, double n)}{LDA(const DataSet &dataset, double n)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+L\+D\+A\+::\+L\+DA (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset, }
+\item[{double}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1LDA_a999cf366ac462e1c22452b0a2b0c9298}{}\label{classhappyml_1_1LDA_a999cf366ac462e1c22452b0a2b0c9298}
+
+
+Creates a \hyperlink{classhappyml_1_1LDA}{L\+DA} extractor using the dataset data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset from which the eigenvecs for the \hyperlink{classhappyml_1_1LDA}{L\+DA} will be extracted. \\
+\hline
+{\em n} & Number of dimension to preserve or min mariance if it is a number between 0 and 1. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!````~L\+DA@{$\sim$\+L\+DA}}
+\index{````~L\+DA@{$\sim$\+L\+DA}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{$\sim$\+L\+D\+A()}{~LDA()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+L\+D\+A\+::$\sim$\+L\+DA (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LDA_a48b3e54c10cece4086005ee65ed405e8}{}\label{classhappyml_1_1LDA_a48b3e54c10cece4086005ee65ed405e8}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{apply(\+Data\+Set \&dataset) const }{apply(DataSet &dataset) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+L\+D\+A\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1LDA_a642ebe3b7cfcddaa5b21cd93ed1cf082}{}\label{classhappyml_1_1LDA_a642ebe3b7cfcddaa5b21cd93ed1cf082}
+
+
+Applies all the transformations at the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset to transform. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a169a2a8434124c1dd8e671bca2cfa71d}{happyml\+::\+Transformer}.
+
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{apply(mat \&x) const }{apply(mat &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+L\+D\+A\+::apply (
+\begin{DoxyParamCaption}
+\item[{mat \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classhappyml_1_1LDA_aca3f8a0da485bc1d6804fb0dc76dd4fc}{}\label{classhappyml_1_1LDA_aca3f8a0da485bc1d6804fb0dc76dd4fc}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{apply(const Input \&input) const }{apply(const Input &input) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input} happyml\+::\+L\+D\+A\+::apply (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1LDA_a2b98a4675abdb0985347491224136b5c}{}\label{classhappyml_1_1LDA_a2b98a4675abdb0985347491224136b5c}
+
+
+Applies all the transformations at the given input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input to transform.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A transformated version of the input. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a3e0eb67990c90c461466307fdefab45c}{happyml\+::\+Transformer}.
+
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!get\+Retained\+Variance@{get\+Retained\+Variance}}
+\index{get\+Retained\+Variance@{get\+Retained\+Variance}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{get\+Retained\+Variance() const }{getRetainedVariance() const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+L\+D\+A\+::get\+Retained\+Variance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1LDA_a51210380f50380f77644fabbe1a89614}{}\label{classhappyml_1_1LDA_a51210380f50380f77644fabbe1a89614}
+
+
+Returns the retained data variance of the \hyperlink{classhappyml_1_1LDA}{L\+DA} transformation. 
+
+It\textquotesingle{}s a number between 0 and 1. If you pass a min variance to the constructor remember that the retained variance is $>$= the min variance choosen.
+
+\begin{DoxyReturn}{Returns}
+The retained data variance of the \hyperlink{classhappyml_1_1LDA}{L\+DA} transformation. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!cov\+Mat@{cov\+Mat}}
+\index{cov\+Mat@{cov\+Mat}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{cov\+Mat}{covMat}}]{\setlength{\rightskip}{0pt plus 5cm}mat happyml\+::\+L\+D\+A\+::cov\+Mat\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1LDA_a41be2a7abe7e7c7b4dd389ae163d8028}{}\label{classhappyml_1_1LDA_a41be2a7abe7e7c7b4dd389ae163d8028}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!eig\+Val@{eig\+Val}}
+\index{eig\+Val@{eig\+Val}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{eig\+Val}{eigVal}}]{\setlength{\rightskip}{0pt plus 5cm}vec happyml\+::\+L\+D\+A\+::eig\+Val\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1LDA_a72cc9a99337b9262197b0954a78807aa}{}\label{classhappyml_1_1LDA_a72cc9a99337b9262197b0954a78807aa}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!eig\+Vec@{eig\+Vec}}
+\index{eig\+Vec@{eig\+Vec}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{eig\+Vec}{eigVec}}]{\setlength{\rightskip}{0pt plus 5cm}mat happyml\+::\+L\+D\+A\+::eig\+Vec\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1LDA_aaf2e27b8502467166802e288e3d1a404}{}\label{classhappyml_1_1LDA_aaf2e27b8502467166802e288e3d1a404}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!k@{k}}
+\index{k@{k}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{k}{k}}]{\setlength{\rightskip}{0pt plus 5cm}int happyml\+::\+L\+D\+A\+::k\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1LDA_ae9ac22c7ace3bcc924d9d104fafe7e6d}{}\label{classhappyml_1_1LDA_ae9ac22c7ace3bcc924d9d104fafe7e6d}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!mean\+Vec@{mean\+Vec}}
+\index{mean\+Vec@{mean\+Vec}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{mean\+Vec}{meanVec}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+L\+D\+A\+::mean\+Vec\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1LDA_a48e66fff3b5c1609ae8c8de7fae607dd}{}\label{classhappyml_1_1LDA_a48e66fff3b5c1609ae8c8de7fae607dd}
+\index{happyml\+::\+L\+DA@{happyml\+::\+L\+DA}!min\+Var@{min\+Var}}
+\index{min\+Var@{min\+Var}!happyml\+::\+L\+DA@{happyml\+::\+L\+DA}}
+\subsubsection[{\texorpdfstring{min\+Var}{minVar}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+L\+D\+A\+::min\+Var\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1LDA_a0af7e26335458930d1a5a2006057c9fe}{}\label{classhappyml_1_1LDA_a0af7e26335458930d1a5a2006057c9fe}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{lda_8h}{lda.\+h}\item 
+src/transformers/\hyperlink{lda_8cpp}{lda.\+cpp}\end{DoxyCompactItemize}

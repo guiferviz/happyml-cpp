@@ -1,0 +1,93 @@
+\hypertarget{classhappyml_1_1KNN}{}\section{happyml\+:\+:K\+NN Class Reference}
+\label{classhappyml_1_1KNN}\index{happyml\+::\+K\+NN@{happyml\+::\+K\+NN}}
+
+
+{\ttfamily \#include $<$knn.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:K\+NN\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhappyml_1_1KNN}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1KNN_a369c46398ffc867423133aaf1c7a5a02}{K\+NN} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&d, int k=1)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classhappyml_1_1KNN}{K\+NN} classifier that uses the indicated training set. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1KNN_a0c93adb094f8c380b8f38aace10ea6e6}{K\+NN} (const \hyperlink{classhappyml_1_1KNN}{K\+NN} \&knn)
+\item 
+double \hyperlink{classhappyml_1_1KNN_aac58df51b7b343dfd1fb359117341867}{predict} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\begin{DoxyCompactList}\small\item\em Classifies an input vector. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1KNN_adb49a173a9ed23725c23964cd333b686}{setK} (int k)
+\item 
+int \hyperlink{classhappyml_1_1KNN_a66ebb208b2c3138c6d7b23d8204103b7}{getK} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+K\+NN@{happyml\+::\+K\+NN}!K\+NN@{K\+NN}}
+\index{K\+NN@{K\+NN}!happyml\+::\+K\+NN@{happyml\+::\+K\+NN}}
+\subsubsection[{\texorpdfstring{K\+N\+N(const Data\+Set \&d, int k=1)}{KNN(const DataSet &d, int k=1)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+K\+N\+N\+::\+K\+NN (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{d, }
+\item[{int}]{k = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1KNN_a369c46398ffc867423133aaf1c7a5a02}{}\label{classhappyml_1_1KNN_a369c46398ffc867423133aaf1c7a5a02}
+
+
+Creates a \hyperlink{classhappyml_1_1KNN}{K\+NN} classifier that uses the indicated training set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Training set used to compute distances. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+K\+NN@{happyml\+::\+K\+NN}!K\+NN@{K\+NN}}
+\index{K\+NN@{K\+NN}!happyml\+::\+K\+NN@{happyml\+::\+K\+NN}}
+\subsubsection[{\texorpdfstring{K\+N\+N(const K\+N\+N \&knn)}{KNN(const KNN &knn)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+K\+N\+N\+::\+K\+NN (
+\begin{DoxyParamCaption}
+\item[{const {\bf K\+NN} \&}]{knn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1KNN_a0c93adb094f8c380b8f38aace10ea6e6}{}\label{classhappyml_1_1KNN_a0c93adb094f8c380b8f38aace10ea6e6}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+K\+NN@{happyml\+::\+K\+NN}!getK@{getK}}
+\index{getK@{getK}!happyml\+::\+K\+NN@{happyml\+::\+K\+NN}}
+\subsubsection[{\texorpdfstring{get\+K()}{getK()}}]{\setlength{\rightskip}{0pt plus 5cm}int happyml\+::\+K\+N\+N\+::getK (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1KNN_a66ebb208b2c3138c6d7b23d8204103b7}{}\label{classhappyml_1_1KNN_a66ebb208b2c3138c6d7b23d8204103b7}
+\index{happyml\+::\+K\+NN@{happyml\+::\+K\+NN}!predict@{predict}}
+\index{predict@{predict}!happyml\+::\+K\+NN@{happyml\+::\+K\+NN}}
+\subsubsection[{\texorpdfstring{predict(const Input \&x) const }{predict(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+K\+N\+N\+::predict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1KNN_aac58df51b7b343dfd1fb359117341867}{}\label{classhappyml_1_1KNN_aac58df51b7b343dfd1fb359117341867}
+
+
+Classifies an input vector. 
+
+\begin{DoxyReturn}{Returns}
+Number of the output of the nearest point in the training set. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+K\+NN@{happyml\+::\+K\+NN}!setK@{setK}}
+\index{setK@{setK}!happyml\+::\+K\+NN@{happyml\+::\+K\+NN}}
+\subsubsection[{\texorpdfstring{set\+K(int k)}{setK(int k)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+K\+N\+N\+::setK (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1KNN_adb49a173a9ed23725c23964cd333b686}{}\label{classhappyml_1_1KNN_adb49a173a9ed23725c23964cd333b686}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/knn/\hyperlink{knn_8h}{knn.\+h}\item 
+src/knn/\hyperlink{knn_8cpp}{knn.\+cpp}\end{DoxyCompactItemize}

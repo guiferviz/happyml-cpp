@@ -1,0 +1,144 @@
+\hypertarget{classhappyml_1_1Perceptron}{}\section{happyml\+:\+:Perceptron Class Reference}
+\label{classhappyml_1_1Perceptron}\index{happyml\+::\+Perceptron@{happyml\+::\+Perceptron}}
+
+
+{\ttfamily \#include $<$perceptron.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Perceptron\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhappyml_1_1Perceptron}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1Perceptron_afda225f54fc7810f431310380ad67934}{Perceptron} (unsigned d=0)
+\begin{DoxyCompactList}\small\item\em Creates a perceptron with the indicated input size. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Perceptron_a087a141d78442d353165ba8de91061a0}{Perceptron} (const vec \&weights)
+\begin{DoxyCompactList}\small\item\em Creates a perceptron with the indicated weights. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1Perceptron_a15bca77ab91b58708d6d7506fbf5af96}{Perceptron} (const \hyperlink{classhappyml_1_1LinearModel}{Linear\+Model} \&lm)
+\item 
+double \hyperlink{classhappyml_1_1Perceptron_aa5b2a16fa72ef8575c8d4778b993fedd}{train} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&data, unsigned iter)
+\begin{DoxyCompactList}\small\item\em Train the perceptron until the training loops over the data n\+Times, or classifies all correctly. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1Perceptron_aaa3c4d2a5235d6b5498de77f926c15f3}{predict} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\begin{DoxyCompactList}\small\item\em Classifies an input vector. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1Perceptron_aff79f084e1f9261e4e10feda0a5e74dd}{error} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&data) const 
+\begin{DoxyCompactList}\small\item\em Compute the error of the perceptron on the given dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Perceptron@{happyml\+::\+Perceptron}!Perceptron@{Perceptron}}
+\index{Perceptron@{Perceptron}!happyml\+::\+Perceptron@{happyml\+::\+Perceptron}}
+\subsubsection[{\texorpdfstring{Perceptron(unsigned d=0)}{Perceptron(unsigned d=0)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Perceptron\+::\+Perceptron (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{d = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Perceptron_afda225f54fc7810f431310380ad67934}{}\label{classhappyml_1_1Perceptron_afda225f54fc7810f431310380ad67934}
+
+
+Creates a perceptron with the indicated input size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Dimension $d$ of the input feature vectors. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Perceptron@{happyml\+::\+Perceptron}!Perceptron@{Perceptron}}
+\index{Perceptron@{Perceptron}!happyml\+::\+Perceptron@{happyml\+::\+Perceptron}}
+\subsubsection[{\texorpdfstring{Perceptron(const vec \&weights)}{Perceptron(const vec &weights)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Perceptron\+::\+Perceptron (
+\begin{DoxyParamCaption}
+\item[{const vec \&}]{weights}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Perceptron_a087a141d78442d353165ba8de91061a0}{}\label{classhappyml_1_1Perceptron_a087a141d78442d353165ba8de91061a0}
+
+
+Creates a perceptron with the indicated weights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weights} & Weight vector with $d + 1$ dimensions. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+Perceptron@{happyml\+::\+Perceptron}!Perceptron@{Perceptron}}
+\index{Perceptron@{Perceptron}!happyml\+::\+Perceptron@{happyml\+::\+Perceptron}}
+\subsubsection[{\texorpdfstring{Perceptron(const Linear\+Model \&lm)}{Perceptron(const LinearModel &lm)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Perceptron\+::\+Perceptron (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linear\+Model} \&}]{lm}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1Perceptron_a15bca77ab91b58708d6d7506fbf5af96}{}\label{classhappyml_1_1Perceptron_a15bca77ab91b58708d6d7506fbf5af96}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Perceptron@{happyml\+::\+Perceptron}!error@{error}}
+\index{error@{error}!happyml\+::\+Perceptron@{happyml\+::\+Perceptron}}
+\subsubsection[{\texorpdfstring{error(const Data\+Set \&data) const }{error(const DataSet &data) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Perceptron\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{data}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Perceptron_aff79f084e1f9261e4e10feda0a5e74dd}{}\label{classhappyml_1_1Perceptron_aff79f084e1f9261e4e10feda0a5e74dd}
+
+
+Compute the error of the perceptron on the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Dataset with the correct output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error of classify the given dataset. It\textquotesingle{}s in the interval $[0, 1]$. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Predictor_a59b022fac2ffa3a0254b75cb02b70dfe}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+Perceptron@{happyml\+::\+Perceptron}!predict@{predict}}
+\index{predict@{predict}!happyml\+::\+Perceptron@{happyml\+::\+Perceptron}}
+\subsubsection[{\texorpdfstring{predict(const Input \&x) const }{predict(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Perceptron\+::predict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1Perceptron_aaa3c4d2a5235d6b5498de77f926c15f3}{}\label{classhappyml_1_1Perceptron_aaa3c4d2a5235d6b5498de77f926c15f3}
+
+
+Classifies an input vector. 
+
+\begin{DoxyReturn}{Returns}
+$-1$ or $+1$. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+Perceptron@{happyml\+::\+Perceptron}!train@{train}}
+\index{train@{train}!happyml\+::\+Perceptron@{happyml\+::\+Perceptron}}
+\subsubsection[{\texorpdfstring{train(const Data\+Set \&data, unsigned iter)}{train(const DataSet &data, unsigned iter)}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Perceptron\+::train (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{data, }
+\item[{unsigned}]{iter}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1Perceptron_aa5b2a16fa72ef8575c8d4778b993fedd}{}\label{classhappyml_1_1Perceptron_aa5b2a16fa72ef8575c8d4778b993fedd}
+
+
+Train the perceptron until the training loops over the data n\+Times, or classifies all correctly. 
+
+Data must contain the $x_0 = 1$ property.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Training set. \\
+\hline
+{\em iter} & Maximun number of iterations.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the error of the best perceptron found. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/perceptron/\hyperlink{perceptron_8h}{perceptron.\+h}\item 
+src/perceptron/\hyperlink{perceptron_8cpp}{perceptron.\+cpp}\end{DoxyCompactItemize}

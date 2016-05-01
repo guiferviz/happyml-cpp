@@ -1,0 +1,180 @@
+\hypertarget{classhappyml_1_1NeuralNetwork}{}\section{happyml\+:\+:Neural\+Network Class Reference}
+\label{classhappyml_1_1NeuralNetwork}\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+
+
+{\ttfamily \#include $<$neural\+\_\+network.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Neural\+Network\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhappyml_1_1NeuralNetwork}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1NeuralNetwork_ab99bc065c560df1c116cc1eb26480f56}{Neural\+Network} (unsigned layers=0...)
+\item 
+\hyperlink{classhappyml_1_1NeuralNetwork_addf2c3d3d29a69a83876fd200a75d7ed}{Neural\+Network} (const vector$<$ unsigned $>$ \&layers)
+\item 
+\hyperlink{classhappyml_1_1NeuralNetwork_ae82d4d36bf87fbeaede4b7fcd8c3afd1}{Neural\+Network} (const vector$<$ mat $>$ w)
+\item 
+\hyperlink{classhappyml_1_1NeuralNetwork_a69f0a4cfa957f6a0b7cf669831939456}{Neural\+Network} (const \hyperlink{classhappyml_1_1NeuralNetwork}{Neural\+Network} \&nn)
+\item 
+\hyperlink{classhappyml_1_1NeuralNetwork_a4db646511b7f539b1f6e26220b7c9192}{$\sim$\+Neural\+Network} ()
+\item 
+double \hyperlink{classhappyml_1_1NeuralNetwork_a90aca4a568024edfd8c325b8f5aa5b74}{train} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset, unsigned iter=500, float learning\+\_\+rate=0.\+1, float lambda=0, float delta\+\_\+stop=-\/1)
+\begin{DoxyCompactList}\small\item\em Train the neural network until the training loops over the data iter times. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1NeuralNetwork_afd27297d91418b40ca7a943f313a4902}{sgd\+Train} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset, unsigned iter=500, float learning\+\_\+rate=0.\+1, float lambda=0, int batch\+\_\+size=32)
+\item 
+double \hyperlink{classhappyml_1_1NeuralNetwork_ae2e05acd3a864d20ca1a1645c1e369e4}{predict} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\begin{DoxyCompactList}\small\item\em Uses the forward propagation algorithm to predict an output. \end{DoxyCompactList}\item 
+vec \hyperlink{classhappyml_1_1NeuralNetwork_af4e1fbe2ef96f8a08b11dc9b9f0f7230}{predict\+Vec} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\item 
+double \hyperlink{classhappyml_1_1NeuralNetwork_a5653b6fb601bcb410aa9ff84611e428d}{get\+Last\+Iterations} () const 
+\begin{DoxyCompactList}\small\item\em Returns the number of iterations performed in last training. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{classhappyml_1_1NeuralNetwork_a87469b54a244913da3c4f39e4d99abdd}{last\+Iterations}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!Neural\+Network@{Neural\+Network}}
+\index{Neural\+Network@{Neural\+Network}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{Neural\+Network(unsigned layers=0...)}{NeuralNetwork(unsigned layers=0...)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+::\+Neural\+Network (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{layers = {\ttfamily 0...}}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NeuralNetwork_ab99bc065c560df1c116cc1eb26480f56}{}\label{classhappyml_1_1NeuralNetwork_ab99bc065c560df1c116cc1eb26480f56}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!Neural\+Network@{Neural\+Network}}
+\index{Neural\+Network@{Neural\+Network}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{Neural\+Network(const vector$<$ unsigned $>$ \&layers)}{NeuralNetwork(const vector< unsigned > &layers)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+::\+Neural\+Network (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ unsigned $>$ \&}]{layers}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NeuralNetwork_addf2c3d3d29a69a83876fd200a75d7ed}{}\label{classhappyml_1_1NeuralNetwork_addf2c3d3d29a69a83876fd200a75d7ed}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!Neural\+Network@{Neural\+Network}}
+\index{Neural\+Network@{Neural\+Network}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{Neural\+Network(const vector$<$ mat $>$ w)}{NeuralNetwork(const vector< mat > w)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+::\+Neural\+Network (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ mat $>$}]{w}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NeuralNetwork_ae82d4d36bf87fbeaede4b7fcd8c3afd1}{}\label{classhappyml_1_1NeuralNetwork_ae82d4d36bf87fbeaede4b7fcd8c3afd1}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!Neural\+Network@{Neural\+Network}}
+\index{Neural\+Network@{Neural\+Network}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{Neural\+Network(const Neural\+Network \&nn)}{NeuralNetwork(const NeuralNetwork &nn)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+::\+Neural\+Network (
+\begin{DoxyParamCaption}
+\item[{const {\bf Neural\+Network} \&}]{nn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NeuralNetwork_a69f0a4cfa957f6a0b7cf669831939456}{}\label{classhappyml_1_1NeuralNetwork_a69f0a4cfa957f6a0b7cf669831939456}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!````~Neural\+Network@{$\sim$\+Neural\+Network}}
+\index{````~Neural\+Network@{$\sim$\+Neural\+Network}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{$\sim$\+Neural\+Network()}{~NeuralNetwork()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Neural\+Network\+::$\sim$\+Neural\+Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NeuralNetwork_a4db646511b7f539b1f6e26220b7c9192}{}\label{classhappyml_1_1NeuralNetwork_a4db646511b7f539b1f6e26220b7c9192}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!get\+Last\+Iterations@{get\+Last\+Iterations}}
+\index{get\+Last\+Iterations@{get\+Last\+Iterations}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{get\+Last\+Iterations() const }{getLastIterations() const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Neural\+Network\+::get\+Last\+Iterations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NeuralNetwork_a5653b6fb601bcb410aa9ff84611e428d}{}\label{classhappyml_1_1NeuralNetwork_a5653b6fb601bcb410aa9ff84611e428d}
+
+
+Returns the number of iterations performed in last training. 
+
+\begin{DoxyReturn}{Returns}
+Number of iterations performed in last training. 
+\end{DoxyReturn}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!predict@{predict}}
+\index{predict@{predict}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{predict(const Input \&x) const }{predict(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Neural\+Network\+::predict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1NeuralNetwork_ae2e05acd3a864d20ca1a1645c1e369e4}{}\label{classhappyml_1_1NeuralNetwork_ae2e05acd3a864d20ca1a1645c1e369e4}
+
+
+Uses the forward propagation algorithm to predict an output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Input vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Predicted value 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!predict\+Vec@{predict\+Vec}}
+\index{predict\+Vec@{predict\+Vec}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{predict\+Vec(const Input \&x) const }{predictVec(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}vec happyml\+::\+Neural\+Network\+::predict\+Vec (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classhappyml_1_1NeuralNetwork_af4e1fbe2ef96f8a08b11dc9b9f0f7230}{}\label{classhappyml_1_1NeuralNetwork_af4e1fbe2ef96f8a08b11dc9b9f0f7230}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!sgd\+Train@{sgd\+Train}}
+\index{sgd\+Train@{sgd\+Train}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{sgd\+Train(const Data\+Set \&dataset, unsigned iter=500, float learning\+\_\+rate=0.\+1, float lambda=0, int batch\+\_\+size=32)}{sgdTrain(const DataSet &dataset, unsigned iter=500, float learning_rate=0.1, float lambda=0, int batch_size=32)}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Neural\+Network\+::sgd\+Train (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset, }
+\item[{unsigned}]{iter = {\ttfamily 500}, }
+\item[{float}]{learning\+\_\+rate = {\ttfamily 0.1}, }
+\item[{float}]{lambda = {\ttfamily 0}, }
+\item[{int}]{batch\+\_\+size = {\ttfamily 32}}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NeuralNetwork_afd27297d91418b40ca7a943f313a4902}{}\label{classhappyml_1_1NeuralNetwork_afd27297d91418b40ca7a943f313a4902}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!train@{train}}
+\index{train@{train}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{train(const Data\+Set \&dataset, unsigned iter=500, float learning\+\_\+rate=0.\+1, float lambda=0, float delta\+\_\+stop=-\/1)}{train(const DataSet &dataset, unsigned iter=500, float learning_rate=0.1, float lambda=0, float delta_stop=-1)}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+Neural\+Network\+::train (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset, }
+\item[{unsigned}]{iter = {\ttfamily 500}, }
+\item[{float}]{learning\+\_\+rate = {\ttfamily 0.1}, }
+\item[{float}]{lambda = {\ttfamily 0}, }
+\item[{float}]{delta\+\_\+stop = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NeuralNetwork_a90aca4a568024edfd8c325b8f5aa5b74}{}\label{classhappyml_1_1NeuralNetwork_a90aca4a568024edfd8c325b8f5aa5b74}
+
+
+Train the neural network until the training loops over the data iter times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Training set $\mathcal{D}$. \\
+\hline
+{\em learning\+Rate} & Learning rate $\eta$. \\
+\hline
+{\em iter} & Number of iterations. \\
+\hline
+{\em lambda} & Regularization paramiter $\lambda$. \\
+\hline
+{\em delta\+\_\+stop} & Max error diff between batch. If the difference is less than this value the training will stop.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the error after the training. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}!last\+Iterations@{last\+Iterations}}
+\index{last\+Iterations@{last\+Iterations}!happyml\+::\+Neural\+Network@{happyml\+::\+Neural\+Network}}
+\subsubsection[{\texorpdfstring{last\+Iterations}{lastIterations}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned happyml\+::\+Neural\+Network\+::last\+Iterations\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1NeuralNetwork_a87469b54a244913da3c4f39e4d99abdd}{}\label{classhappyml_1_1NeuralNetwork_a87469b54a244913da3c4f39e4d99abdd}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/neural\+\_\+network/\hyperlink{neural__network_8h}{neural\+\_\+network.\+h}\item 
+src/neural\+\_\+network/\hyperlink{neural__network_8cpp}{neural\+\_\+network.\+cpp}\end{DoxyCompactItemize}

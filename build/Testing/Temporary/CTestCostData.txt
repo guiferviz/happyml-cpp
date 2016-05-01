@@ -1,0 +1,15 @@
+perceptron_tests 95 5.38625e-05
+logistic_tests 131 5.53677e-05
+linear_tests 88 5.75808e-05
+transformer_tests 57 9.65972e-05
+dataset_tests 53 9.17372e-05
+basic_tests 45 9.66867e-05
+neural_tests 259 0
+happytools_tests 144 0.00463624
+normalizer_tests 67 6.70775e-05
+pca_tests 102 0.000384452
+svm_tests 293 0.00018514
+cv_tests 74 6.89449e-05
+knn_tests 35 0.00130117
+---
+neural_tests

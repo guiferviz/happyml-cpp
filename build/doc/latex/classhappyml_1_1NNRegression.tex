@@ -1,0 +1,162 @@
+\hypertarget{classhappyml_1_1NNRegression}{}\section{happyml\+:\+:N\+N\+Regression Class Reference}
+\label{classhappyml_1_1NNRegression}\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+
+
+{\ttfamily \#include $<$nn\+\_\+regression.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:N\+N\+Regression\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classhappyml_1_1NNRegression}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1NNRegression_a841009d2dd46074131720b68835bea93}{N\+N\+Regression} (unsigned layers...)
+\item 
+\hyperlink{classhappyml_1_1NNRegression_afc2740e5ec788112526934afe3ced3d0}{N\+N\+Regression} (const vector$<$ unsigned $>$ \&layers)
+\item 
+\hyperlink{classhappyml_1_1NNRegression_a02c9e45196687f410be7827bd637a577}{N\+N\+Regression} (const vector$<$ mat $>$ w)
+\item 
+\hyperlink{classhappyml_1_1NNRegression_a052de91d7e4224676d6240a389a52533}{N\+N\+Regression} (const \hyperlink{classhappyml_1_1NNRegression}{N\+N\+Regression} \&nn)
+\item 
+\hyperlink{classhappyml_1_1NNRegression_a05149a76d3e11653190b92bbef7a1f64}{$\sim$\+N\+N\+Regression} ()
+\item 
+double \hyperlink{classhappyml_1_1NNRegression_ac9c9dcd8d2cd4e9e6f1b742c5dd277b6}{train} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset, unsigned iter=500, float learning\+\_\+rate=0.\+1, float lambda=0)
+\begin{DoxyCompactList}\small\item\em Train the neural network until the training loops over the data iter times. \end{DoxyCompactList}\item 
+double \hyperlink{classhappyml_1_1NNRegression_aea4c134130125d22c3587b8a9d9c8e1b}{predict} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\begin{DoxyCompactList}\small\item\em Uses the forward propagation algorithm to predict an output. \end{DoxyCompactList}\item 
+vec \hyperlink{classhappyml_1_1NNRegression_af2aadc9111b4bd9cd89afb6847f1bb3f}{predict\+Vec} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&x) const 
+\item 
+double \hyperlink{classhappyml_1_1NNRegression_a6f649a08fc94523a49e893ffad766896}{error} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&) const 
+\begin{DoxyCompactList}\small\item\em Compute the error of the predictor on the given dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!N\+N\+Regression@{N\+N\+Regression}}
+\index{N\+N\+Regression@{N\+N\+Regression}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{N\+N\+Regression(unsigned layers...)}{NNRegression(unsigned layers...)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+N\+N\+Regression\+::\+N\+N\+Regression (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{layers...}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NNRegression_a841009d2dd46074131720b68835bea93}{}\label{classhappyml_1_1NNRegression_a841009d2dd46074131720b68835bea93}
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!N\+N\+Regression@{N\+N\+Regression}}
+\index{N\+N\+Regression@{N\+N\+Regression}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{N\+N\+Regression(const vector$<$ unsigned $>$ \&layers)}{NNRegression(const vector< unsigned > &layers)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+N\+N\+Regression\+::\+N\+N\+Regression (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ unsigned $>$ \&}]{layers}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NNRegression_afc2740e5ec788112526934afe3ced3d0}{}\label{classhappyml_1_1NNRegression_afc2740e5ec788112526934afe3ced3d0}
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!N\+N\+Regression@{N\+N\+Regression}}
+\index{N\+N\+Regression@{N\+N\+Regression}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{N\+N\+Regression(const vector$<$ mat $>$ w)}{NNRegression(const vector< mat > w)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+N\+N\+Regression\+::\+N\+N\+Regression (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ mat $>$}]{w}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NNRegression_a02c9e45196687f410be7827bd637a577}{}\label{classhappyml_1_1NNRegression_a02c9e45196687f410be7827bd637a577}
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!N\+N\+Regression@{N\+N\+Regression}}
+\index{N\+N\+Regression@{N\+N\+Regression}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{N\+N\+Regression(const N\+N\+Regression \&nn)}{NNRegression(const NNRegression &nn)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+N\+N\+Regression\+::\+N\+N\+Regression (
+\begin{DoxyParamCaption}
+\item[{const {\bf N\+N\+Regression} \&}]{nn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NNRegression_a052de91d7e4224676d6240a389a52533}{}\label{classhappyml_1_1NNRegression_a052de91d7e4224676d6240a389a52533}
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!````~N\+N\+Regression@{$\sim$\+N\+N\+Regression}}
+\index{````~N\+N\+Regression@{$\sim$\+N\+N\+Regression}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{$\sim$\+N\+N\+Regression()}{~NNRegression()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+N\+N\+Regression\+::$\sim$\+N\+N\+Regression (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1NNRegression_a05149a76d3e11653190b92bbef7a1f64}{}\label{classhappyml_1_1NNRegression_a05149a76d3e11653190b92bbef7a1f64}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!error@{error}}
+\index{error@{error}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{error(const Data\+Set \&) const }{error(const DataSet &) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+N\+N\+Regression\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1NNRegression_a6f649a08fc94523a49e893ffad766896}{}\label{classhappyml_1_1NNRegression_a6f649a08fc94523a49e893ffad766896}
+
+
+Compute the error of the predictor on the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Dataset with the correct output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error of predicting the output of the given dataset. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Predictor_a59b022fac2ffa3a0254b75cb02b70dfe}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!predict@{predict}}
+\index{predict@{predict}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{predict(const Input \&x) const }{predict(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+N\+N\+Regression\+::predict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1NNRegression_aea4c134130125d22c3587b8a9d9c8e1b}{}\label{classhappyml_1_1NNRegression_aea4c134130125d22c3587b8a9d9c8e1b}
+
+
+Uses the forward propagation algorithm to predict an output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Input vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Predicted value 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classhappyml_1_1Predictor_a07cf89d655e7642fd94c9b2a8fd0a04b}{happyml\+::\+Predictor}.
+
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!predict\+Vec@{predict\+Vec}}
+\index{predict\+Vec@{predict\+Vec}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{predict\+Vec(const Input \&x) const }{predictVec(const Input &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}vec happyml\+::\+N\+N\+Regression\+::predict\+Vec (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classhappyml_1_1NNRegression_af2aadc9111b4bd9cd89afb6847f1bb3f}{}\label{classhappyml_1_1NNRegression_af2aadc9111b4bd9cd89afb6847f1bb3f}
+\index{happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}!train@{train}}
+\index{train@{train}!happyml\+::\+N\+N\+Regression@{happyml\+::\+N\+N\+Regression}}
+\subsubsection[{\texorpdfstring{train(const Data\+Set \&dataset, unsigned iter=500, float learning\+\_\+rate=0.\+1, float lambda=0)}{train(const DataSet &dataset, unsigned iter=500, float learning_rate=0.1, float lambda=0)}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+N\+N\+Regression\+::train (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset, }
+\item[{unsigned}]{iter = {\ttfamily 500}, }
+\item[{float}]{learning\+\_\+rate = {\ttfamily 0.1}, }
+\item[{float}]{lambda = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1NNRegression_ac9c9dcd8d2cd4e9e6f1b742c5dd277b6}{}\label{classhappyml_1_1NNRegression_ac9c9dcd8d2cd4e9e6f1b742c5dd277b6}
+
+
+Train the neural network until the training loops over the data iter times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Training set $\mathcal{D}$. \\
+\hline
+{\em learning\+Rate} & Learning rate $\eta$. \\
+\hline
+{\em iter} & Number of iterations. \\
+\hline
+{\em lambda} & Regularization paramiter $\lambda$.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the error after the training. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/neural\+\_\+network/\hyperlink{nn__regression_8h}{nn\+\_\+regression.\+h}\item 
+src/neural\+\_\+network/\hyperlink{nn__regression_8cpp}{nn\+\_\+regression.\+cpp}\end{DoxyCompactItemize}

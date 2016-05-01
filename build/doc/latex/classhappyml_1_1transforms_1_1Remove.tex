@@ -1,0 +1,103 @@
+\hypertarget{classhappyml_1_1transforms_1_1Remove}{}\section{happyml\+:\+:transforms\+:\+:Remove Class Reference}
+\label{classhappyml_1_1transforms_1_1Remove}\index{happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}}
+
+
+{\ttfamily \#include $<$transformer.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:transforms\+:\+:Remove\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhappyml_1_1transforms_1_1Remove}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1transforms_1_1Remove_a4b57c4b43e1d41229faec756ec3d66d5}{Remove} (int f)
+\item 
+void \hyperlink{classhappyml_1_1transforms_1_1Remove_a901c9a5c55f4b360233b8ba7e46fc198}{apply} (\hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given dataset. \end{DoxyCompactList}\item 
+\hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \hyperlink{classhappyml_1_1transforms_1_1Remove_a249eec291d4c15b4e8e044c38a994770}{apply} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&input) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given input. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1transforms_1_1Remove_a4f939046d630fa525dcc6d406b66e5b6}{apply} (mat \&x) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classhappyml_1_1transforms_1_1Remove_a4fbe1173bd54762002025be350dd13d5}{feature}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}!Remove@{Remove}}
+\index{Remove@{Remove}!happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}}
+\subsubsection[{\texorpdfstring{Remove(int f)}{Remove(int f)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::transforms\+::\+Remove\+::\+Remove (
+\begin{DoxyParamCaption}
+\item[{int}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1transforms_1_1Remove_a4b57c4b43e1d41229faec756ec3d66d5}{}\label{classhappyml_1_1transforms_1_1Remove_a4b57c4b43e1d41229faec756ec3d66d5}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}!apply@{apply}}
+\index{apply@{apply}!happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}}
+\subsubsection[{\texorpdfstring{apply(\+Data\+Set \&dataset) const }{apply(DataSet &dataset) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::transforms\+::\+Remove\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1transforms_1_1Remove_a901c9a5c55f4b360233b8ba7e46fc198}{}\label{classhappyml_1_1transforms_1_1Remove_a901c9a5c55f4b360233b8ba7e46fc198}
+
+
+Applies all the transformations at the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset to transform. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a169a2a8434124c1dd8e671bca2cfa71d}{happyml\+::\+Transformer}.
+
+\index{happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}!apply@{apply}}
+\index{apply@{apply}!happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}}
+\subsubsection[{\texorpdfstring{apply(const Input \&input) const }{apply(const Input &input) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input} happyml\+::transforms\+::\+Remove\+::apply (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1transforms_1_1Remove_a249eec291d4c15b4e8e044c38a994770}{}\label{classhappyml_1_1transforms_1_1Remove_a249eec291d4c15b4e8e044c38a994770}
+
+
+Applies all the transformations at the given input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input to transform.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A transformated version of the input. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a3e0eb67990c90c461466307fdefab45c}{happyml\+::\+Transformer}.
+
+\index{happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}!apply@{apply}}
+\index{apply@{apply}!happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}}
+\subsubsection[{\texorpdfstring{apply(mat \&x) const }{apply(mat &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::transforms\+::\+Remove\+::apply (
+\begin{DoxyParamCaption}
+\item[{mat \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classhappyml_1_1transforms_1_1Remove_a4f939046d630fa525dcc6d406b66e5b6}{}\label{classhappyml_1_1transforms_1_1Remove_a4f939046d630fa525dcc6d406b66e5b6}
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}!feature@{feature}}
+\index{feature@{feature}!happyml\+::transforms\+::\+Remove@{happyml\+::transforms\+::\+Remove}}
+\subsubsection[{\texorpdfstring{feature}{feature}}]{\setlength{\rightskip}{0pt plus 5cm}int happyml\+::transforms\+::\+Remove\+::feature\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1transforms_1_1Remove_a4fbe1173bd54762002025be350dd13d5}{}\label{classhappyml_1_1transforms_1_1Remove_a4fbe1173bd54762002025be350dd13d5}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{transformer_8h}{transformer.\+h}\item 
+src/transformers/\hyperlink{transformer_8cpp}{transformer.\+cpp}\end{DoxyCompactItemize}

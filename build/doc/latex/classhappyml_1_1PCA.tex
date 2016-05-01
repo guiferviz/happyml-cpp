@@ -1,0 +1,196 @@
+\hypertarget{classhappyml_1_1PCA}{}\section{happyml\+:\+:P\+CA Class Reference}
+\label{classhappyml_1_1PCA}\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+
+
+Dimensionality reduction using \hyperlink{classhappyml_1_1PCA}{P\+CA}.  
+
+
+
+
+{\ttfamily \#include $<$pca.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:P\+CA\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhappyml_1_1PCA}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1PCA_a20ccc8033fb2addfe1607f12137e8c7a}{P\+CA} (const \hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset, double n)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classhappyml_1_1PCA}{P\+CA} extractor using the dataset data. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1PCA_aa03c90a06460ad6d76b7516454d709ec}{P\+CA} (const mat \&x, double n)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classhappyml_1_1PCA}{P\+CA} extractor using the matrix data. \end{DoxyCompactList}\item 
+\hyperlink{classhappyml_1_1PCA_a10d3820f23ccde93ef029846ae1dd418}{$\sim$\+P\+CA} ()
+\item 
+double \hyperlink{classhappyml_1_1PCA_afec8e7b4f8bb8cbe6bd460fb278017a6}{get\+Retained\+Variance} () const 
+\begin{DoxyCompactList}\small\item\em Returns the retained data variance of the \hyperlink{classhappyml_1_1PCA}{P\+CA} transformation. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1PCA_a298495b3f3cf0ed3b623392a6f89b719}{apply} (\hyperlink{classhappyml_1_1DataSet}{Data\+Set} \&dataset) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given dataset. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1PCA_a3ac3cbbf12595272526b126ba2107d8e}{apply} (mat \&x) const 
+\item 
+\hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \hyperlink{classhappyml_1_1PCA_a2a630892c653832287bb3df4ab002d51}{apply} (const \hyperlink{namespacehappyml_a03602d1ec49393790b8a0449f40cd01f}{Input} \&input) const 
+\begin{DoxyCompactList}\small\item\em Applies all the transformations at the given input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+rowvec \hyperlink{classhappyml_1_1PCA_af7086a802a48818da96b850c6627114f}{mean\+Vec}
+\item 
+vec \hyperlink{classhappyml_1_1PCA_a0cb529e7070933c17b407a28a182a1fa}{eig\+Val}
+\item 
+mat \hyperlink{classhappyml_1_1PCA_aaaf28f625e92e1985beee5bba9fa2a56}{eig\+Vec}
+\item 
+mat \hyperlink{classhappyml_1_1PCA_a59819d057d5adab4a5ff3619ed73e80b}{cov\+Mat}
+\item 
+int \hyperlink{classhappyml_1_1PCA_a5f2ee80482a6e93d6591e9d674c2b197}{k}
+\item 
+double \hyperlink{classhappyml_1_1PCA_a1e7148cef7385f41f04010a827ec0899}{min\+Var}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dimensionality reduction using \hyperlink{classhappyml_1_1PCA}{P\+CA}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!P\+CA@{P\+CA}}
+\index{P\+CA@{P\+CA}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{P\+C\+A(const Data\+Set \&dataset, double n)}{PCA(const DataSet &dataset, double n)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+P\+C\+A\+::\+P\+CA (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data\+Set} \&}]{dataset, }
+\item[{double}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1PCA_a20ccc8033fb2addfe1607f12137e8c7a}{}\label{classhappyml_1_1PCA_a20ccc8033fb2addfe1607f12137e8c7a}
+
+
+Creates a \hyperlink{classhappyml_1_1PCA}{P\+CA} extractor using the dataset data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset from which the eigenvecs for the \hyperlink{classhappyml_1_1PCA}{P\+CA} will be extracted. \\
+\hline
+{\em n} & Number of dimension to preserve or min mariance if it is a number between 0 and 1. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!P\+CA@{P\+CA}}
+\index{P\+CA@{P\+CA}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{P\+C\+A(const mat \&x, double n)}{PCA(const mat &x, double n)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+P\+C\+A\+::\+P\+CA (
+\begin{DoxyParamCaption}
+\item[{const mat \&}]{x, }
+\item[{double}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1PCA_aa03c90a06460ad6d76b7516454d709ec}{}\label{classhappyml_1_1PCA_aa03c90a06460ad6d76b7516454d709ec}
+
+
+Creates a \hyperlink{classhappyml_1_1PCA}{P\+CA} extractor using the matrix data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Matrix from which the eigenvecs for the \hyperlink{classhappyml_1_1PCA}{P\+CA} will be extracted. \\
+\hline
+{\em n} & Number of dimension to preserve or min mariance if it is a number between 0 and 1. \\
+\hline
+\end{DoxyParams}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!````~P\+CA@{$\sim$\+P\+CA}}
+\index{````~P\+CA@{$\sim$\+P\+CA}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{$\sim$\+P\+C\+A()}{~PCA()}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+P\+C\+A\+::$\sim$\+P\+CA (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1PCA_a10d3820f23ccde93ef029846ae1dd418}{}\label{classhappyml_1_1PCA_a10d3820f23ccde93ef029846ae1dd418}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{apply(\+Data\+Set \&dataset) const }{apply(DataSet &dataset) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+P\+C\+A\+::apply (
+\begin{DoxyParamCaption}
+\item[{{\bf Data\+Set} \&}]{dataset}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1PCA_a298495b3f3cf0ed3b623392a6f89b719}{}\label{classhappyml_1_1PCA_a298495b3f3cf0ed3b623392a6f89b719}
+
+
+Applies all the transformations at the given dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & Dataset to transform. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a169a2a8434124c1dd8e671bca2cfa71d}{happyml\+::\+Transformer}.
+
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{apply(mat \&x) const }{apply(mat &x) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+P\+C\+A\+::apply (
+\begin{DoxyParamCaption}
+\item[{mat \&}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classhappyml_1_1PCA_a3ac3cbbf12595272526b126ba2107d8e}{}\label{classhappyml_1_1PCA_a3ac3cbbf12595272526b126ba2107d8e}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!apply@{apply}}
+\index{apply@{apply}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{apply(const Input \&input) const }{apply(const Input &input) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Input} happyml\+::\+P\+C\+A\+::apply (
+\begin{DoxyParamCaption}
+\item[{const {\bf Input} \&}]{input}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1PCA_a2a630892c653832287bb3df4ab002d51}{}\label{classhappyml_1_1PCA_a2a630892c653832287bb3df4ab002d51}
+
+
+Applies all the transformations at the given input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input to transform.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A transformated version of the input. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classhappyml_1_1Transformer_a3e0eb67990c90c461466307fdefab45c}{happyml\+::\+Transformer}.
+
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!get\+Retained\+Variance@{get\+Retained\+Variance}}
+\index{get\+Retained\+Variance@{get\+Retained\+Variance}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{get\+Retained\+Variance() const }{getRetainedVariance() const }}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+P\+C\+A\+::get\+Retained\+Variance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1PCA_afec8e7b4f8bb8cbe6bd460fb278017a6}{}\label{classhappyml_1_1PCA_afec8e7b4f8bb8cbe6bd460fb278017a6}
+
+
+Returns the retained data variance of the \hyperlink{classhappyml_1_1PCA}{P\+CA} transformation. 
+
+It\textquotesingle{}s a number between 0 and 1. If you pass a min variance to the constructor remember that the retained variance is $>$= the min variance choosen.
+
+\begin{DoxyReturn}{Returns}
+The retained data variance of the \hyperlink{classhappyml_1_1PCA}{P\+CA} transformation. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!cov\+Mat@{cov\+Mat}}
+\index{cov\+Mat@{cov\+Mat}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{cov\+Mat}{covMat}}]{\setlength{\rightskip}{0pt plus 5cm}mat happyml\+::\+P\+C\+A\+::cov\+Mat\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1PCA_a59819d057d5adab4a5ff3619ed73e80b}{}\label{classhappyml_1_1PCA_a59819d057d5adab4a5ff3619ed73e80b}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!eig\+Val@{eig\+Val}}
+\index{eig\+Val@{eig\+Val}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{eig\+Val}{eigVal}}]{\setlength{\rightskip}{0pt plus 5cm}vec happyml\+::\+P\+C\+A\+::eig\+Val\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1PCA_a0cb529e7070933c17b407a28a182a1fa}{}\label{classhappyml_1_1PCA_a0cb529e7070933c17b407a28a182a1fa}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!eig\+Vec@{eig\+Vec}}
+\index{eig\+Vec@{eig\+Vec}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{eig\+Vec}{eigVec}}]{\setlength{\rightskip}{0pt plus 5cm}mat happyml\+::\+P\+C\+A\+::eig\+Vec\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1PCA_aaaf28f625e92e1985beee5bba9fa2a56}{}\label{classhappyml_1_1PCA_aaaf28f625e92e1985beee5bba9fa2a56}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!k@{k}}
+\index{k@{k}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{k}{k}}]{\setlength{\rightskip}{0pt plus 5cm}int happyml\+::\+P\+C\+A\+::k\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1PCA_a5f2ee80482a6e93d6591e9d674c2b197}{}\label{classhappyml_1_1PCA_a5f2ee80482a6e93d6591e9d674c2b197}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!mean\+Vec@{mean\+Vec}}
+\index{mean\+Vec@{mean\+Vec}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{mean\+Vec}{meanVec}}]{\setlength{\rightskip}{0pt plus 5cm}rowvec happyml\+::\+P\+C\+A\+::mean\+Vec\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1PCA_af7086a802a48818da96b850c6627114f}{}\label{classhappyml_1_1PCA_af7086a802a48818da96b850c6627114f}
+\index{happyml\+::\+P\+CA@{happyml\+::\+P\+CA}!min\+Var@{min\+Var}}
+\index{min\+Var@{min\+Var}!happyml\+::\+P\+CA@{happyml\+::\+P\+CA}}
+\subsubsection[{\texorpdfstring{min\+Var}{minVar}}]{\setlength{\rightskip}{0pt plus 5cm}double happyml\+::\+P\+C\+A\+::min\+Var\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classhappyml_1_1PCA_a1e7148cef7385f41f04010a827ec0899}{}\label{classhappyml_1_1PCA_a1e7148cef7385f41f04010a827ec0899}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/transformers/\hyperlink{pca_8h}{pca.\+h}\item 
+src/transformers/\hyperlink{pca_8cpp}{pca.\+cpp}\end{DoxyCompactItemize}

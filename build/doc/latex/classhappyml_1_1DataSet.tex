@@ -1,0 +1,203 @@
+\hypertarget{classhappyml_1_1DataSet}{}\section{happyml\+:\+:Data\+Set Class Reference}
+\label{classhappyml_1_1DataSet}\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+
+
+Generic collection of inputs and outputs.  
+
+
+
+
+{\ttfamily \#include $<$dataset.\+h$>$}
+
+Inheritance diagram for happyml\+:\+:Data\+Set\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhappyml_1_1DataSet}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhappyml_1_1DataSet_a49c36517dc2ab29e2c20ba83e9c8a5ea}{Data\+Set} (unsigned dim=0, unsigned size=0, unsigned outputs=1)
+\begin{DoxyCompactList}\small\item\em Creates a generic collection of inputs and outputs. \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1DataSet_aa2e2f9c87aefbf9c7a2b8793f197b828}{read} (istream \&stream)
+\begin{DoxyCompactList}\small\item\em Creates a dataset from a text input stream with the following format\+: \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1DataSet_aeab3657e98d735fef9af63cd416f095a}{read} (istream \&stream, int n\+\_\+outputs)
+\item 
+void \hyperlink{classhappyml_1_1DataSet_a5cc37a7dae6c1757ee93dee1f95e91a6}{load} (const string \&filename, int n\+\_\+outputs)
+\item 
+void \hyperlink{classhappyml_1_1DataSet_ae1f10ba937cdf97e7ce6046c55a9a665}{load} (const string \&filename, bool one\+\_\+hot)
+\item 
+void \hyperlink{classhappyml_1_1DataSet_a1bed7d89826c5b9fb23c3e2d0f690b22}{write} (ostream \&stream) const 
+\begin{DoxyCompactList}\small\item\em Write to an output stream the next data\+: \end{DoxyCompactList}\item 
+void \hyperlink{classhappyml_1_1DataSet_a8706653aeaef403a278f178e4aa38f75}{shuffle} ()
+\item 
+void \hyperlink{classhappyml_1_1DataSet_a5ec56f6731cb4ef784936844b6409198}{reduce} (int)
+\item 
+void \hyperlink{classhappyml_1_1DataSet_ab56a70830be900d8a9b4e8f90f5c615a}{noise} (int)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{classhappyml_1_1DataSet_a0a154016e91e970cdd700e110f1cae80}{d}
+\begin{DoxyCompactList}\small\item\em Dimension of the inputs vectors of this dataset ( $d$). \end{DoxyCompactList}\item 
+unsigned \hyperlink{classhappyml_1_1DataSet_a18457530136087ab5e09e96125655ab5}{N}
+\begin{DoxyCompactList}\small\item\em Number of pairs $(\mathbf{x}, y)$ in the dataset. \end{DoxyCompactList}\item 
+unsigned \hyperlink{classhappyml_1_1DataSet_a23743c9bd5463966207e1199eba0c9d2}{k}
+\begin{DoxyCompactList}\small\item\em Number of outputs by sample. \end{DoxyCompactList}\item 
+mat \hyperlink{classhappyml_1_1DataSet_a692f8bd10b94c74df7e7f9010c78820a}{X}
+\begin{DoxyCompactList}\small\item\em Matrix with all the inputs. \end{DoxyCompactList}\item 
+mat \hyperlink{classhappyml_1_1DataSet_ac75419fb46abcc2841226a8441674d48}{y}
+\begin{DoxyCompactList}\small\item\em Expected outputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generic collection of inputs and outputs. 
+
+We denote it with $\mathcal{D}$. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!Data\+Set@{Data\+Set}}
+\index{Data\+Set@{Data\+Set}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{Data\+Set(unsigned dim=0, unsigned size=0, unsigned outputs=1)}{DataSet(unsigned dim=0, unsigned size=0, unsigned outputs=1)}}]{\setlength{\rightskip}{0pt plus 5cm}happyml\+::\+Data\+Set\+::\+Data\+Set (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{dim = {\ttfamily 0}, }
+\item[{unsigned}]{size = {\ttfamily 0}, }
+\item[{unsigned}]{outputs = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classhappyml_1_1DataSet_a49c36517dc2ab29e2c20ba83e9c8a5ea}{}\label{classhappyml_1_1DataSet_a49c36517dc2ab29e2c20ba83e9c8a5ea}
+
+
+Creates a generic collection of inputs and outputs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & Dimension $d$ of the inputs. \\
+\hline
+{\em size} & Number of inputs ( $N$) in the dataset. \\
+\hline
+{\em output} & Number of tail columns to be used \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!load@{load}}
+\index{load@{load}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{load(const string \&filename, int n\+\_\+outputs)}{load(const string &filename, int n_outputs)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Data\+Set\+::load (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{filename, }
+\item[{int}]{n\+\_\+outputs}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1DataSet_a5cc37a7dae6c1757ee93dee1f95e91a6}{}\label{classhappyml_1_1DataSet_a5cc37a7dae6c1757ee93dee1f95e91a6}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!load@{load}}
+\index{load@{load}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{load(const string \&filename, bool one\+\_\+hot)}{load(const string &filename, bool one_hot)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Data\+Set\+::load (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{filename, }
+\item[{bool}]{one\+\_\+hot}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1DataSet_ae1f10ba937cdf97e7ce6046c55a9a665}{}\label{classhappyml_1_1DataSet_ae1f10ba937cdf97e7ce6046c55a9a665}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!noise@{noise}}
+\index{noise@{noise}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{noise(int)}{noise(int)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Data\+Set\+::noise (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1DataSet_ab56a70830be900d8a9b4e8f90f5c615a}{}\label{classhappyml_1_1DataSet_ab56a70830be900d8a9b4e8f90f5c615a}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!read@{read}}
+\index{read@{read}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{read(istream \&stream)}{read(istream &stream)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Data\+Set\+::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1DataSet_aa2e2f9c87aefbf9c7a2b8793f197b828}{}\label{classhappyml_1_1DataSet_aa2e2f9c87aefbf9c7a2b8793f197b828}
+
+
+Creates a dataset from a text input stream with the following format\+: 
+
+$\\ x_{01},x_{02},\cdots,x_{0d},y_{0}\\ x_{11},x_{12},\cdots,x_{1d},y_{1}\\ \ \ \vdots\ \ ,\ \ \vdots\ \ ,\ \cdots\ ,\ \ \vdots\ \ ,\ \ \vdots\\ x_{(N-1)1},x_{(N-1)2},\cdots,x_{(N-1)d},y_{(N-1)} $ 
+
+Implements \hyperlink{classhappyml_1_1Serializable_aef5c211d8e9c1c425b33c657824c2f0c}{happyml\+::\+Serializable}.
+
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!read@{read}}
+\index{read@{read}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{read(istream \&stream, int n\+\_\+outputs)}{read(istream &stream, int n_outputs)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Data\+Set\+::read (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream, }
+\item[{int}]{n\+\_\+outputs}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1DataSet_aeab3657e98d735fef9af63cd416f095a}{}\label{classhappyml_1_1DataSet_aeab3657e98d735fef9af63cd416f095a}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!reduce@{reduce}}
+\index{reduce@{reduce}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{reduce(int)}{reduce(int)}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Data\+Set\+::reduce (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1DataSet_a5ec56f6731cb4ef784936844b6409198}{}\label{classhappyml_1_1DataSet_a5ec56f6731cb4ef784936844b6409198}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{shuffle()}{shuffle()}}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Data\+Set\+::shuffle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhappyml_1_1DataSet_a8706653aeaef403a278f178e4aa38f75}{}\label{classhappyml_1_1DataSet_a8706653aeaef403a278f178e4aa38f75}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!write@{write}}
+\index{write@{write}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{write(ostream \&stream) const }{write(ostream &stream) const }}]{\setlength{\rightskip}{0pt plus 5cm}void happyml\+::\+Data\+Set\+::write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classhappyml_1_1DataSet_a1bed7d89826c5b9fb23c3e2d0f690b22}{}\label{classhappyml_1_1DataSet_a1bed7d89826c5b9fb23c3e2d0f690b22}
+
+
+Write to an output stream the next data\+: 
+
+$\\ x_{01},x_{02},\cdots,x_{0d},y_{0}\\ x_{11},x_{12},\cdots,x_{1d},y_{1}\\ \ \ \vdots\ \ ,\ \ \vdots\ \ ,\ \cdots\ ,\ \ \vdots\ \ ,\ \ \vdots\\ x_{(N-1)1},x_{(N-1)2},\cdots,x_{(N-1)d},y_{(N-1)} $ 
+
+Implements \hyperlink{classhappyml_1_1Serializable_a2d503e4c2e39c5be8a33bcc8b691949f}{happyml\+::\+Serializable}.
+
+
+
+\subsection{Member Data Documentation}
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!d@{d}}
+\index{d@{d}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{d}{d}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned happyml\+::\+Data\+Set\+::d}\hypertarget{classhappyml_1_1DataSet_a0a154016e91e970cdd700e110f1cae80}{}\label{classhappyml_1_1DataSet_a0a154016e91e970cdd700e110f1cae80}
+
+
+Dimension of the inputs vectors of this dataset ( $d$). 
+
+All the points has the same dimension. \index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!k@{k}}
+\index{k@{k}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{k}{k}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned happyml\+::\+Data\+Set\+::k}\hypertarget{classhappyml_1_1DataSet_a23743c9bd5463966207e1199eba0c9d2}{}\label{classhappyml_1_1DataSet_a23743c9bd5463966207e1199eba0c9d2}
+
+
+Number of outputs by sample. 
+
+\index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!N@{N}}
+\index{N@{N}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{N}{N}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned happyml\+::\+Data\+Set\+::N}\hypertarget{classhappyml_1_1DataSet_a18457530136087ab5e09e96125655ab5}{}\label{classhappyml_1_1DataSet_a18457530136087ab5e09e96125655ab5}
+
+
+Number of pairs $(\mathbf{x}, y)$ in the dataset. 
+
+We denote it with $N$. \index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!X@{X}}
+\index{X@{X}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{X}{X}}]{\setlength{\rightskip}{0pt plus 5cm}mat happyml\+::\+Data\+Set\+::X}\hypertarget{classhappyml_1_1DataSet_a692f8bd10b94c74df7e7f9010c78820a}{}\label{classhappyml_1_1DataSet_a692f8bd10b94c74df7e7f9010c78820a}
+
+
+Matrix with all the inputs. 
+
+$ \mathbf{X} = \begin{pmatrix} \mathbf{x}^{\rm T}_0 \\ \mathbf{x}^{\rm T}_1 \\ \vdots \\ \mathbf{x}^{\rm T}_{N - 1} \end{pmatrix} = \begin{pmatrix} x_{00} & \cdots & x_{0d} \\ x_{10} & \cdots & x_{1d} \\ \vdots & \ddots & \vdots \\ x_{(N-1)0} & \cdots & x_{(N-1)d} \end{pmatrix} $ \index{happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}!y@{y}}
+\index{y@{y}!happyml\+::\+Data\+Set@{happyml\+::\+Data\+Set}}
+\subsubsection[{\texorpdfstring{y}{y}}]{\setlength{\rightskip}{0pt plus 5cm}mat happyml\+::\+Data\+Set\+::y}\hypertarget{classhappyml_1_1DataSet_ac75419fb46abcc2841226a8441674d48}{}\label{classhappyml_1_1DataSet_ac75419fb46abcc2841226a8441674d48}
+
+
+Expected outputs. 
+
+$ \mathbf{y} = \begin{pmatrix} y_0 \\ y_1 \\ \vdots \\ y_{N - 1} \end{pmatrix} $ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/happyml/\hyperlink{dataset_8h}{dataset.\+h}\item 
+src/\hyperlink{dataset_8cpp}{dataset.\+cpp}\end{DoxyCompactItemize}
