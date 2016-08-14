@@ -46,6 +46,11 @@ Compile with: `g++ -o happyworld happyworld.cpp -lhappyml` and execute the progr
 
 If you get that, congrats, you have installed *HappyML* successfully.
 
+Documentation
+-------------
+
+[https://guiferviz.github.io/happyml/](https://guiferviz.github.io/happyml/)
+
 Contact
 -------
 
