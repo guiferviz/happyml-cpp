@@ -6,7 +6,7 @@
   C++ Machine Learning Library For Academic Purposes
 =======================================================
 
-*HappyML* is a little project supposed to be used by beginners in the machine learning field. It uses simple implementations of the more common algorithms. Depends on *armadillo* library for linear algebra operations. The high level of this library make easy to write and read the code. It also uses *octave* for visualizations tools.
+*HappyML* is a little project supposed to be used by beginners in the machine learning field. It uses simple implementations of the more common algorithms. Depends on *armadillo* library for linear algebra operations. The high level of this library makes easy to write and read the code. It also uses *Octave* for visualizations tools.
 
 
 Build and Install
